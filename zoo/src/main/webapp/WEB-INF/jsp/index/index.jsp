@@ -1,13 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8" />
-	<title>Olá</title>
-</head>
-<body>
-	<h1>Olá, deu certo =)</h1>
-</body>
-</html>
+<c:import url="/includes/header.jsp"/>
+	<h1> Olá gente :)</h1>
+<c:import url="/includes/footer.jsp"/>
