@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.edu.ifc.concordia.inf</groupId>
-	<artifactId>tasks-viewer</artifactId>
+	<artifactId>zoo</artifactId>
 	<version>1.0.0-alpha1</version>
 	<packaging>war</packaging>
 

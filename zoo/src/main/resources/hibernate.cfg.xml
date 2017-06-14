@@ -17,7 +17,7 @@
 		<property name="hibernate.show_sql">false</property>
 		<property name="hibernate.format_sql">false</property>
 		<!--
-		<property name="hibernate.c3p0.debugUnreturnedConnectionStackTraces">true</property>
+		<property  name="hibernate.c3p0.debugUnreturnedConnectionStackTraces">true</property>
 		<property name="hibernate.c3p0.unreturnedConnectionTimeout">300</property>
 		-->
 		
@@ -42,7 +42,7 @@
 		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
 
-  		<!-- <mapping class="org.forpdi.core.company.Company"/>-->
+  		<mapping class="br.edu.ifc.concordia.inf.zoo.model.User"/>
   		
 	</session-factory>
 </hibernate-configuration>
