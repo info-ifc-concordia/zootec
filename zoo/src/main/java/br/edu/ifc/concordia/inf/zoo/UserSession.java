@@ -12,6 +12,13 @@ public class UserSession implements Serializable {
 
 	private User user;
 	
+	public void login (User user)
+	{
+		this.user = user;
+	}
+	public void logout (){
+		this.user = null;
+	}
 	public boolean isLogged() {
 		return this.user != null;
 	}
