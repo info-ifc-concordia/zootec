@@ -7,7 +7,7 @@
 <c:if test="${not empty errorMsg}">
 
 	<div>
-		Ta errado!
+		Ta erred!
 	</div>
 </c:if>
 

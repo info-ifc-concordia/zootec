@@ -22,4 +22,7 @@ public class UserSession implements Serializable {
 	public boolean isLogged() {
 		return this.user != null;
 	}
+	public User getLoggedUser(){
+		return this.user;
+	}
 }

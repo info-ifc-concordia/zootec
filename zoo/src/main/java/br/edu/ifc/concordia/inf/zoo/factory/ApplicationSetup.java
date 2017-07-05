@@ -60,7 +60,7 @@ public class ApplicationSetup {
 			user.setEmail("admin@admin");
 			user.setCargo("admin");
 			user.setLogin("admin");
-			user.setSenha(CryptManager.passwordHash("admin12345"));
+			user.setSenha(CryptManager.passwordHash("admin"));
 			dao.persist(user);
 			
 			
