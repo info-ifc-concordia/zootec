@@ -14,8 +14,9 @@ import br.edu.ifc.concordia.inf.zoo.model.User;
 
 
 
-@Controller
+/* Tem que ver sobre os usuarios e as permissions deles */
 
+@Controller
 public class UserController extends AbstractController {
 	@Inject private UserBS bs;
 	@Get("/login")

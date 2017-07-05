@@ -2,12 +2,14 @@ package br.edu.ifc.concordia.inf.zoo.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.edu.ifc.concordia.ifc.zoo.permission.UserRoles;
 @Entity(name="users")
 @Table(name="users")
 public class User implements Serializable {
@@ -20,9 +22,12 @@ public class User implements Serializable {
 	
 	private String nome;
 	private String cargo;
+	@Column(unique=true)
 	private String email;
 	private String senha;
+	@Column(unique=true)
 	private String login;
+	private int acesso = UserRoles.NORMAL.getAccessLevel();
 	
 	public Long getId() {
 		return id;
@@ -59,6 +64,9 @@ public class User implements Serializable {
 	}
 	public void setLogin(String login) {
 		this.login = login;
+	}
+	public int getAcesso() {
+		return acesso;
 	}
 	
 }
