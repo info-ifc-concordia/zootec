@@ -2,25 +2,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/includes/header.jsp"/>
-
-<form method="POST" action="<c:url value="/login" />" >
 <c:if test="${not empty errorMsg}">
 
 	<div>
 		Ta erred!
 	</div>
 </c:if>
-
-	<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Login</span>
-  <input type="text" class="form-control" id="login" name="login" placeholder="Username" aria-describedby="basic-addon1">
+<div class="row" id="conteudo">
+	<div class="col-xs-12 col-md-4 col-md-offset-4" id="jumb">
+		<div class="panel panel-default">
+			<div class="panel-heading" id="wel">
+				<h3 class="panel-title">Login</h3>
+			</div>
+			<div class="panel-body">
+				<form method="POST" role="form" action="<c:url value="/login" />" >
+					<fieldset>
+				    	<div class="form-group">
+				        	<input class="form-control" placeholder="Username" required = "" name="username" type="text" autofocus>
+				        </div>
+				      	<div class="form-group">
+				        	<input class="form-control" placeholder="Password" required = "" name="password" type="password" value="">
+				        </div>
+				        <button type="submit" class="btn btn-success btn-block">Entrar</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
 </div>
-
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">Senha</span>
-  <input type="password" class="form-control" id="password" name="password" placeholder="Senha" aria-describedby="basic-addon1">
 </div>
-
- <input type="submit" value="Entrar">
-</form>
 <c:import url="/includes/footer.jsp"/>
