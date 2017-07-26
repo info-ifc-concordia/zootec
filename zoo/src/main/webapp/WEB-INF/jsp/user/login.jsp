@@ -2,12 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/includes/header.jsp"/>
-<c:if test="${not empty errorMsg}">
-
-	<div>
-		Ta erred!
-	</div>
-</c:if>
 <div class="row" id="conteudo">
 	<div class="col-xs-12 col-md-4 col-md-offset-4" id="jumb">
 		<div class="panel panel-default">
