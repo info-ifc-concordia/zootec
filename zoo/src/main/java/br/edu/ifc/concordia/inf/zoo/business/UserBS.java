@@ -1,5 +1,7 @@
 package br.edu.ifc.concordia.inf.zoo.business;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 
 import org.hibernate.Criteria;
@@ -11,6 +13,11 @@ import br.edu.ifc.concordia.inf.zoo.model.User;
 
 @RequestScoped
 public class UserBS extends HibernateBusiness{
+	
+	public List<User> listUsers() {
+		Criteria criteria = this.dao.newCriteria(User.class);
+		return this.dao.findByCriteria(criteria, User.class);
+	}
 	
 	public 	User login(String login, String password){
 		Criteria criteria = this.dao.newCriteria(User.class);

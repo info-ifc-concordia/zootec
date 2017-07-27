@@ -3,9 +3,11 @@ package br.edu.ifc.concordia.inf.zoo;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import br.edu.ifc.concordia.inf.zoo.model.User;
 
+@Named("userSession")
 @SessionScoped
 public class UserSession implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +24,7 @@ public class UserSession implements Serializable {
 	public boolean isLogged() {
 		return this.user != null;
 	}
-	public User getLoggedUser(){
+	public User getUser(){
 		return this.user;
 	}
 }

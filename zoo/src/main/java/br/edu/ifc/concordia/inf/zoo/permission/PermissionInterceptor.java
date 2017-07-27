@@ -1,4 +1,4 @@
-package br.edu.ifc.concordia.ifc.zoo.permission;
+package br.edu.ifc.concordia.inf.zoo.permission;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +26,11 @@ public class PermissionInterceptor {
 	public void intercept(SimpleInterceptorStack Stack) {
 		if(!this.userSession.isLogged()) {
 			this.result.redirectTo(UserController.class).login(null);
-		}else if (this.userSession.getLoggedUser().getAcesso() >= UserRoles.SYS_ADMIN.getAccessLevel()){
+		}else if (this.userSession.getUser().getAcesso() >= UserRoles.SYS_ADMIN.getAccessLevel()){
 			Stack.next();
 		}else {
 			Permission perm = this.method.getMethod().getAnnotation(Permission.class);
-			if (this.userSession.getLoggedUser().getAcesso() >= perm.value().getAccessLevel()) {
+			if (this.userSession.getUser().getAcesso() >= perm.value().getAccessLevel()) {
 				Stack.next();
 			} else {
 				this.httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

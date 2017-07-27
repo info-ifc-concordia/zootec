@@ -1,4 +1,4 @@
-package br.edu.ifc.concordia.ifc.zoo.permission;
+package br.edu.ifc.concordia.inf.zoo.permission;
 
 
 

@@ -19,6 +19,7 @@ import br.edu.ifc.concordia.inf.zoo.model.User;
 @Controller
 public class UserController extends AbstractController {
 	@Inject private UserBS bs;
+	
 	@Get("/login")
 	public void login(String errorMsg) {
 		if (!GeneralUtils.isEmpty(errorMsg)){
@@ -30,9 +31,9 @@ public class UserController extends AbstractController {
 
 	@Post(value="/login")
 	@NoCache
-	public void doLogin(String login, String password)
+	public void doLogin(String username, String password)
 	{
-		User user = this.bs.login(login, password);
+		User user = this.bs.login(username, password);
 		if (user == null){
 			this.result.redirectTo(this).login("Usuário ou senha errado!");
 		}else{

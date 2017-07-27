@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.edu.ifc.concordia.ifc.zoo.permission.UserRoles;
+import br.edu.ifc.concordia.inf.zoo.permission.UserRoles;
 @Entity(name="users")
 @Table(name="users")
 public class User implements Serializable {
