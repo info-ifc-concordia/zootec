@@ -68,5 +68,8 @@ public class User implements Serializable {
 	public int getAcesso() {
 		return acesso;
 	}
+	public void setAcesso(int acesso) {
+		this.acesso = acesso;
+	}
 	
 }

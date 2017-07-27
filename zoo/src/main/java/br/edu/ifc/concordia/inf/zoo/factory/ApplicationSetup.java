@@ -24,6 +24,7 @@ import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
 import br.com.caelum.vraptor.boilerplate.factory.SessionManager;
 import br.com.caelum.vraptor.boilerplate.util.CryptManager;
 import br.edu.ifc.concordia.inf.zoo.model.User;
+import br.edu.ifc.concordia.inf.zoo.permission.UserRoles;
 import br.edu.ifc.concordia.inf.zoo.properties.SystemConfigs;
 
 @ApplicationScoped
@@ -56,6 +57,7 @@ public class ApplicationSetup {
 		
 		if (user == null){
 			user = new User();
+			user.setAcesso(UserRoles.SYS_ADMIN.getAccessLevel());
 			user.setNome("admin");
 			user.setEmail("admin@admin");
 			user.setCargo("admin");

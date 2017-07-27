@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import com.google.common.collect.Lists;
-
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.boilerplate.NoCache;
