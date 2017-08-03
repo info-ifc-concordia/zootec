@@ -1,9 +1,5 @@
 package br.edu.ifc.concordia.inf.zoo.permission;
 
-
-
-/* o que que é um enum ? wtf*/
-
 public enum UserRoles {
 	NORMAL(1),
 	MANAGER(4),
