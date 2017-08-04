@@ -3,26 +3,30 @@
 
 <c:import url="/includes/header.jsp"/>
 	<h1>Olá ${userSession.user.nome}</h1>
-	<c:choose><c:when test="${not empty users}">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Login</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${users}" var="user">
-					<tr>
-						<td>${user.id}</td>
-						<td>${user.nome}</td>
-						<td>${user.login}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</c:when><c:otherwise>
-	
-	</c:otherwise></c:choose>
+	<main class="container vcenter">
+			<div class="row">
+				<div class="col-xs-12 col-md-6 col-md-offset-3" id="row1">
+					<h4>Digite na barra de pesquisa abaixo o nome ou o número do brinco do animal que deseja saber informações.</h4>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-xs-12 col-md-6 col-md-offset-3" id="row2">
+				  	<div class="jumbotron jumbotron-fluid">
+
+						<div class="input-group">
+						      <input type="text" id="txtBusca" class="form-control" placeholder="Buscar..."/>
+						      <span class="input-group-btn">
+						        <a href="exibir.html" id="btnBusca" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+
+						      </span>
+						</div><!-- /input-group -->
+				  		
+				  	</div>
+							
+			  	</div>
+
+			</div>
+	</main>
 <c:import url="/includes/footer.jsp"/>

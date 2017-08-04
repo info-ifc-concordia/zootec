@@ -1,5 +1,7 @@
 package br.edu.ifc.concordia.inf.zoo.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -13,10 +15,18 @@ import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
 import br.edu.ifc.concordia.inf.zoo.business.UserBS;
 import br.edu.ifc.concordia.inf.zoo.model.User;
+import br.edu.ifc.concordia.inf.zoo.permission.Permission;
+import br.edu.ifc.concordia.inf.zoo.permission.UserRoles;
 
 @Controller
 public class UserController extends AbstractController {
 	@Inject private UserBS bs;
+	
+	@Get("/exitUser")
+	public void exitUser() {
+		this.userSession.logout();
+		this.result.redirectTo(UserController.class).login(null);
+	}
 	
 	@Get("/login")
 	public void login(String errorMsg) {
@@ -25,8 +35,6 @@ public class UserController extends AbstractController {
 		}
 		
 	}
-	
-
 	@Post(value="/login")
 	@NoCache
 	public void doLogin(String username, String password)
@@ -41,11 +49,16 @@ public class UserController extends AbstractController {
 		
 	}
 	
-	@Path(value="/cadastro")
+	@Get(value="/cadastro")
 	public void cadastro() {
-		
 	}
-		
+
+	@Get("/UserList")
+	public void userList() {
+		List<User> users = this.bs.listUsers();
+		this.result.include("users", users);
+	}
+	
 	@Get("/registerUser")
 	public void cadastro(String errorMsg) {
 		if (!GeneralUtils.isEmpty(errorMsg)){
@@ -62,7 +75,21 @@ public class UserController extends AbstractController {
 		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
 		this.bs.cadastro(factoryProducer, nome, email, cargo, login, senha);
 		this.result.redirectTo(IndexController.class).index();
+	}
 	
+	@Get(value="{id}/edit")
+	@NoCache
+	public void userEdit(Long id) {
+		if (id == null) {
+			this.result.notFound();
+		} else {
+			User user = this.bs.exists(id, User.class);
+			if (user == null) {
+				this.result.notFound();
+			} else {
+				this.result.include("user", user);
+			}
+		}
 	}
 }
 

@@ -72,3 +72,18 @@ main {
 	background-color: #137007;
 	color: #fff;
 }
+.navbar{
+	border-radius: 0px;
+}
+#footer{
+	height: 70px;
+	background-color: #b94a48;		
+	text-align: center;
+	color: #fff;
+	padding: 15px;
+}
+.vcenter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
