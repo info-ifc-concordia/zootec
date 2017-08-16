@@ -44,13 +44,20 @@ public class UserController extends AbstractController {
 			this.result.redirectTo(this).login("Usuário ou senha errado!");
 		}else{
 			this.userSession.login(user);
-			this.result.redirectTo(IndexController.class).index();
+			this.result.redirectTo(this).control();
 		}
-		
 	}
 	
 	@Get(value="/cadastro")
 	public void cadastro() {
+	}
+	
+	@Get(value="/perfilUser")
+	public void perfilUser() {
+	}
+
+	@Get(value="/control")
+	public void control() {
 	}
 
 	@Get("/UserList")
@@ -91,7 +98,22 @@ public class UserController extends AbstractController {
 			}
 		}
 	}
+	
+
+	@Post(value="/modificarPerfil")
+	@NoCache
+	public void update(String nome, String email, String cargo, String login) {
+		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
+		User user = this.bs.update(factoryProducer, this.userSession.getUser().getNome(), nome, email, cargo, login); 
+		this.userSession.login(user);
+		this.result.redirectTo(IndexController.class).index();
+	}
+	
+	
 }
+
+
+
 
 
 

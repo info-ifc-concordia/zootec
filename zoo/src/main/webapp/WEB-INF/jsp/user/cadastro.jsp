@@ -33,7 +33,7 @@
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="example-text-input" class="col-form-label">Email:</label>
-							<input required name = "email" class="form-control" type="text" placeholder="" id="email">
+							<input required name = "email" class="form-control" type="email" placeholder="" id="email">
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">

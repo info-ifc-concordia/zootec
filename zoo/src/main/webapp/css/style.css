@@ -1,9 +1,9 @@
 * {
 	box-sizing: border-box;
 }
+html, body {height:100%;}
 body {
-	background-color: #f0f4f0;
-	position: absolute;
+	background-color: #FFFFFF;	
 	top: 0;
 	left: 0;
 	right: 0;
@@ -26,11 +26,6 @@ main {
 	margin-right: 20px;
 }
 
-
-#barra_menu {
-	background-color: #137007;
-}
-
 .modal {
   text-align: center;
   padding: 0!important;
@@ -44,17 +39,19 @@ main {
   margin-right: -4px;
 }
 
+#caixa {
+	text-align: center;
+	height: auto;
+	background-color: #dee1e5;
+	padding: 16px;
+}
+
 .modal-dialog {
   display: inline-block;
   text-align: left;
   vertical-align: middle;
 }
-#caixa {
-	height: auto;
-	background-color: #dee1e5;
-	padding: 16px;
-	margin-top: 30px;
-}
+
 #nome {
 	height: 50px;
 	text-align: center;
@@ -75,15 +72,58 @@ main {
 .navbar{
 	border-radius: 0px;
 }
-#footer{
+
+footer{
 	height: 70px;
 	background-color: #b94a48;		
 	text-align: center;
-	color: #fff;
+	color: #FFF;
+	position: relative;
 	padding: 15px;
+    bottom: 0px; 
+    width: 100%; 
 }
 .vcenter {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
+
+.btn {
+	border: none;
+	height: 40px;
+	margin: 5px;
+	padding: 12px;
+	font-weight: bolder;
+	font-size: 12px;
+	color: #fff;
+}
+
+.btn1 {background-color: #169db3;}
+.btn2 {background-color: #ff8f00;}
+.btn3 {background-color: #9d261d;}
+.btn4 {background-color: #005580;}
+.btn1:hover {background-color: #169db3; color:#fff;}
+.btn2:hover {background-color: #ff8f00; color:#fff;}
+.btn3:hover {background-color: #9d261d; color:#fff;}
+.btn4:hover {background-color: #005580; color:#fff;}
+
+#home {width: 28px;}
+
+
+#barra_menu {
+	background-color: #137007;
+	color: #FFFFFF;
+	
+}
+
+
+#conteudo {
+	margin-top: 30px;
+	background-color: #dee1e5;
+	padding: 10px;
+	padding: 16px;
+}
+
+
+
