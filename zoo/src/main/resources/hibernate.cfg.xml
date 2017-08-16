@@ -43,6 +43,7 @@
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
 
   		<mapping class="br.edu.ifc.concordia.inf.zoo.model.User"/>
+  		<mapping class="br.edu.ifc.concordia.inf.zoo.model.Produtions"/>
   		
 	</session-factory>
 </hibernate-configuration>

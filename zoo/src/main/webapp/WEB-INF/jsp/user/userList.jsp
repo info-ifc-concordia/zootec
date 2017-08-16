@@ -8,17 +8,16 @@
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
-					<th>Login</th>
+					<th>Cargo</th>
+					<th>E-mail</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${users}" var="user">
 							<tr>
-								<td>${user.id}</td>
-								<td>
-								<a href = "<c:url value="${user.id}/edit"/>">
-									${user.nome} </a>
-								</td>
+								<td>${user.id}   </td>
+								<td>${user.nome} </td>
+								<td>${user.cargo}</td>
 								<td>${user.email}</td>
 							</tr>
 						</c:forEach>
