@@ -3,4 +3,6 @@
 
 <c:import url="/includes/header.jsp"/>
 
+O perfil do usuario deve aparecer aqui para edição
+
 <c:import url="/includes/footer.jsp"/>
