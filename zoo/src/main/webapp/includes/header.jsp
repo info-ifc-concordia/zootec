@@ -22,8 +22,22 @@
 			<div class="col col-xs-6 topbar text-right">
 				<div id="teste">
 					<p id="nome_modulo">
-						<b>Controle de Ração</b><br> <span id="setor">Setor da
-							zootecnia do Instituto Federal Catarinense</span>
+					<c:choose>
+					<c:when test = "${userSession.pagina == null}">
+						<br>
+						<span id="setor">Setor da zootecnia do Instituto Federal Catarinense</span>
+					</c:when>
+					<c:when test ="${userSession.pagina == 'vaquinhas'}">
+						<b>  Controle de Bovinos </b>
+						<br>
+						<span id="setor">Setor da zootecnia do Instituto Federal Catarinense</span>
+					</c:when>
+					<c:when test ="${userSession.pagina == 'racao'}">
+						<b>  Controle de Racão ou whatever </b>
+						<br>
+						<span id="setor">Setor da zootecnia do Instituto Federal Catarinense</span>
+					</c:when>
+					</c:choose>
 					</p>
 				</div>
 			</div>
@@ -45,13 +59,25 @@
 						</ul>
 					</c:when>
 					<c:otherwise>
-
-
+						<c:choose>
+						<c:when test="${userSession.pagina == 'vaquinhas' }">
+						<ul class="nav navbar-nav">
+							<li><a href="<c:url value="/Cadastro"/>"> <span style="color:#FFFFFF;"><span
+									class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
+							</a></li>
+							<li><a href="<c:url value="/Editar"/>"> <span style="color:#FFFFFF;"><span
+									class="glyphicon glyphicon-pencil"></span> Editar </span>
+							</a></li>
+						</ul>
+						</c:when>
+						<c:when test ="${userSession.pagina == 'racao'}">
 						<ul class="nav navbar-nav">
 							<li><a href="<c:url value="/control"/>"> <span style="color:#FFFFFF;"><span
 									class="glyphicon glyphicon-tasks"></span> Controle </span>
 							</a></li>
 						</ul>
+						</c:when>
+						</c:choose>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -75,4 +101,3 @@
 			</div>
 		</div>
 	</nav>
-	<main class="container">

@@ -2,10 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/includes/header.jsp"/>
-
+<main class = "container">
 <form method="POST" action="<c:url value="/modificarPerfil"/>">
 		<c:if test="${not empty userSession.user}">
-				
 				<div class="form-group col-md-6 col-xs-12">
 							<label for="example-text-input" class="col-form-label">Nome:</label>
 							<input required name = "nome" class="form-control" type="text" value="<c:url value="${userSession.user.nome}"/>">
@@ -30,4 +29,5 @@
 				
 		</c:if>
 	</form>
+</main>
 <c:import url="/includes/footer.jsp"/>

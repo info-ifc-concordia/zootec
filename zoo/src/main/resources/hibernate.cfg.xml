@@ -44,6 +44,7 @@
 
   		<mapping class="br.edu.ifc.concordia.inf.zoo.model.User"/>
   		<mapping class="br.edu.ifc.concordia.inf.zoo.model.Produtions"/>
+  		<mapping class="br.edu.ifc.concordia.inf.zoo.model.Bovino"/>
   		
 	</session-factory>
 </hibernate-configuration>

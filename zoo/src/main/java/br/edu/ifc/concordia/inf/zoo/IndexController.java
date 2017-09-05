@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.boilerplate.NoCache;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
@@ -17,17 +18,22 @@ import br.edu.ifc.concordia.inf.zoo.permission.Permission;
 public class IndexController extends AbstractController {
 	
 	@Inject private UserBS userBS;
-	
+	@Inject private UserSession UserSession;
 	@Path(value="/", priority=Path.HIGHEST)
 	@NoCache
 	@Permission
 	public void index() {
-		try {
-			List<User> users = this.userBS.listUsers();
-			this.result.include("users", users);
-		} catch (Throwable ex) {
-			LOGGER.error(ex);
-			this.result.include("users", Collections.EMPTY_LIST);
-		}
+		UserSession.setPagina(null);
 	}
+	
+	@Get(value = "/Racao")
+	public void indexracao(){
+		UserSession.setPagina("racao");
+	}
+	
+	@Get(value = "/Vaquinhas")
+	public void indexbovinos(){
+		UserSession.setPagina("vaquinhas");
+	}
+	
 }

@@ -13,6 +13,7 @@ public class UserSession implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private User user;
+	private String pagina;
 	
 	public void login (User user)
 	{
@@ -26,5 +27,11 @@ public class UserSession implements Serializable {
 	}
 	public User getUser(){
 		return this.user;
+	}
+	public String getPagina(){
+		return this.pagina;
+	}
+	public void setPagina(String page){
+		this.pagina = page;
 	}
 }
