@@ -1,12 +1,16 @@
 package br.edu.ifc.concordia.inf.zoo.business;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.boilerplate.HibernateBusiness;
+import br.com.caelum.vraptor.boilerplate.util.GeneralUtils;
 import br.edu.ifc.concordia.inf.zoo.UserSession;
 import br.edu.ifc.concordia.inf.zoo.model.Bovino;
 
@@ -14,6 +18,15 @@ import br.edu.ifc.concordia.inf.zoo.model.Bovino;
 public class BovinosBS extends HibernateBusiness {
 	
 	@Inject UserSession userSession;
+	
+	public List<Bovino> Buscar(String filter){
+		Criteria criteria = dao.newCriteria(Bovino.class);
+		if (!GeneralUtils.isEmpty(filter)) {
+			criteria.add(Restrictions.ilike("Name", filter, MatchMode.ANYWHERE));
+		}
+		return this.dao.findByCriteria(criteria, Bovino.class);
+	}
+	
 	public void Registrar(String CR, int status, String Name, int NR, int NB, String Mom, String Dad, String DateofBirth, String Variety, String Creator){	
 		
 		Criteria criteria1 = dao.newCriteria(Bovino.class);

@@ -14,15 +14,19 @@
 
 				<div class="col-xs-12 col-md-6 col-md-offset-3" id="row2">
 				  	<div class="jumbotron jumbotron-fluid">
-				  	<form>
+				  	<form method = "POST" action = "<c:url value = "/BuscarBovinos"/>">
 						<div class="input-group">
 						      <input  name="filter" type="search" id="txtBusca" class="form-control" placeholder="Buscar..."/>
 						      <span class="input-group-btn">
-						        <a href="" id="btnBusca" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+						        <button id="btnBusca" class="btn btn-default" type = "Submit">
+						        	<span class="glyphicon glyphicon-search" aria-hidden="true">
+						        	</span>
+						        </button>					  
 						      </span>
-					</form>
-				  	</div>
+				  		</div>
+				  	</form>
 			  	</div>
-			</div>
-	</main>
+			  </div>
+		</div>
+</main>
 <c:import url="/includes/footer.jsp"/>
