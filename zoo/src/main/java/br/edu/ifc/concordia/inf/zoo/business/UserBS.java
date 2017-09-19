@@ -43,15 +43,12 @@ public class UserBS extends HibernateBusiness {
 
 		CryptManager.updateKey(SystemConfigs.getConfig("crypt.key"));
 		CryptManager.updateSalt("@2o!A", "70Px$");
-
-		SessionManager mngr = new SessionManager(factoryProducer.getInstance());
-		HibernateDAO dao = new HibernateDAO(mngr);
-
-		Criteria criteria = dao.newCriteria(User.class);
+		
+		Criteria criteria = this.dao.newCriteria(User.class);
 		criteria.add(Restrictions.eq("login", login));
 		User userTest = (User) criteria.uniqueResult();
 
-		Criteria criteria2 = dao.newCriteria(User.class);
+		Criteria criteria2 = this.dao.newCriteria(User.class);
 		criteria2.add(Restrictions.eq("email", email));
 		User userTest2 = (User) criteria.uniqueResult();
 
@@ -67,26 +64,12 @@ public class UserBS extends HibernateBusiness {
 			user.setCargo(cargo);
 			user.setLogin(login);
 			user.setSenha(CryptManager.passwordHash(senha));
-			dao.persist(user);
-
-			try {
-				SSLContext ctx = SSLContext.getInstance("TLS");
-				ctx.init(new KeyManager[0], new TrustManager[] { new DefaultTrustManager() }, new SecureRandom());
-				SSLContext.setDefault(ctx);
-			} catch (GeneralSecurityException ex) {
-				System.out.println("N�o consegui sobrescrever o SSLContext.");
-				ex.printStackTrace();
-			}
-
-			mngr.closeSession();
+			this.dao.persist(user);
 
 		}
 	}
 
-	public User update(SessionFactoryProducer factoryProducer, String nameUserlogged, String nome, String email,
-			String cargo, String login) {
-		SessionManager mngr = new SessionManager(factoryProducer.getInstance());
-		HibernateDAO dao = new HibernateDAO(mngr);
+	public User update(String nameUserlogged, String nome, String email, String cargo, String login) {
 		Criteria criteria = this.dao.newCriteria(User.class);
 		criteria.add(Restrictions.eq("nome", nameUserlogged));
 		User userUpdate = (User) criteria.uniqueResult();

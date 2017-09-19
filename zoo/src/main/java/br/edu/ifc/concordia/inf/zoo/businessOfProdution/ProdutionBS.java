@@ -18,14 +18,16 @@ import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
 import br.com.caelum.vraptor.boilerplate.factory.SessionManager;
 import br.edu.ifc.concordia.inf.zoo.factory.ApplicationSetup.DefaultTrustManager;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
+import br.edu.ifc.concordia.inf.zoo.model.Receitas;
 import br.edu.ifc.concordia.inf.zoo.model.User;
+
 
 @RequestScoped
 public class ProdutionBS extends HibernateBusiness{
 	
-	public List<Produtions> listTypeRations() {
-		Criteria criteria = this.dao.newCriteria(Produtions.class);
-		return this.dao.findByCriteria(criteria, Produtions.class);
+	public List<Receitas> listTypeRations() {
+		Criteria criteria = this.dao.newCriteria(Receitas.class);
+		return this.dao.findByCriteria(criteria, Receitas.class);
 	}
 	
 	
@@ -36,16 +38,16 @@ public class ProdutionBS extends HibernateBusiness{
 		factoryProducer.initialize("hibernate.cfg.xml");
 		HibernateDAO dao = new HibernateDAO(mngr);
 		
-		Criteria criteria = dao.newCriteria(Produtions.class);
+		Criteria criteria = dao.newCriteria(Receitas.class);
 		criteria.add(Restrictions.eq("name", name_ration));
-		Produtions userTest = (Produtions) criteria.uniqueResult();
+		Receitas userTest = (Receitas) criteria.uniqueResult();
 		
 		if (userTest != null) {
 			String i = "Ração já cadastrada!";
 		}
 		else {
 			System.out.println(name_ration);
-			Produtions prod = new Produtions();
+			Receitas prod = new Receitas();
 			prod.setName(name_ration);
 			prod.setType_animal(animal_type_ration);
 			prod.setInsumo1(insumo1);
@@ -88,10 +90,98 @@ public class ProdutionBS extends HibernateBusiness{
 				System.out.println("N�o consegui sobrescrever o SSLContext.");
 				ex.printStackTrace();
 			}
-			
 			mngr.closeSession();
 		}
+	}
+	
+	
+	public void doRegisterNewProdution(SessionFactoryProducer factoryProducer, String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
+			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final)
+	{
+		SessionManager mngr = new SessionManager(factoryProducer.getInstance());
+		factoryProducer.initialize("hibernate.cfg.xml");
+		HibernateDAO dao = new HibernateDAO(mngr);
 		
-		
+			Produtions prod = new Produtions();
+			prod.setName_ration(name_ration);
+			prod.setType_animal(animal_type_ration);
+			prod.setInsumo1(insumo1);
+			prod.setInsumo2(insumo2);
+			prod.setInsumo3(insumo3);
+			prod.setInsumo4(insumo4);
+			prod.setInsumo5(insumo5);
+			prod.setInsumo6(insumo6);
+			prod.setInsumo7(insumo7);
+			prod.setInsumo8(insumo8);
+			prod.setInsumo9(insumo9);
+			prod.setInsumo10(insumo10);
+			prod.setInsumo11(insumo11);
+			prod.setInsumo12(insumo12);
+			prod.setQtd_final(qtd_final);
+			prod.setDate(dat);
+			prod.setUser(user);
+			prod.setDisable("disable");
+			
+			dao.persist(prod);
+			try {
+				SSLContext ctx = SSLContext.getInstance("TLS");
+				ctx.init(new KeyManager[0], new TrustManager[] { new DefaultTrustManager() }, new SecureRandom());
+				SSLContext.setDefault(ctx);
+			} catch (GeneralSecurityException ex) {
+				System.out.println("N�o consegui sobrescrever o SSLContext.");
+				ex.printStackTrace();
+			}
+			mngr.closeSession();
+	}
+	
+	
+	public Receitas getInsumos(String nameRation, String typeAnimal) {
+		Criteria criteria = this.dao.newCriteria(Receitas.class);
+		criteria.add(Restrictions.eq("name", nameRation));
+		criteria.add(Restrictions.eq("type_animal", typeAnimal));
+		return (Receitas) criteria.uniqueResult();
+	}
+	
+	public List<Receitas> listTypeRationEspe(String typeAnimal) {
+		Criteria criteria = this.dao.newCriteria(Receitas.class);
+		criteria.add(Restrictions.eq("type_animal", typeAnimal));
+		return this.dao.findByCriteria(criteria, Receitas.class);
+	}
+	
+	public List<Produtions> ProdutionsList()
+	{
+		Criteria criteria = this.dao.newCriteria(Produtions.class);
+		criteria.add(Restrictions.eq("disable", "able"));
+		return this.dao.findByCriteria(criteria, Produtions.class);
+	}
+	
+	public void updateProdution(Long id, double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
+			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final) {
+		Criteria criteria = this.dao.newCriteria(Produtions.class);
+		criteria.add(Restrictions.eq("id", id));
+		Produtions prod = (Produtions) criteria.uniqueResult();
+		prod.setInsumo1(insumo1);
+		prod.setInsumo2(insumo2);
+		prod.setInsumo3(insumo3);
+		prod.setInsumo4(insumo4);
+		prod.setInsumo5(insumo5);
+		prod.setInsumo6(insumo6);
+		prod.setInsumo7(insumo7);
+		prod.setInsumo8(insumo8);
+		prod.setInsumo9(insumo9);
+		prod.setInsumo10(insumo10);
+		prod.setInsumo11(insumo11);
+		prod.setInsumo12(insumo12);
+		prod.setQtd_final(qtd_final);
+		dao.update(prod);
+	}
+	
+	public void disableProduction(Long id)
+	{
+		Criteria criteria = this.dao.newCriteria(Produtions.class);
+		criteria.add(Restrictions.eq("id", id));
+		Produtions prod = (Produtions) criteria.uniqueResult();
+		prod.setDisable("disable");	
+		dao.update(prod);
 	}
 }

@@ -126,4 +126,28 @@ footer{
 }
 
 
+#sub {font-size: 13px;}
+.panel-body {padding: 0}
 
+
+#jumb {margin-top: 10px;}
+#jumb p {text-align: center;}
+
+#titulo {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+#name_user
+{
+	display: none;
+}
+
+.oculto
+{
+	display:none;
+}
+
+.caix{
+	text-align: center;
+}

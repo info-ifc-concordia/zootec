@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	</main>
 	<footer class="footer" id="footer">
-		
 		  <div class="text-center">
 		  	<p>Instituto Federal Catarinense - Campus Concórdia <br> 
 			Rodovia SC 283 - km 17 - CEP 89703-720 - Concórdia - SC - Fone (49) 3441-4800</p>

@@ -13,7 +13,7 @@ import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
 import br.edu.ifc.concordia.inf.zoo.businessOfProdution.ProdutionBS;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
-import br.edu.ifc.concordia.inf.zoo.model.User;
+import br.edu.ifc.concordia.inf.zoo.model.Receitas;
 
 @Controller
 public class ProdutionController extends AbstractController {
@@ -21,10 +21,10 @@ public class ProdutionController extends AbstractController {
 	
 	@Get(value="/add_prodution")
 	public void add_prodution() {	
-		List<Produtions> types = this.bs.listTypeRations();
+		List<Receitas> types = this.bs.listTypeRations();
 		this.result.include("rations", types);	
 	}
-	
+
 	@Get(value="/add_type_ration")
 	public void add_type_ration() {
 	}
@@ -40,6 +40,80 @@ public class ProdutionController extends AbstractController {
 		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
 		this.bs.doRegisterNewType(factoryProducer, name_ration, animal_type_ration, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
 				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
+		this.result.redirectTo(IndexController.class).index();
+	}
+
+	@Post(value="/registerNewProdution")
+	@NoCache
+	public void registerNewProdution(String dat, String name_ration, String animal_type_ration,  
+			double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
+			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, 
+			double insumo11, double insumo12, double qtd_final, String name_user) {
+		
+		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
+		this.bs.doRegisterNewProdution(factoryProducer, dat, name_user, name_ration, animal_type_ration,  insumo1, insumo2,
+				insumo3, insumo4, insumo5, insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);
+		
+		this.result.redirectTo(IndexController.class).index();
+	}
+	
+	
+	@Get("/getInsumos")
+	@NoCache
+	public void listInsumos(String name, String animal)
+	{
+		try {
+			Receitas receita = this.bs.getInsumos(name, animal); 
+			this.success(receita);
+		}
+		catch(Throwable ex) {
+			this.fail(ex.getMessage());
+		}
+	}
+		
+	@Get("/getNameRations")
+	@NoCache
+	public void listNamesRations(String animal)
+	{
+		try {
+			List<Receitas> receita = this.bs.listTypeRationEspe(animal); 
+			this.success(receita, (long) receita.size());
+		}
+		catch(Throwable ex) {
+			this.fail(ex.getMessage());
+		}
+	}
+	
+	
+	@Get("/getProdutions")
+	@NoCache
+	public void ProductionsList(String animal)
+	{
+		try {
+			List<Produtions> produtions = this.bs.ProdutionsList(); 
+			this.success(produtions, (long) produtions.size());
+		}
+		catch(Throwable ex) {
+			this.fail(ex.getMessage());
+		}
+	}
+	
+	@Post(value="/editProduction")
+	@NoCache
+	public void editProduction(Long id,  
+			double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
+			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, 
+			double insumo11, double insumo12, double qtd_final) {
+		this.bs.updateProdution(id, insumo1, insumo2, insumo3, insumo4, insumo5,
+				insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);
+		this.result.redirectTo(IndexController.class).index();
+	}
+	
+	@Post(value="/disableProduction")
+	@NoCache
+	public void disableProduction(Long id2)
+	{
+		this.bs.disableProduction(id2);
 		this.result.redirectTo(IndexController.class).index();
 	}
 }

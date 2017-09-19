@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/includes/header.jsp"/>
+<main class = "container">
 	<c:choose><c:when test="${not empty users}">
 		<table class="table table-striped">
 			<thead>
@@ -25,4 +26,5 @@
 		</table>
 	</c:when><c:otherwise>
 	</c:otherwise></c:choose>
+</main>
 <c:import url="/includes/footer.jsp"/>

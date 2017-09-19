@@ -97,7 +97,7 @@
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 12</label> <input type="text"
-					class="form-control" id="insumo11" name="insumo12" value = " ">
+					class="form-control" id="insumo12" name="insumo12" value = " ">
 			</div>
 
 
