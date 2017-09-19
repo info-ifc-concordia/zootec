@@ -120,7 +120,7 @@ public class ProdutionBS extends HibernateBusiness{
 			prod.setQtd_final(qtd_final);
 			prod.setDate(dat);
 			prod.setUser(user);
-			prod.setDisable("disable");
+			prod.setDisable("able");
 			
 			dao.persist(prod);
 			try {
