@@ -327,4 +327,5 @@ $('document').ready(function() {
 
 hideAll();
 
-/*fazendo essa linha só para mudar alguma coisa na irmandade! */
+/*fazendo essa linha só para mudar alguma coisa na irmandade! 
+Isso de novo, kkkk*/
