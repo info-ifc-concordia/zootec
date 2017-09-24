@@ -114,6 +114,15 @@ footer{
 	padding: 10px;
 	padding: 16px;
 }
+#titulo {
+	font-size: 20px;
+	font-weight: bolder;
+}
+#jumb {margin-top: 10px;
+}
+#sub {font-size: 13px;}
+.panel-body {padding: 0}
 
-
-
+#row1, #titulo{
+	text-align:center;
+}

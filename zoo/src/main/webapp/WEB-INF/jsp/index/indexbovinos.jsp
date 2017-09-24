@@ -14,7 +14,7 @@
 
 				<div class="col-xs-12 col-md-6 col-md-offset-3" id="row2">
 				  	<div class="jumbotron jumbotron-fluid">
-				  	<form method = "POST" action = "<c:url value = "/BuscarBovinos"/>">
+				  	<form method = "GET" action = "<c:url value = "/Exibir"/>">
 						<div class="input-group">
 						      <input  name="filter" type="search" id="txtBusca" class="form-control" placeholder="Buscar..."/>
 						      <span class="input-group-btn">

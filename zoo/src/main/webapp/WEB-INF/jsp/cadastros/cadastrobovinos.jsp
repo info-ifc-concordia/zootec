@@ -10,7 +10,23 @@
 					<fieldset>
 
 						<legend>Cadastro de Bovino</legend>
-
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="radios"> Raça </label>
+						  <div class="col-md-4">
+								
+								    <label class="radio-inline" for="radios-0">
+								    	<input type="radio" name="Raca" id="radios-0" value="1" checked="checked"> Holandês
+								    </label>
+								
+								
+								    <label class="radio-inline" for="radios-1">
+								    	<input type="radio" name="Raca" id="radios-1" value="2"> Jersey
+								    </label>
+								    
+						  </div>
+						</div>
+						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios">Categoria de Registro</label>
 						  <div class="col-md-4">
@@ -30,8 +46,9 @@
 						  <label class="col-md-4 control-label" for="selectbasic">Variedade</label>
 						  <div class="col-md-3">
 						    <select id="selectbasic" name="Variety" class="form-control">
-						      <option value="1">Option one</option>
-						      <option value="2">Option two</option>
+							    <option value=""> Selecionar </option>
+							    <option value="1">Preto e Branco</option>
+							    <option value="2">Vermelho e Branco</option>
 						    </select>
 						  </div>
 						</div>
@@ -51,9 +68,16 @@
 						</div>
 
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Número do Brinco</label>  
+						  <label class="col-md-4 control-label" for="textinput">Número do Brinco Interno</label>  
 						  <div class="col-md-4">
 						  	<input name="NB" type="number" placeholder="Ex: 123" class="form-control input-md">
+						  </div>
+						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Número do Brinco CIDASC</label>  
+						  <div class="col-md-4">
+						  	<input name="NC" type="number" placeholder="Ex: 123" class="form-control input-md">
 						  </div>
 						</div>
 
@@ -71,6 +95,13 @@
 						  	<input  name="Mom" type="text" placeholder="Ex: Estrela 8329" class="form-control input-md">
 						  </div>
 						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Número do Registro da Mãe</label>  
+						  <div class="col-md-4">
+						  	<input  name="NRM" type="number" placeholder="Ex: 18987-433" class="form-control input-md">
+						  </div>
+						</div>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Nome do Pai</label>  
@@ -78,22 +109,19 @@
 						  	<input  name="Dad" type="text" placeholder="Ex: Freddy 4938" class="form-control input-md">
 						  </div>
 						</div>
-
+						
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Criador</label>  
+						  <label class="col-md-4 control-label" for="textinput">Número do Registro do Pai</label>  
 						  <div class="col-md-4">
-						  	<input  name="Creator" type="text" placeholder="Ex: IFC" class="form-control input-md">
+						  	<input  name="NRP" type="number" placeholder="Ex: 18987-433" class="form-control input-md">
 						  </div>
 						</div>
-
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios">Status</label>
 						  <div class="col-md-4"> 
 							    <label class="radio-inline" for="radios-3"><input type="radio" name="status" id="radios-3" value="3" checked="checked">Vivo</label> 
 
 							    <label class="radio-inline" for="radios-4"><input type="radio" name="status" id="radios-4" value="4">Morto</label> 
-
-							    <label class="radio-inline" for="radios-5"><input type="radio" name="status" id="radios-5" value="5">Vendido</label>
 						  </div>
 						</div>
 

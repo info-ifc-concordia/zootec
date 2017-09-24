@@ -19,8 +19,43 @@ public class Bovino implements Serializable  {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(unique = true)
+	private int NC;
+	private String Raca;
 	private String CR;
 	private String Variety;
+	public int getNC() {
+		return NC;
+	}
+
+	public void setNC(int nC) {
+		NC = nC;
+	}
+
+	public String getRaca() {
+		return Raca;
+	}
+
+	public void setRaca(String raca) {
+		Raca = raca;
+	}
+
+	public int getNRM() {
+		return NRM;
+	}
+
+	public void setNRM(int nRM) {
+		NRM = nRM;
+	}
+
+	public int getNRP() {
+		return NRP;
+	}
+
+	public void setNRP(int nRP) {
+		NRP = nRP;
+	}
+
 	@Column(unique=true)
 	private String Name;
 	@Column(unique=true)
@@ -29,8 +64,9 @@ public class Bovino implements Serializable  {
 	private int NB;
 	private String DateofBirth;
 	private String Mom;
+	private int NRM;
 	private String Dad;
-	private String Creator;
+	private int NRP;
 	private int Status;
 	private String Cadastror;
 	public Long getId() {
@@ -107,14 +143,6 @@ public class Bovino implements Serializable  {
 
 	public void setDad(String dad) {
 		Dad = dad;
-	}
-
-	public String getCreator() {
-		return Creator;
-	}
-
-	public void setCreator(String creator) {
-		Creator = creator;
 	}
 
 	public int getStatus() {
