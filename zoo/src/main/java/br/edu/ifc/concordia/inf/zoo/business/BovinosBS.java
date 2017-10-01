@@ -26,7 +26,7 @@ public class BovinosBS extends HibernateBusiness {
 		}
 			return this.dao.findByCriteria(criteria, Bovino.class);
 	}
-	
+
 	public void Registrar(String Raca, int NC, int NRM, int NRP, String CR, int status, String Name, int NR, int NB, String Mom, String Dad, String DateofBirth, String Variety){	
 		
 		Criteria criteria1 = dao.newCriteria(Bovino.class);

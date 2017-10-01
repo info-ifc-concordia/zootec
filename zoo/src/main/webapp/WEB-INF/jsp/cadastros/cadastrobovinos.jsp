@@ -16,12 +16,12 @@
 						  <div class="col-md-4">
 								
 								    <label class="radio-inline" for="radios-0">
-								    	<input type="radio" name="Raca" id="radios-0" value="1" checked="checked"> Holandês
+								    	<input type="radio" name="Raca" id="radios-0" value="Holandes" checked="checked"> Holandês
 								    </label>
 								
 								
 								    <label class="radio-inline" for="radios-1">
-								    	<input type="radio" name="Raca" id="radios-1" value="2"> Jersey
+								    	<input type="radio" name="Raca" id="radios-1" value="Jersey"> Jersey
 								    </label>
 								    
 						  </div>
@@ -32,12 +32,12 @@
 						  <div class="col-md-4">
 								
 								    <label class="radio-inline" for="radios-0">
-								    	<input type="radio" name="CR" id="radios-0" value="1" checked="checked">Puro de Origem
+								    	<input type="radio" name="CR" id="radios-0" value="Puro de Origem" checked="checked">Puro de Origem
 								    </label>
 								
 								
 								    <label class="radio-inline" for="radios-1">
-								    	<input type="radio" name="CR" id="radios-1" value="2">Puro de Cruzamento
+								    	<input type="radio" name="CR" id="radios-1" value="Puro de Cruzamento">Puro de Cruzamento
 								    </label>
 								
 						  </div>
@@ -47,8 +47,8 @@
 						  <div class="col-md-3">
 						    <select id="selectbasic" name="Variety" class="form-control">
 							    <option value=""> Selecionar </option>
-							    <option value="1">Preto e Branco</option>
-							    <option value="2">Vermelho e Branco</option>
+							    <option value="Preto e Branco">Preto e Branco</option>
+							    <option value="Vermelho e Branco">Vermelho e Branco</option>
 						    </select>
 						  </div>
 						</div>

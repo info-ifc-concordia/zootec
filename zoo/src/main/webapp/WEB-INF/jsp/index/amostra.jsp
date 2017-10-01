@@ -3,7 +3,7 @@
 
 <c:import url="/includes/header.jsp"/>
 <main class="container vcenter">
-	<table class="table table-striped">
+	<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>Nome</th>
@@ -12,7 +12,12 @@
 			<tbody>
 				<c:forEach items="${Lista}" var="VACA">
 							<tr>
-								<td></td>
+								<td><a href= "<c:url value ="/show/${VACA.id}"/>"> ${VACA.name}</a></td>
+								<c:choose>
+									<c:when test ="${userSession.getUser().getAcesso() >= 4 }">
+									<td><a href= "<c:url value ="/edit/${VACA.id}"/>"> <span class="glyphicon glyphicon-pencil"> </span></a></td>
+									</c:when>
+								</c:choose>
 							</tr>
 						</c:forEach>
 			</tbody>

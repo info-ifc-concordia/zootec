@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col col-xs-6 topbar">
-				<img id="logo" src="imagens/logo-ifc.png" />
+				<img id="logo" src="/zoo/imagens/logo-ifc.png" />
 			</div>
 			<div class="col col-xs-6 topbar text-right">
 				<div id="teste">
@@ -62,11 +62,11 @@
 						<c:choose>
 						<c:when test="${userSession.pagina == 'vaquinhas' }">
 						<ul class="nav navbar-nav">
+							<li><a href="<c:url value="/Vaquinhas"/>"> <span style="color:#FFFFFF;"><span
+									class="glyphicon glyphicon-search"></span> Search </span></a>
+							</li>
 							<li><a href="<c:url value="/Cadastro"/>"> <span style="color:#FFFFFF;"><span
 									class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
-							</a></li>
-							<li><a href="<c:url value="/Editar"/>"> <span style="color:#FFFFFF;"><span
-									class="glyphicon glyphicon-pencil"></span> Editar </span>
 							</a></li>
 						</ul>
 						</c:when>

@@ -20,8 +20,22 @@ public class CadastrosController extends AbstractController {
 
 	@Post(value = "/Cadastrar")
 	@NoCache
-	public void register(int NRP, int NRM, int NC,String Raca,int status, String CR, String Name, int NR, int NB, String Mom, String Dad, String DateofBirth, String Variety, String Creator) {
+	public void register(
+			int NRP, 
+			int NRM, 
+			int NC, 
+			String Raca,
+			int status, 
+			String CR, 
+			String Name, 
+			int NR, 
+			int NB, 
+			String Mom, 
+			String Dad, 
+			String DateofBirth, 
+			String Variety) 
+	{
 		Bs.Registrar(Raca, NC, NRM, NRP, CR, status, Name, NR, NB, Mom, Dad, DateofBirth, Variety);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexbovinos();
 	}
 }

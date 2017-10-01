@@ -17,7 +17,6 @@ import br.edu.ifc.concordia.inf.zoo.model.Bovino;
 public class IndexBovinoController extends AbstractController{
 	
 	@Inject private BovinosBS bovinobs;
-
 	/*@Get(value="/students/list")
 	@NoCache
 	public void BovinoList(List<Bovino> students, String filter) {
