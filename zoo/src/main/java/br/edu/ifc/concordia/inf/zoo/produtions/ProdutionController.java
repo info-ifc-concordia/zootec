@@ -33,12 +33,16 @@ public class ProdutionController extends AbstractController {
 	public void remove_prodution() {	
 	}
 	
+	@Get(value="/informationsProd")
+	public void informationsProd() {	
+	}
+	
 	@Post(value="/registerNewTypeRation")
 	@NoCache
-	public void registerNewTypeRation(String name_ration, String animal_type_ration, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
+	public void registerNewTypeRation(String def_name_ration, String for_animal, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
 			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12){	
 		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
-		this.bs.doRegisterNewType(factoryProducer, name_ration, animal_type_ration, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
+		this.bs.doRegisterNewType(factoryProducer, def_name_ration, for_animal, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
 				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
 		this.result.redirectTo(IndexController.class).index();
 	}
@@ -84,6 +88,18 @@ public class ProdutionController extends AbstractController {
 		}
 	}
 	
+	@Get("/getAllInsumos")
+	@NoCache
+	public void listAllInsumos()
+	{
+		try {
+			List<Receitas> receita = this.bs.listTypeRations(); 
+			this.success(receita, (long) receita.size());
+		}
+		catch(Throwable ex) {
+			this.fail(ex.getMessage());
+		}
+	}
 	
 	@Get("/getProdutions")
 	@NoCache

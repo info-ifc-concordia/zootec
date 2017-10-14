@@ -35,7 +35,7 @@
 									Catarinense</span>
 							</c:when>
 							<c:when test="${userSession.pagina == 'racao'}">
-								<b> Controle de Racão</b>
+								<b> Controle de Ração</b>
 								<br>
 								<span id="setor">Setor da zootecnia do Instituto Federal
 									Catarinense</span>
@@ -89,6 +89,11 @@
 											style="color: #FFFFFF;"><span
 												class="glyphicon glyphicon-tasks"></span> Controle </span>
 									</a></li>
+
+									<li><a href="<c:url value="informationsProd"/>"> <span
+											style="color: #FFFFFF;"><span
+												class="glyphicon glyphicon-file"></span> Relátorios </span>
+									</a></li> 
 
 
 								</ul>

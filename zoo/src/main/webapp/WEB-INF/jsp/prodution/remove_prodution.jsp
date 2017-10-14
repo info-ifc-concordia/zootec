@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:import url="/includes/header.jsp" />
+<main class="container"> 
+
 <div>
 
 	<div class="col-md-4 col-xs-4" id="menuRations"></div>
@@ -10,9 +12,10 @@
 	</form>
 </div>
 
+</main>
 <script>
 	window.onload = function(e) {
-		getProdutions("edit");
+		getProdutions("edit", true);
 	};
 </script>
 

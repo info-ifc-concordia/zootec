@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/includes/header.jsp"/>
+<main class="container"> 
 <c:if test="${not empty errorMsg}">
 	<div class="alert alert-danger" role="alert">${errorMsg}</div>
 </c:if>
@@ -45,4 +46,6 @@
 				</div>
 			</div>
 </form>
+
+</main>
 <c:import url="/includes/footer.jsp"/>

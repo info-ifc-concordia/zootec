@@ -151,3 +151,11 @@ footer{
 .caix{
 	text-align: center;
 }
+
+#caix:hover{
+	cursor: pointer;
+}
+
+#menuRations:hover{
+	cursor:pointer;
+}
