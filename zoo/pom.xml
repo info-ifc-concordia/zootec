@@ -32,6 +32,8 @@
 		<version.vraptor.boilerplate>1.0.0</version.vraptor.boilerplate>
 		<dbConfigFile>hibernate.cfg.xml</dbConfigFile>
 		<propertiesfile>dev.properties</propertiesfile>
+		<fileDirectory>C:/Temp</fileDirectory>
+		<imageDirectory>C:/Temp</imageDirectory>
 	</properties>
 
 	<profiles>
@@ -103,6 +105,10 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+    		<groupId>commons-fileupload</groupId>
+   			<artifactId>commons-fileupload</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>br.com.progolden</groupId>
 			<artifactId>vraptor-boilerplate-hibernate</artifactId>

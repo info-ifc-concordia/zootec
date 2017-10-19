@@ -5,22 +5,36 @@
 <main class="container">	
 			<div class="row">
 				<div class="col-xs-12 col-md-12" id="rowform">
-					<form class="form-horizontal" role="form">
+					<form class="form-horizontal" role="form" method="POST" action ="<c:url value = "/bovinos/editar"/>">
 					<fieldset>
 						<legend>Edição de Informações de Bovino</legend>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label">ID do Bovino (Informação do sistema)</label>  
+						  <div class="col-md-4">
+						  	<input  type = "hidden" name="id" value = "${bovino.id}" type="number" class="form-control input-md">
+						  </div>
+						</div>
+						
 						<div class="form-group">
 						<label class="col-md-4 control-label" for="radios">Raça</label>
 						<div class="col-md-4">
 						<c:choose>
-							<c:when test ="${Bovino.raca == 'Holandes'}">
+							<c:when test ="${bovino.raca == 'Holandes'}">
 								    <label class="radio-inline" for="radios-0">
-								    	<input type="radio" name="Raca" id="radios-0" value="1" checked="checked"> Holandês
+								    	<input type="radio" name="raca" id="radios-0" value="Holandes" checked="checked"> Holandês
 								    </label>
 								
 								
 								    <label class="radio-inline" for="radios-1">
-								    	<input type="radio" name="Raca" id="radios-1" value="2"> Jersey
+								    	<input type="radio" name="raca" id="radios-1" value="Jersey"> Jersey
 								    </label>
+								    
+								     <label class="radio-inline" for="radios-2">
+								    	<input type="radio" name= "raca" id="radios-2" value="Mestico"> Mestiço
+								    </label>
+								    
+								    <input class="form-control input-md" disabled  id = "Rinput" type="text" name="rCustom"  placeholder = "Digite aqui a raça"> 
 								    
 							</c:when>
 							<c:otherwise>
@@ -29,30 +43,80 @@
 							</c:choose>
 							
 						<c:choose>
-								<c:when test ="${Bovino.raca == 'Jersey'}">
+								<c:when test ="${bovino.raca == 'Jersey'}">
+								
 								    <label class="radio-inline" for="radios-0">
-								    	<input type="radio" name="Raca" id="radios-0" value="1" > Holandês								   
+								    	<input type="radio" name="raca" id="radios-0" value="Holandes" > Holandês								   
 								    	</label>
 								
 								
 								    <label class="radio-inline" for="radios-1">
-								    	<input type="radio" name="Raca" id="radios-1" value="2" checked="checked"> Jersey
+								    	<input type="radio" name="raca" id="radios-1" value="Jersey" checked="checked"> Jersey
 								    </label>
+								    
+								     <label class="radio-inline" for="radios-2">
+								    	<input type="radio" name= "raca" id="radios-2" value="Mestico"> Mestiço
+								    </label>
+								    
+								    <input class="form-control input-md" disabled  id = "Rinput" type="text" name="rCustom"  placeholder = "Digite aqui a raça"> 
 								    
 								</c:when>
 						<c:otherwise>
 						</c:otherwise>
 						</c:choose>
+						
+							<c:choose>
+								<c:when test ="${bovino.raca != 'Jersey' and bovino.raca != 'Holandes'}">
+								
+								    <label class="radio-inline" for="radios-0">
+								    	<input type="radio" name="raca" id="radios-0" value="Holandes" > Holandês								   
+								    	</label>
+								
+								
+								    <label class="radio-inline" for="radios-1">
+								    	<input type="radio" name="raca" id="radios-1" value="Jersey" > Jersey
+								    </label>
+								    
+								     <label class="radio-inline" for="radios-2">
+								    	<input type="radio" name= "raca" id="radios-2" value="Mestico" checked> Mestiço
+								    </label>
+								    
+								    <input class="form-control input-md" value = "${bovino.raca}" id = "Rinput" type="text" name="rCustom"  placeholder = "Digite aqui a raça"> 
+								    
+								</c:when>
+						<c:otherwise>
+						</c:otherwise>
+						</c:choose>
+						
 						</div>
 					</div>
+					
+					
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="radios"> Sexo </label>
+						  <div class="col-md-4">
+								
+								    <label class="radio-inline" for="radios-7">
+								    	<input type="radio" name="sexo" id="radios-7" value="Macho" checked="checked"> Macho
+								    </label>
+								
+								
+								    <label class="radio-inline" for="radios-8">
+								    	<input type="radio" name="sexo" id="radios-8" value="Femea"> Fêmea
+								    </label>
+							</div>
+						</div>
+						
+						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios">Categoria de Registro</label>
 						  <div class="col-md-4">
 								<c:choose> 
-									<c:when test = "${Bovino.CR == 'Puro de Origem' }">
+									<c:when test = "${bovino.cr == 'Puro de Origem' }">
 								
-								    <label class="radio-inline" for="radios-0"><input type="radio" name="registro" id="radios-0" value="1" checked="checked">Puro de Origem</label>
-									 <label class="radio-inline" for="radios-1"><input type="radio" name="registro" id="radios-1" value="2">Puro de Cruzamento</label>
+								    <label class="radio-inline" for="radios-3"><input type="radio" name="registro" id="radios-3" value="Puro de Origem" checked >Puro de Origem</label>
+								    
+									 <label class="radio-inline" for="radios-4"><input type="radio" name="registro" id="radios-4" value="Puro de Cruzamento">Puro de Cruzamento</label>
 								    </c:when>
 								    
 								    <c:otherwise>
@@ -60,12 +124,11 @@
 								    </c:choose>
 								    <c:choose>
 								    
-								    <c:when test = "${Bovino.CR == 'Puro de Cruzamento'}">
+								    <c:when test = "${bovino.cr == 'Puro de Cruzamento'}">
 								    
-								    <label class="radio-inline" for="radios-0"><input type="radio" name="registro" id="radios-0" value="1">Puro de Origem</label>
-								
-								
-								    <label class="radio-inline" for="radios-1"><input type="radio" name="registro" id="radios-1" value="2" checked="checked">Puro de Cruzamento</label>
+								      <label class="radio-inline" for="radios-3"><input type="radio" name="registro" id="radios-3" value="Puro de Origem" >Puro de Origem</label>
+								    
+									 <label class="radio-inline" for="radios-4"><input type="radio" name="registro" id="radios-4" value="Puro de Cruzamento" checked>Puro de Cruzamento</label>
 						
 								    </c:when>
 								    
@@ -78,104 +141,163 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="selectbasic">Variedade</label>
 						  <div class="col-md-3">
-						    <select id="selectbasic" name="Variety" class="form-control">
-							    <option value=""> Selecionar </option>
-							    <option value="1">Preto e Branco</option>
-							    <option value="2">Vermelho e Branco</option>
+						    <select id="selectbasic" name="variety" class="form-control">
+							    <option value="" selected> Selecionar </option>
+							    <option value="Preto e Branco">Preto e Branco</option>
+							    <option value="Vermelho e Branco">Vermelho e Branco</option>
 						    </select>
 						  </div>
 						</div>
 						
 
-						<!-- Text input-->
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Nome do Bovino</label>  
 						  <div class="col-md-4">
-						  	<input  name="textinput" type="text" placeholder="Ex: Joaquina 18987" class="form-control input-md">
-						  </div>
-						</div>
-
-						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Número do Registro</label>  
-						  <div class="col-md-4">
-						  	<input  name="textinput" type="number" placeholder="Ex: 18987-433" class="form-control input-md">
+						  	<input  name="name" value = " ${bovino.name}" type="text" class="form-control input-md">
 						  </div>
 						</div>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Número do Brinco</label>  
 						  <div class="col-md-4">
-						  	<input name="textinput" type="number" placeholder="Ex: 123" class="form-control input-md">
+						  	<input name="nb" type="text" value = "${bovino.nb}"  class="form-control input-md"> 
 						  </div>
 						</div>
 						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Número do Brinco CIDASC</label>  
 						  <div class="col-md-4">
-						  	<input name="NC" type="number" placeholder="Ex: 123" class="form-control input-md">
+						  	<input name="nc" type="text" value = "${bovino.nc}" class="form-control input-md">
 						  </div>
 						</div>
 						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Data de Nascimento</label>  
 						  <div class="col-md-4">
-						  	<input name="textinput" type="date" class="form-control input-md">
+						  	<input name="dateOfBirth" type="date" class="form-control input-md" required>
 						  </div>
 						  
 						</div>
 
+						<c:choose>
+								<c:when test ="${mamae == null}">
+								
+								
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Nome da Mãe</label>  
 						  <div class="col-md-4">
-						  	<input  name="textinput" type="text" placeholder="Ex: Estrela 8329" class="form-control input-md">
+						  	<input  name="mom" type="text" placeholder = "Mãe do Bovino não cadastrada" value = "" class="form-control input-md"> 
 						  </div>
 						</div>
 						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Número do Registro da Mãe</label>  
 						  <div class="col-md-4">
-						  	<input  name="NRM" type="number" placeholder="Ex: 18987-433" class="form-control input-md">
+						  	<input  name="nrm" type="text" placeholder = "Mãe do Bovino não cadastrada" value = "" class="form-control input-md">
 						  </div>
 						</div>
 						
-
+								</c:when>
+						</c:choose>
+						
+						<c:choose>
+								<c:when test ="${mamae != null}">
+								
+								<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Nome da Mãe</label>  
+						  <div class="col-md-4">
+						  	<input  name="mom" type="text" value = "${mamae.name}" class="form-control input-md"> 
+						  </div>
+						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Número do Registro da Mãe</label>  
+						  <div class="col-md-4">
+						  	<input  name="nrm" type="text" value = " ${mamae.nb}" class="form-control input-md">
+						  </div>
+						</div>
+								</c:when>
+						</c:choose>
+						
+						<c:choose>
+								<c:when test ="${dad == null}">
+								
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Nome do Pai</label>  
 						  <div class="col-md-4">
-						  	<input  name="textinput" type="text" placeholder="Ex: Freddy 4938" class="form-control input-md">
-						  </div>
+						  	<input  name="dad" type="text" placeholder = "Pai do Bovino não cadastrado" value = "" class="form-control input-md"> 						  </div>
 						</div>
 						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Número do Registro do Pai</label>  
 						  <div class="col-md-4">
-						  	<input  name="NRP" type="number" placeholder="Ex: 18987-433" class="form-control input-md">
+						  	<input  name="nrp" type="text" placeholder = "Mãe do Bovino não cadastrada" value = "" class="form-control input-md"> 
 						  </div>
+						</div>
+								</c:when>
+						</c:choose>
+						
+					<c:choose>
+								<c:when test ="${dad != null}">
+				
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Nome do Pai</label>  
+						  <div class="col-md-4">
+						  	<input  name="dad" type="text" value = "${dad.name}" class="form-control input-md"> 						  </div>
 						</div>
 						
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Criador</label>  
+						  <label class="col-md-4 control-label" for="textinput">Número do Registro do Pai</label>  
 						  <div class="col-md-4">
-						  	<input  name="textinput" type="text" placeholder="Ex: IFC" class="form-control input-md">
+						  	<input  name="nrp" type="text" value = "${dad.nrp}" class="form-control input-md"> 
 						  </div>
 						</div>
+						
+								</c:when>
+					</c:choose>
 
 
-						<!-- Multiple Radios (inline) -->
+						<c:choose>
+							<c:when test ="${bovino.status == 'Morto'}">
+							
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios">Status</label>
-						  <div class="col-md-4"> 
-							    <label class="radio-inline" for="radios-3"><input type="radio" name="status" id="radios-3" value="3" checked="checked">Vivo</label> 
+						 <div class="col-md-4"> 
+						  
+							    <label class="radio-inline" for="radios-5"><input type="radio" name="status" id="radios-5" value="Vivo" >Vivo</label> 
 
-							    <label class="radio-inline" for="radios-4"><input type="radio" name="status" id="radios-4" value="4">Morto</label> 
-
-						  </div>
+							    <label class="radio-inline" for="radios-6"><input type="radio" name="status" id="radios-6" value="Morto" checked >Morto</label>
 						</div>
+					</div>
+					
+							</c:when>
+							<c:otherwise>
+							
+							</c:otherwise>
+							</c:choose>
+						
+						<c:choose>
+							<c:when test ="${bovino.status == 'Vivo'}">
+							
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="radios">Status</label>
+						 <div class="col-md-4"> 
+						  
+							    <label class="radio-inline" for="radios-5"><input type="radio" name="status" id="radios-5" value="Vivo" checked >Vivo</label> 
 
-						<!-- Button -->
+							    <label class="radio-inline" for="radios-6"><input type="radio" name="status" id="radios-6" value="Morto">Morto</label>
+						</div>
+					</div>
+								    
+							</c:when>
+							<c:otherwise>
+							
+							</c:otherwise>
+							</c:choose>
+
 						<div class="form-group">
 						  <div class="col-md-offset-4 col-md-4">
-						    <button type="submit" name="singlebutton" class="btn btn-primary" id="editar">Editar</button>
+						    <button type="submit"  class="btn btn-primary" id="editar">Editar</button>
 						  </div>
 						</div>
 

@@ -13,64 +13,108 @@ import br.com.caelum.vraptor.boilerplate.HibernateBusiness;
 import br.com.caelum.vraptor.boilerplate.util.GeneralUtils;
 import br.edu.ifc.concordia.inf.zoo.UserSession;
 import br.edu.ifc.concordia.inf.zoo.model.Bovino;
+import br.edu.ifc.concordia.inf.zoo.model.User;
 
 @RequestScoped
 public class BovinosBS extends HibernateBusiness {
 	
 	@Inject UserSession userSession;
 	
+	public Bovino Buscarp(String filter) {
+		Criteria criteria = dao.newCriteria(Bovino.class);
+		if (!GeneralUtils.isEmpty(filter)) {
+			criteria.add(Restrictions.ilike("nrm", filter, MatchMode.ANYWHERE));
+		}
+		List <Bovino> lista = this.dao.findByCriteria(criteria, Bovino.class);
+		if(lista.size() > 0){
+			return lista.get(0);
+		}else {
+			return null;
+		}
+	}
+	
 	public List<Bovino> Buscar(String filter){
 		Criteria criteria = dao.newCriteria(Bovino.class);
 		if (!GeneralUtils.isEmpty(filter)) {
-			criteria.add(Restrictions.ilike("Name", filter, MatchMode.ANYWHERE));
+			criteria.add(Restrictions.disjunction()
+			.add(Restrictions.ilike("name", filter, MatchMode.ANYWHERE))
+			.add(Restrictions.ilike("nb", filter, MatchMode.ANYWHERE)));
 		}
 			return this.dao.findByCriteria(criteria, Bovino.class);
 	}
 
-	public void Registrar(String Raca, int NC, int NRM, int NRP, String CR, int status, String Name, int NR, int NB, String Mom, String Dad, String DateofBirth, String Variety){	
+	public void Registrar(String Sexo, String Raca, String NC, String NRM, String NRP, String CR, String Status, String Name, String NB, String Mom, String Dad, String DateOfBirth, String Variety){	
 		
 		Criteria criteria1 = dao.newCriteria(Bovino.class);
-		criteria1.add(Restrictions.eq("Name", Name));
+		criteria1.add(Restrictions.eq("name", Name));
 		Bovino BovinoTest = (Bovino) criteria1.uniqueResult();
 		
 		Criteria criteria2 = dao.newCriteria(Bovino.class);
-		criteria2.add(Restrictions.eq("NB", NB));
+		criteria2.add(Restrictions.eq("nb", NB));
 		Bovino BovinoTest2 = (Bovino) criteria1.uniqueResult();
 		
-		Criteria criteria3 = dao.newCriteria(Bovino.class);
-		criteria3.add(Restrictions.eq("NR", NR));
-		Bovino BovinoTest3 = (Bovino) criteria1.uniqueResult();
-		
 		Criteria criteria4 = dao.newCriteria(Bovino.class);
-		criteria1.add(Restrictions.eq("NC", NC));
+		criteria4.add(Restrictions.eq("nc", NC));
 		Bovino BovinoTest4 = (Bovino) criteria1.uniqueResult();
 		
 		if(BovinoTest != null) {
 			String oi = "Nome já existe";
 		} else if(BovinoTest2 != null) {
 			String oi = "Brinco já existe";
-		} else if(BovinoTest3 != null) {
-			String oi = "Registro já existe";
 		} else if(BovinoTest4 != null) {
 			String oi = "Registro do Brinco da CIDASC já exite";
 		}else {
 			
 			Bovino Bovino = new Bovino();
-			Bovino.setNRM(NRM);
-			Bovino.setNRP(NRP);
+			Bovino.setNrm(NRM);
+			Bovino.setNrp(NRP);
 			Bovino.setRaca(Raca);
-			Bovino.setNC(NC);
-			Bovino.setCR(CR);
+			Bovino.setNc(NC);
+			Bovino.setCr(CR);
 			Bovino.setDad(Dad);
-			Bovino.setDateofBirth(DateofBirth);
+			Bovino.setDateOfBirth(DateOfBirth);
 			Bovino.setMom(Mom);
 			Bovino.setName(Name);
-			Bovino.setNB(NB);
-			Bovino.setNR(NR);
-			Bovino.setStatus(status);
+			Bovino.setNb(NB);
+			Bovino.setStatus(Status);
 			Bovino.setCadastror(userSession.getUser().getNome());
+			Bovino.setSexo(Sexo);
+			Bovino.setVariety(Variety);
 			
 			dao.persist(Bovino);
 		}
+	}
+	public void editar(Long id, 
+			String Sexo,
+			String Raca, 
+			String NC, 
+			String NRM,
+			String NRP,
+			String CR,
+			String Status,
+			String Name,
+			String NB,
+			String Mom, 
+			String Dad,
+			String DateOfBirth,
+			String Variety) {
+		
+		Bovino bu = this.exists(id, Bovino.class);
+		
+		bu.setSexo(Sexo);
+		bu.setRaca(Raca);
+		bu.setNc(NC);
+		bu.setNrm(NRM);
+		bu.setNrp(NRP);
+		bu.setCr(CR);
+		bu.setStatus(Status);
+		bu.setName(Name);
+		bu.setNb(NB);
+		bu.setMom(Mom);
+		bu.setDad(Dad);
+		bu.setDateOfBirth(DateOfBirth);
+		bu.setVariety(Variety);
+		
+		dao.update(bu);
 	}
 }

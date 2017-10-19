@@ -62,13 +62,18 @@
 						<c:choose>
 						<c:when test="${userSession.pagina == 'vaquinhas' }">
 						<ul class="nav navbar-nav">
-							<li><a href="<c:url value="/Vaquinhas"/>"> <span style="color:#FFFFFF;"><span
-									class="glyphicon glyphicon-search"></span> Search </span></a>
+							<li><a href="<c:url value="/bovinos/vaquinhas"/>"> <span style="color:#FFFFFF;"><span
+									class="glyphicon glyphicon-search"></span> Buscar </span></a>
 							</li>
-							<li><a href="<c:url value="/Cadastro"/>"> <span style="color:#FFFFFF;"><span
-									class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
+							<li><a href="<c:url value="/bovinos/cadastro"/>"> <span style="color:#FFFFFF;"><span
+									class="glyphicon glyphicon-plus"></span> Cadastrar </span>
 							</a></li>
+							<li><a href="<c:url value="/bovinos/listar"/>"> <span style="color:#FFFFFF;"><span
+									class="glyphicon glyphicon-th-list"></span> Listar </span></a>
+							</li>
+							
 						</ul>
+						
 						</c:when>
 						<c:when test ="${userSession.pagina == 'racao'}">
 						<ul class="nav navbar-nav">

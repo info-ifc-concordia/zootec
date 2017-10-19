@@ -4,27 +4,28 @@
 <c:import url="/includes/header.jsp"/>
 
 <main class="container">
+<c:if test="${not empty errorMsg}">
+			<div class="alert alert-danger" role="alert">${errorMsg}</div>
+	</c:if>
 			<div class="row center">
 				<div class="col-md-12">
-					<h1>Nome do bovino</h1>
+							<h1> ${bovino.name}</h1>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<p>Categoria de Registro:</p>
-					<p>Raça:</p>
-					<p>Variedade:</p>
-					<p>Nascimento:</p>
-					<p>Sexo:</p>
-					<p>Número do registro:</p>
-					<p>Número do brinco:</p>
-					<p>Número do brinco da CIDASC:</p>
-					<p>Mãe:</p>
-					<p>Número do registro da mãe:</p>
-					<p>Pai:</p>
-					<p>Número do registro do pai:</p>
-					<p>Status:</p>
-					<p>Servidor que efetuou o cadastro:</p>
+					<p>Categoria de Registro: ${bovino.cr}</p>
+					<p>Raça: ${bovino.raca}</p>
+					<p>Variedade: ${bovino.variety} </p>
+					<p>Nascimento: ${bovino.dateOfBirth}</p>
+					<p>Sexo: ${bovino.sexo}</p>
+					<p>Número do brinco: ${bovino.nb}</p>
+					<p>Número do brinco da CIDASC: ${bovino.nc} </p>
+					<p>Mãe: ${bovino.mom}</p>
+					<p>Número do registro da mãe: ${mamae.nb}</p>
+					<p>Pai: ${bovino.dad}</p>
+					<p>Número do registro do pai: ${papai.nb}</p>
+					<p>Status: ${bovino.status}</p>
 				</div>
 				<div class="col-md-6">
 					<img src="" alt="Imagem não disponível" class="img-rounded" id ="img" align="right">

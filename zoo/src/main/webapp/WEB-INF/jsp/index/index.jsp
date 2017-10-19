@@ -10,7 +10,7 @@
   						<p id="sub">Escolha o módulo que deseja acessar:</p>
   						<div class="panel panel-success">
   							<div class="panel-heading">Setor dos bovinos</div>
-  							<div class="panel-body"><button type="button" class="btn btn-link"><a href="<c:url value = "/Vaquinhas"/>">Acessar módulo</a></button></div>
+  							<div class="panel-body"><button type="button" class="btn btn-link"><a href="<c:url value = "/bovinos/vaquinhas"/>">Acessar módulo</a></button></div>
   						</div>
   						<div class="panel panel-success">
   							<div class="panel-heading">Setor dos suínos</div>

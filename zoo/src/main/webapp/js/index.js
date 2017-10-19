@@ -100,4 +100,16 @@ $('document').ready(function() {
 	});
 });
 
-s
+$('document').ready(function() {
+	$('#radios-2').change(function() {
+	    $('#Rinput').attr('disabled', !this.checked);
+	});
+	$('#radios-1').change(function() {
+		$('#Rinput').attr('disabled', this.checked);
+		document.getElementById('#Rinput').value = '';
+	});
+	$('#radios-0').change(function() {
+		$('#Rinput').attr('disabled', this.checked);
+		document.getElementById('#Rinput').value = '';
+	});
+});

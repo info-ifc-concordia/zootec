@@ -18,139 +18,121 @@ public class Bovino implements Serializable  {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+
+	private String sexo;
 	@Column(unique = true)
-	private int NC;
-	private String Raca;
-	private String CR;
-	private String Variety;
-	public int getNC() {
-		return NC;
-	}
-
-	public void setNC(int nC) {
-		NC = nC;
-	}
-
-	public String getRaca() {
-		return Raca;
-	}
-
-	public void setRaca(String raca) {
-		Raca = raca;
-	}
-
-	public int getNRM() {
-		return NRM;
-	}
-
-	public void setNRM(int nRM) {
-		NRM = nRM;
-	}
-
-	public int getNRP() {
-		return NRP;
-	}
-
-	public void setNRP(int nRP) {
-		NRP = nRP;
-	}
-
+	private String nc;
+	private String raca;
+	private String cr;
+	private String variety;
 	@Column(unique=true)
-	private String Name;
+	private String name;
 	@Column(unique=true)
-	private int NR;
-	@Column(unique=true)
-	private int NB;
-	private String DateofBirth;
-	private String Mom;
-	private int NRM;
-	private String Dad;
-	private int NRP;
-	private int Status;
-	private String Cadastror;
+	private String nb;
+	private String dateOfBirth;
+	private String mom;
+	private String nrm;
+	private String dad;
+	private String nrp;
+	private String status;
+	private String cadastror;
+	
 	public Long getId() {
 		return id;
 	}
-
-	public String getCadastror() {
-		return Cadastror;
+	public void setId(Long id) {
+		this.id = id;
 	}
-
-	public void setCadastror(String cadastror) {
-		Cadastror = cadastror;
+	public String getSexo() {
+		return sexo;
 	}
-
-	public String getCR() {
-		return CR;
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
-
-	public void setCR(String cR) {
-		CR = cR;
+	public String getNc() {
+		return nc;
 	}
-
+	public void setNc(String nc) {
+		this.nc = nc;
+	}
+	public String getRaca() {
+		return raca;
+	}
+	public void setRaca(String raca) {
+		this.raca = raca;
+	}
+	public String getCr() {
+		return cr;
+	}
+	public void setCr(String cr) {
+		this.cr = cr;
+	}
 	public String getVariety() {
-		return Variety;
+		return variety;
 	}
-
 	public void setVariety(String variety) {
-		Variety = variety;
+		this.variety = variety;
 	}
-
 	public String getName() {
-		return Name;
+		return name;
 	}
-
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
-
-	public int getNR() {
-		return NR;
+	public String getNb() {
+		return nb;
 	}
-
-	public void setNR(int nR) {
-		NR = nR;
+	public void setNb(String nb) {
+		this.nb = nb;
 	}
-
-	public int getNB() {
-		return NB;
+	public String getDateOfBirth() {
+		return dateOfBirth;
 	}
-
-	public void setNB(int nB) {
-		NB = nB;
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
-
-	public String getDateofBirth() {
-		return DateofBirth;
-	}
-
-	public void setDateofBirth(String dateofBirth) {
-		DateofBirth = dateofBirth;
-	}
-
 	public String getMom() {
-		return Mom;
+		return mom;
 	}
-
 	public void setMom(String mom) {
-		Mom = mom;
+		this.mom = mom;
 	}
-
+	public String getNrm() {
+		return nrm;
+	}
+	public void setNrm(String nrm) {
+		this.nrm = nrm;
+	}
 	public String getDad() {
-		return Dad;
+		return dad;
 	}
-
 	public void setDad(String dad) {
-		Dad = dad;
+		this.dad = dad;
 	}
-
-	public int getStatus() {
-		return Status;
+	public String getNrp() {
+		return nrp;
 	}
-
-	public void setStatus(int status) {
-		Status = status;
+	public void setNrp(String nrp) {
+		this.nrp = nrp;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getCadastror() {
+		return cadastror;
+	}
+	public void setCadastror(String cadastror) {
+		this.cadastror = cadastror;
 	}
 	
+	
+
+	
+	
 }
+	
+	
+	
