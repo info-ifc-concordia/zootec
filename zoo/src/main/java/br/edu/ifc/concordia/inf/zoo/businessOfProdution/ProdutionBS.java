@@ -94,6 +94,47 @@ public class ProdutionBS extends HibernateBusiness{
 		}
 	}
 	
+	public void doEditType(SessionFactoryProducer factoryProducer, String name_ration, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
+			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12)
+	{
+		
+		Criteria criteria = this.dao.newCriteria(Receitas.class);
+		criteria.add(Restrictions.eq("name", name_ration));
+		Receitas rec = (Receitas) criteria.uniqueResult();
+		rec.setInsumo1(insumo1);
+		rec.setInsumo2(insumo2);
+		rec.setInsumo3(insumo3);
+
+		
+		if (insumo4.length() > 1) rec.setInsumo4(insumo4);
+		else rec.setInsumo4("None");
+		
+		if (insumo5.length() > 1) rec.setInsumo5(insumo5);
+		else rec.setInsumo5("None");
+		
+		if (insumo6.length() > 1) rec.setInsumo6(insumo6);
+		else rec.setInsumo6("None");
+		
+		if (insumo7.length() > 1) rec.setInsumo7(insumo7);
+		else rec.setInsumo7("None");
+		
+		if (insumo8.length() > 1) rec.setInsumo8(insumo8);
+		else rec.setInsumo8("None");
+		
+		if (insumo9.length() > 1) rec.setInsumo9(insumo9);
+		else rec.setInsumo9("None");
+		
+		if (insumo10.length() > 1) rec.setInsumo10(insumo10);
+		else rec.setInsumo10("None");
+		
+		if (insumo11.length() > 1) rec.setInsumo11(insumo11);
+		else rec.setInsumo11("None");
+		
+		if (insumo12.length() > 1) rec.setInsumo12(insumo12);
+		else rec.setInsumo12("None");
+		dao.update(rec);
+		
+	}
 	
 	public void doRegisterNewProdution(SessionFactoryProducer factoryProducer, String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
 			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final)

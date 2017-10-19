@@ -12,7 +12,7 @@
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="sel1">Destinado:</label> <select class="form-control"
-					id="for_animal" name="for_animal" required>
+					id="for_animal" name="for_animal" onchange="getNameRations();" required>
 					<option>Bovina</option>
 					<option>Ovina</option>
 					<option>Suína</option>
@@ -21,7 +21,7 @@
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text">Nome da ração:</label> <input type="text"
-					class="form-control" name="def_name_ration" id="def_name_ration" required>
+					class="form-control" name="def_name_ration" id="def_name_ration" onchage="putInsumosForRation();" required>
 			</div>
 
 			<!-- POR PADRÃO, INCIALMENTE DEFINIREMOS COMO POSSÍVEL ADICIONAR 11 TIPOS DE INSUMOS DIFERENTES -->

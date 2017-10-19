@@ -3,8 +3,7 @@
  Essa requisição busca os tipos de ração disponiveis no banco de determinada tipo de animal
  */
 var rationCurrent = "";
-$("#animal_type_ration").change(
-		function() {
+		function getNameRations() {
 			var user = document.getElementById("userLogged").innerHTML;
 			document.getElementById("name_user").value = user;
 			animal1 = $("#animal_type_ration").val();
@@ -41,7 +40,7 @@ $("#animal_type_ration").change(
 					console.error(response);
 				}
 			});
-		});
+		}
 
 
 /*
@@ -50,13 +49,12 @@ $("#animal_type_ration").change(
  * A variavel global 'rationCurrent' foi definida com o objeto das receitas (tudo o que está na tabela "Receitas"
  * e que apresenta o tipo do animal solicitado) 
  */
-$("#name_ration").change(function() {
-	$("#Insumosinformations").css({
-		"display" : "inline"
-	});
+function putInsumosForRation() {
+
 	name1 = $("#name_ration").val();
 	animal1 = $("#animal_type_ration").val();
 	if (name1 == "Selecione a ração") {
+		console.log("ESSA PORRA DEU BUG APAGOU!");
 		hideAll();
 	}
 	for (i in rationCurrent) {
@@ -99,7 +97,10 @@ $("#name_ration").change(function() {
 			}
 		}
 	}
-});
+	$("#Insumosinformations").css({
+		"display" : "inline"
+	});
+}
 
 //Essa requisição AJAX é utilizada para buscar TODAS as produções cadastradas no banco
 var productions = "";
@@ -524,8 +525,10 @@ function informations()
 			colocarDentro = '<div class="alert alert-warning" role="alert" class="alert"><strong>Atenção!</strong> Nenhuma produção encontrada! </div>';
 			$("#caix").html(colocarDentro);
 			$(".alert").alert();
+			
 		}
 		else{
+		
 		calcsWithInsumos(prodFind);
 		colocarDentro += "</tbody></table></div></div>";
 		$("#caix").html(colocarDentro);
@@ -555,7 +558,7 @@ function calcsWithInsumos(produt)
 	
 	for (i in insu[1])
 		{
-			
+
 			if(insu[1][i][insu[2][i]] >= maior)
 				{
 					maior = insu[1][i][insu[2][i]];
@@ -607,7 +610,7 @@ function getProdutionForInsumos(productions, insumoX)
 									var test = "insumo" + cont;
 									console.log(insumos[t][test]);
 									console.log(insumoX);
-									if (insumos[t][test] == insumoX)
+									if (insumos[t][test] == insumoX && productions[i][test] != 0)
 										{
 											console.log("INSUMO OK");
 											somaTotal += productions[i][test];
@@ -651,6 +654,47 @@ function listInsumos()
 	});
 }
 
+function putInsumosForEdition()
+{
+	var nameRation = $("#name_ration").val();
+	for (i in insumos)
+		{
+			if (insumos[i]["name"] == nameRation)
+				{
+					console.log("Entrou nessa porra!");
+					k = 1;
+					for (t in insumos[i])
+						{
+							
+							name = "insumo" + k;
+							if (insumos[i][name] == "None")
+								{
+									$("#" + name).val(" ");
+								}
+							else{
+							$("#" + name).val(insumos[i][name]);
+							}
+							k += 1;
+						}
+					break;
+				}
+		}
+}
+
+
+function noEmptyDataEditReceita(){
+	var name = "insumo";
+	for (var i = 1; i < 13; i++)
+		{
+			var k =  name + i;
+			if ($("#" + k).val() == "")
+				{
+					$("#" + k).val(" ");
+				}
+		}
+	$("#changeInsumos").submit();
+}
+
 $('document').ready(function() {
 	$('#btnlogin').click(function() {
 		$('#modallogin').modal();
@@ -671,5 +715,7 @@ $('document').ready(function() {
 		$('#modaleditar').modal();
 	});
 });
+
+
 
 hideAll();

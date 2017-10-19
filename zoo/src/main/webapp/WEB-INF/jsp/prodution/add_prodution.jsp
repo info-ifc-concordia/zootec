@@ -14,7 +14,7 @@
 				<div class="form-group col-md-6 col-xs-12">
 					<label for="sel1">Selecione o tipo de ração:</label> <select
 						class="form-control" id="animal_type_ration"
-						name="animal_type_ration">
+						name="animal_type_ration" onchange="getNameRations();">
 						<option>Selecione o tipo de ração</option>
 						<option>Bovina</option>
 						<option>Ovina</option>
@@ -29,7 +29,7 @@
 
 				<div class="form-group col-md-12 col-xs-12">
 					<label for="sel1">Nome da ração:</label> <select
-						class="form-control" id="name_ration" name="name_ration" disable>
+						class="form-control" id="name_ration" name="name_ration" onchange="putInsumosForRation();" disable>
 						<option>Selecione a ração</option>
 					</select>
 				</div>

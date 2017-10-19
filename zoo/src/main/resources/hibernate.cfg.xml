@@ -48,4 +48,4 @@
   		<mapping class="br.edu.ifc.concordia.inf.zoo.model.Bovino"/>
   		
 	</session-factory>
-</hibernate-configuration>
+</hibernate-configuration> 

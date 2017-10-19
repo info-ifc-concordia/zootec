@@ -33,6 +33,10 @@ public class ProdutionController extends AbstractController {
 	public void remove_prodution() {	
 	}
 	
+	@Get(value="/edit_type_ration")
+	public void edit_type_ration() {	
+	}
+	
 	@Get(value="/informationsProd")
 	public void informationsProd() {	
 	}
@@ -130,6 +134,17 @@ public class ProdutionController extends AbstractController {
 	public void disableProduction(Long id2)
 	{
 		this.bs.disableProduction(id2);
+		this.result.redirectTo(IndexController.class).index();
+	}
+	
+	@Post(value="/editTypeRation")
+	@NoCache
+	public void editTypeRation(String name_ration, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
+			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12){	
+		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
+		
+		this.bs.doEditType(factoryProducer, name_ration, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
+				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
 		this.result.redirectTo(IndexController.class).index();
 	}
 }
