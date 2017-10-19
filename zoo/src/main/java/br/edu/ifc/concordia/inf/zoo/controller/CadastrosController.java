@@ -7,7 +7,6 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.boilerplate.AbstractController;
 import br.com.caelum.vraptor.boilerplate.NoCache;
-import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
 import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.business.BovinosBS;
 

@@ -21,11 +21,11 @@ public class Bovino implements Serializable  {
 	
 	private String CR;
 	private String Variety;
-	@Column(unique=true)
+	/*@Column(unique=true)*/
 	private String Name;
-	@Column(unique=true)
+	/*@Column(unique=true)*/
 	private int NR;
-	@Column(unique=true)
+	/*@Column(unique=true)*/
 	private int NB;
 	private String DateofBirth;
 	private String Mom;
@@ -33,6 +33,7 @@ public class Bovino implements Serializable  {
 	private String Creator;
 	private int Status;
 	private String Cadastror;
+	
 	public Long getId() {
 		return id;
 	}

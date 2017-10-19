@@ -14,7 +14,7 @@
   						</div>
   						<div class="panel panel-success">
   							<div class="panel-heading">Setor dos suínos</div>
-  							<div class="panel-body"><button type="button" class="btn btn-link"><a href="">Acessar módulo</a></button></div>
+  							<div class="panel-body"><button type="button" class="btn btn-link"><a href="<c:url value = "/Suinos"/>">Acessar módulo</a></button></div>
   						</div>
 						<div class="panel panel-success">
   							<div class="panel-heading">Setor de controle e produção de ração</div>

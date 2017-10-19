@@ -205,8 +205,7 @@ function productionSpecific(id, type) {
 	colocarDentro += '</div><div class="panel-body"><table class="table table-hover"><thead><tr><th>Insumos</th><th>Quantidade</th></tr></thead><tbody><tr>';
 	var insumos;
 	animal1 = $("#animal_type_ration").val();
-	$
-			.ajax({
+	$.ajax({
 				method : "GET",
 				url : "/zoo/getInsumos",
 				data : {
@@ -324,5 +323,26 @@ $('document').ready(function() {
 		$('#modaleditar').modal();
 	});
 });
+
+/*
+$(".verify").click(function() {
+	mossa = $(this).attr("id");
+    getMatrizes(mossa);
+});*/
+
+$("#s_info").click(function(){
+	$("#s_divHist, #s_divCober, #s_divInfo").hide();
+	$("#s_divInfo").show();
+});
+$("#s_hist").click(function(){
+	$("#s_divInfo, #s_divCober, #s_divHist").hide();
+	$("#s_divHist").show();
+});
+$("#s_cober").click(function(){
+	$("#s_divHist, #s_divInfo, #s_divCober").hide();
+	$("#s_divCober").show();
+});
+
+
 
 hideAll();

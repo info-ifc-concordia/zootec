@@ -12,6 +12,7 @@
 	href="<c:url value="/bootstrap/css/bootstrap.min.css"/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value="/css/style.css"/>" />
+	<script src=<c:url value="/js/index.js"/> type="text/js"></script>
 </head>
 <body>
 	<div class="container">
@@ -36,6 +37,12 @@
 							</c:when>
 							<c:when test="${userSession.pagina == 'racao'}">
 								<b> Controle de Racão</b>
+								<br>
+								<span id="setor">Setor da zootecnia do Instituto Federal
+									Catarinense</span>
+							</c:when>
+							<c:when test="${userSession.pagina == 'suinos'}">
+								<b> Controle de Suínos</b>
 								<br>
 								<span id="setor">Setor da zootecnia do Instituto Federal
 									Catarinense</span>
@@ -91,6 +98,30 @@
 									</a></li>
 
 
+								</ul>
+							</c:when>
+							<c:when test="${userSession.pagina == 'suinos' }">
+								<ul class="nav navbar-nav">
+									<li><a href="<c:url value="/CadastroSuino"/>"> <span
+											style="color: #FFFFFF;"><span
+												class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
+									</a></li>
+									<li><a href="<c:url value="/registrocobertura"/>"> <span
+											style="color: #FFFFFF;"><span
+											class="glyphicon glyphicon-tasks"></span> Registrar cobertura </span>
+									</a></li>
+									<li><a href="<c:url value="/ListarMatrizes"/>"> <span
+											style="color: #FFFFFF;"><span
+											class="glyphicon glyphicon-tasks"></span> Listar Matrizes </span>
+									</a></li>
+									<li><a href="<c:url value="/ListarCoberturas"/>"> <span
+											style="color: #FFFFFF;"><span
+											class="glyphicon glyphicon-tasks"></span> Listar Cobertura </span>
+									</a></li>
+									<li><a href="<c:url value="/controlSuinos"/>"> <span
+											style="color: #FFFFFF;"><span
+											class="glyphicon glyphicon-tasks"></span> Controle </span>
+									</a></li>
 								</ul>
 							</c:when>
 						</c:choose>
