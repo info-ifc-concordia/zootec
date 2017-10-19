@@ -13,13 +13,10 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.boilerplate.HibernateBusiness;
-import br.com.caelum.vraptor.boilerplate.HibernateDAO;
-import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
-import br.com.caelum.vraptor.boilerplate.factory.SessionManager;
 import br.edu.ifc.concordia.inf.zoo.factory.ApplicationSetup.DefaultTrustManager;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.model.Receitas;
-import br.edu.ifc.concordia.inf.zoo.model.User;
+
 
 
 @RequestScoped
@@ -46,9 +43,15 @@ public class ProdutionBS extends HibernateBusiness{
 			Receitas prod = new Receitas();
 			prod.setName(name_ration);
 			prod.setType_animal(animal_type_ration);
-			prod.setInsumo1(insumo1);
-			prod.setInsumo2(insumo2);
-			prod.setInsumo3(insumo3);
+			
+			if (insumo1.length() > 1) prod.setInsumo1(insumo1);
+			else prod.setInsumo1("None");
+			
+			if (insumo2.length() > 1) prod.setInsumo2(insumo2);
+			else prod.setInsumo2("None");
+			
+			if (insumo3.length() > 1) prod.setInsumo3(insumo3);
+			else prod.setInsumo3("None");
 			
 			if (insumo4.length() > 1) prod.setInsumo4(insumo4);
 			else prod.setInsumo4("None");
@@ -86,21 +89,25 @@ public class ProdutionBS extends HibernateBusiness{
 				System.out.println("N�o consegui sobrescrever o SSLContext.");
 				ex.printStackTrace();
 			}
-			mngr.closeSession();
 		}
 	}
 	
-	public void doEditType(SessionFactoryProducer factoryProducer, String name_ration, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
+	public void doEditType(String name_ration, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
 			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12)
 	{
 		
 		Criteria criteria = this.dao.newCriteria(Receitas.class);
 		criteria.add(Restrictions.eq("name", name_ration));
 		Receitas rec = (Receitas) criteria.uniqueResult();
-		rec.setInsumo1(insumo1);
-		rec.setInsumo2(insumo2);
-		rec.setInsumo3(insumo3);
 
+		if (insumo1.length() > 1) rec.setInsumo1(insumo1);
+		else rec.setInsumo1("None");
+		
+		if (insumo2.length() > 1) rec.setInsumo2(insumo2);
+		else rec.setInsumo2("None");
+		
+		if (insumo3.length() > 1) rec.setInsumo3(insumo3);
+		else rec.setInsumo3("None");
 		
 		if (insumo4.length() > 1) rec.setInsumo4(insumo4);
 		else rec.setInsumo4("None");
@@ -132,12 +139,10 @@ public class ProdutionBS extends HibernateBusiness{
 		
 	}
 	
-	public void doRegisterNewProdution(SessionFactoryProducer factoryProducer, String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
+	public void doRegisterNewProdution(String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
 			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final)
 	{
-		SessionManager mngr = new SessionManager(factoryProducer.getInstance());
-		factoryProducer.initialize("hibernate.cfg.xml");
-		HibernateDAO dao = new HibernateDAO(mngr);
+		
 		
 			Produtions prod = new Produtions();
 			prod.setName_ration(name_ration);
@@ -168,7 +173,6 @@ public class ProdutionBS extends HibernateBusiness{
 				System.out.println("N�o consegui sobrescrever o SSLContext.");
 				ex.printStackTrace();
 			}
-			mngr.closeSession();
 	}
 	
 	

@@ -28,8 +28,8 @@
 		<div class="panel-heading">Setor de controle e produção de ração</div>
 
 		<div class="panel-body">
-			<a href="<c:url value = "/Racao"/>"><button type="button"
-					class="btn btn-link">Acessar módulo</button></a>
+			<button type="button"
+					class="btn btn-link"><a href="<c:url value = "/Racao"/>">Acessar módulo</a></button>
 		</div>
 
 	</div>

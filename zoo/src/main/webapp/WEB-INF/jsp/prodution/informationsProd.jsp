@@ -8,7 +8,7 @@
 <div class="alert alert-success" role="alert">FILTROS PARA CONSULTA</div>
 	<label for="sel1">Selecione o tipo de ração:</label> 
 	<select
-		class="form-control" id="animal_type_ration" name="animal_type_ration">
+		class="form-control" id="animal_type_ration" name="animal_type_ration" onchange="getNameRations();">
 		<option>Selecione o tipo de ração</option>
 		<option>Bovina</option>
 		<option>Ovina</option>

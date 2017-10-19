@@ -45,8 +45,7 @@ public class ProdutionController extends AbstractController {
 	@NoCache
 	public void registerNewTypeRation(String def_name_ration, String for_animal, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
 			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12){	
-		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
-		this.bs.doRegisterNewType(factoryProducer, def_name_ration, for_animal, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
+		this.bs.doRegisterNewType(def_name_ration, for_animal, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
 				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
 		this.result.redirectTo(IndexController.class).index();
 	}
@@ -57,11 +56,8 @@ public class ProdutionController extends AbstractController {
 			double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
 			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, 
 			double insumo11, double insumo12, double qtd_final, String name_user) {
-		
-		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
-		this.bs.doRegisterNewProdution(factoryProducer, dat, name_user, name_ration, animal_type_ration,  insumo1, insumo2,
-				insumo3, insumo4, insumo5, insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);
-		
+		this.bs.doRegisterNewProdution(dat, name_user, name_ration, animal_type_ration,  insumo1, insumo2,
+				insumo3, insumo4, insumo5, insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);	
 		this.result.redirectTo(IndexController.class).index();
 	}
 	
@@ -141,9 +137,8 @@ public class ProdutionController extends AbstractController {
 	@NoCache
 	public void editTypeRation(String name_ration, String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
 			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12){	
-		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
 		
-		this.bs.doEditType(factoryProducer, name_ration, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
+		this.bs.doEditType(name_ration, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
 				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
 		this.result.redirectTo(IndexController.class).index();
 	}

@@ -42,7 +42,7 @@
 				<div class="form-group col-md-6 col-xs-12">
 					<label for="text" id="name_insumo2"> Insumo 2</label> <input
 						type="text" class="form-control" id="insumo2" name="insumo2"
-						required >
+						required style="text-transform:uppercase">
 				</div>
 
 				<div class="form-group col-md-6 col-xs-12">
