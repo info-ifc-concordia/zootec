@@ -11,7 +11,7 @@ import br.com.caelum.vraptor.boilerplate.NoCache;
 import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
 import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
-import br.edu.ifc.concordia.inf.zoo.businessOfProdution.ProdutionBS;
+import br.edu.ifc.concordia.inf.zoo.business.production.ProdutionBS;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.model.Receitas;
 

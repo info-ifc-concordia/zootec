@@ -1,4 +1,4 @@
-package br.edu.ifc.concordia.inf.zoo.businessOfProdution;
+package br.edu.ifc.concordia.inf.zoo.business.production;
 
 import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
@@ -31,14 +31,10 @@ public class ProdutionBS extends HibernateBusiness{
 	}
 	
 	
-	public void doRegisterNewType(SessionFactoryProducer factoryProducer, String name_ration,String animal_type_ration,  String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
+	public void doRegisterNewType(String name_ration,String animal_type_ration,  String insumo1, String insumo2, String insumo3, String insumo4, String insumo5, 
 			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12)
 	{
-		SessionManager mngr = new SessionManager(factoryProducer.getInstance());
-		factoryProducer.initialize("hibernate.cfg.xml");
-		HibernateDAO dao = new HibernateDAO(mngr);
-		
-		Criteria criteria = dao.newCriteria(Receitas.class);
+		Criteria criteria = this.dao.newCriteria(Receitas.class);
 		criteria.add(Restrictions.eq("name", name_ration));
 		Receitas userTest = (Receitas) criteria.uniqueResult();
 		
