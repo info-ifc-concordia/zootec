@@ -324,11 +324,83 @@ $('document').ready(function() {
 	});
 });
 
-/*
-$(".verify").click(function() {
-	mossa = $(this).attr("id");
-    getMatrizes(mossa);
-});*/
+$("#")
+
+
+function getMatrizes(){
+	var matrizList;
+	$.ajax({
+		method : "GET",
+		url : "/zoo/RequestMatrizes",
+		success : function(response) {
+			console.log(response);
+			if (response.cod == "404") {
+				alert(response.message);
+			} else {
+				matrizList = response.data;
+				console.log(matrizList);
+				return matrizList;
+			}
+		},
+		failure : function(response) {
+			atualy = false;
+			error();
+			console.error(response);
+		}
+	});
+}
+
+
+$("#s_buscar_mossabtn").click(function(){
+	var matrizes;
+	var cert;
+	var mossa = $("#s_buscar_mossa").val(); 
+	$("#s_form_busca").hide();
+	console.log("mossa: "+mossa)
+	$.ajax({
+		method : "GET",
+		url : "/zoo/RequestMatrizes",
+		success : function(response) {
+			if (response.cod == "404") {
+				alert(response.message);
+			} else {
+				matrizes = response.data;
+				for (i in matrizes) {
+					if (matrizes[i].Mossa == mossa) {
+						cert = matrizes[i];
+						buildEditar(cert);
+					}
+				}
+								
+			}
+		},
+		failure : function(response) {
+			atualy = false;
+			error();
+			console.error(response);
+		}
+	});
+});
+
+function zerarEdicao(){
+	$("#s_form_editar, #s_editar_mossa").hide();
+}
+
+function buildEditar(mossa){
+	$("#s_editar_mossa").val(mossa.Mossa)
+	$("#s_editar_raca").val(mossa.Raca)
+	$("#s_editar_origem").val(mossa.Origem)
+	$("#s_editar_tipo").val(mossa.Tipo)
+	$("#s_editar_vigilancia").val(mossa.Vigilancia)
+	$("#s_form_editar").show();
+	
+}
+
+
+//Cliques e funções referentes à página específica de cada matriz
+function matrizEspecifico(){
+	$("#s_divHist, #s_divCober").hide();	
+}
 
 $("#s_info").click(function(){
 	$("#s_divHist, #s_divCober, #s_divInfo").hide();
@@ -341,6 +413,21 @@ $("#s_hist").click(function(){
 $("#s_cober").click(function(){
 	$("#s_divHist, #s_divInfo, #s_divCober").hide();
 	$("#s_divCober").show();
+});
+
+
+//Cliques e funções referentes a página listar coberturas
+function listarCoberturas(){
+	$("#s_show_CoberHist").hide();
+}
+
+$("#s_CoberCober").click(function(){
+	$("#s_show_CoberCober, #s_show_CoberHist").hide();
+	$("#s_show_CoberCober").show();
+});
+$("#s_CoberHist").click(function(){
+	$("#s_show_CoberCober, #s_show_CoberHist").hide();
+	$("#s_show_CoberHist").show();
 });
 
 

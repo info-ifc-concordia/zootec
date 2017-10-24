@@ -13,6 +13,7 @@ import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.businessOfSuinos.SuinosBS;
 import br.edu.ifc.concordia.inf.zoo.suinos.model.Cobertura;
 import br.edu.ifc.concordia.inf.zoo.suinos.model.Matriz;
+import br.edu.ifc.concordia.inf.zoo.suinos.model.Nascimento;
 
 @Controller
 public class SuinosController extends AbstractController {
@@ -22,6 +23,9 @@ public class SuinosController extends AbstractController {
 	@Get(value="/CadastroSuino")
 	public void cadastrosuinos(){
 	}
+	
+	@Get(value="/editarmatriz")
+	public void editarmatriz() {}
 	
 	@Get(value="/registronascimento")
 	public void registronascimento(){
@@ -47,6 +51,12 @@ public class SuinosController extends AbstractController {
 		this.success(matriz, (long) matriz.size());
 	}
 	
+	@Get(value="/ListarNascimentos")
+	public void listarnascimentos() {
+		List<Nascimento> nascimento = this.Bs.listNascimento();
+		this.result.include("nascimento", nascimento);
+	}
+	
 	@Get(value="ListarCoberturas")
 	public void listarcoberturas(){
 		List<Cobertura> matriz = this.Bs.listTypeCobertura(); 
@@ -68,7 +78,16 @@ public class SuinosController extends AbstractController {
 	public void matrizespecifico(String mossa){
 		this.listarcoberturas();
 		this.listarmatrizes();
+		this.listarnascimentos();
 		this.result.include("ola", mossa);
+	}
+	
+	@Get(value="/MatrizEspecificoBusca")
+	public void matrizespecificobusca(String Mossa) {
+		this.listarcoberturas();
+		this.listarmatrizes();
+		this.listarnascimentos();
+		this.result.include("ola", Mossa);
 	}
 	
 	@Get(value="/Registronascimento/{mossa}")
@@ -94,12 +113,18 @@ public class SuinosController extends AbstractController {
 	@NoCache
 	public void registrarCobertura(String Mossa, String Data, String Cachaco, String Tipo) {
 		this.Bs.registrarCobertura(Mossa, Data, Cachaco, Tipo);
-		this.result.redirectTo(this).confirmarcobertura();	
+		this.result.redirectTo(IndexController.class).index();
 	}
 	
 	@Post(value="ConfirmarRegistro")
 	@NoCache
 	public void confirmarRegistro(Cobertura cobertura) {
 		this.result.include("ultimo", cobertura);
+	}
+	
+	@Post(value="EditarMatriz")
+	public void editarMatriz(String Tipo, String Origem, String Vigilancia, String Raca, String Mossa) {
+		this.Bs.editarMatriz(Tipo, Origem, Vigilancia, Raca, Mossa);
+		this.result.redirectTo(IndexController.class).index();
 	}
 }

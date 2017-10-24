@@ -9,7 +9,7 @@
 					<form class="form-horizontal" role="form" method="POST" action ="<c:url value = "/Cadastrar"/>">
 					<fieldset>
 
-						<legend>Cadastro de Bovino</legend>
+						<legend>Cadastro de Bovinos</legend>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios">Categoria de Registro</label>

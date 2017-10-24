@@ -102,29 +102,49 @@
 							</c:when>
 							<c:when test="${userSession.pagina == 'suinos' }">
 								<ul class="nav navbar-nav">
-									<li><a href="<c:url value="/CadastroSuino"/>"> <span
-											style="color: #FFFFFF;"><span
-												class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
-									</a></li>
-									<li><a href="<c:url value="/registrocobertura"/>"> <span
-											style="color: #FFFFFF;"><span
-											class="glyphicon glyphicon-tasks"></span> Registrar cobertura </span>
-									</a></li>
-									<li><a href="<c:url value="/ListarMatrizes"/>"> <span
-											style="color: #FFFFFF;"><span
-											class="glyphicon glyphicon-tasks"></span> Listar Matrizes </span>
-									</a></li>
-									<li><a href="<c:url value="/ListarCoberturas"/>"> <span
-											style="color: #FFFFFF;"><span
-											class="glyphicon glyphicon-tasks"></span> Listar Cobertura </span>
-									</a></li>
-									<li><a href="<c:url value="/controlSuinos"/>"> <span
-											style="color: #FFFFFF;"><span
-											class="glyphicon glyphicon-tasks"></span> Controle </span>
-									</a></li>
+							
+							<!-- Dropdowm de controle matrizes -->		
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false"><span style="color: #FFFFFF;"><span
+								class="glyphicon glyphicon-piggy-bank"></span> 
+								<span id="Drop_Matrizes">Matrizes</span> <span class="caret"></span></a>
+											
+								<ul class="dropdown-menu">
+									<li><a href="<c:url value="/CadastroSuino"/>"><span class="glyphicon glyphicon-plus"></span>
+									 Cadastrar </a></li>
+											
+									<li><a href="<c:url value="/ListarMatrizes"/>"><span class="glyphicon glyphicon-th-list"></span> 
+									 Listar</a></li>
+									 
+									 <li><a href="<c:url value="/editarmatriz"/>"><span class="glyphicon glyphicon-edit"></span> 
+									 Editar</a></li>
+								</ul></li>
+							
+							<!-- Dropdown de controle coberturas-->
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false"><span style="color: #FFFFFF;"><span
+								class="glyphicon glyphicon-calendar"></span> 
+								<span id="Drop_Matrizes">Coberturas</span> <span class="caret"></span></a>
+											
+								<ul class="dropdown-menu">
+									<li><a href="<c:url value="/registrocobertura"/>"><span class="glyphicon glyphicon-plus"></span>
+									 Registrar </a></li>
+											
+									<li><a href="<c:url value="/ListarCoberturas"/>"><span class="glyphicon glyphicon-th-list"></span> 
+									 Listar</a></li>
+								</ul></li>								
+								
+								<!-- Botão de controle -->
+								<li><a href="<c:url value="/controlSuinos"/>"> <span
+										style="color: #FFFFFF;"><span
+										class="glyphicon glyphicon-tasks"></span> Controle </span>
+								</a></li>							
 								</ul>
 							</c:when>
 						</c:choose>
+						
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"

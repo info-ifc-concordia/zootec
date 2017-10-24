@@ -47,6 +47,13 @@
 			<tr>
 				<td>${m.mossa}</td>
 				<td>${m.raca}</td>
+				<td>.</td>
+				<td>.</td>
+				<td>.</td>
+				<td>.</td>
+				<td>${m.prox}</td>
+				<td>.</td>
+				<td>.</td>
 			</tr>			
 		</tbody>
 		</table>
@@ -57,11 +64,77 @@
 	</div>
 	
 	<div id="s_divHist">
+	
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>Cachaço</th>
+			<th>Data de Cobertura</th>
+			<th>Data de nascimento</th>
+			<th>Vivos</th>
+			<th>Natimortos</th>
+			<th>Natimortos</th>
+			<th>Mumificados</th>
+			<th>Total de nascimentos</th>
+
+				
+		</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${nascimento}" var="n">
+			<c:choose>
+				<c:when test="${n.mossa == ola}">
+				<tr>
+					<td>${n.cachaco}</td>
+					<td>${n.data_cobertura}</td>
+					<td>${n.data}</td>
+					<td>${n.vivos}</td>
+					<td>${n.natimortos}</td>
+					<td>${n.mumificados}</td>
+					<td>${n.total_mortos}</td>
+					<td>${n.total}</td>
+
+				</tr>
+				</c:when>
+			</c:choose>
+			</c:forEach>
+		</tbody>
+		</table>
 
 
 	</div>
 	
 	<div id="s_divCober">
+	
+	<h6>Cobertura ativa</h6>
+	
+	<table class="table table-striped">
+		<thead>
+		<tr>
+			<th>Cachaço</th>
+			<th>Data</th>
+			<th>Tipo</th>
+			<th>Status</th>					
+		</tr>
+		</thead>
+		<tbody>
+			<c:set var="available" value="available"/>
+			<c:forEach items="${cobertura}" var="c">
+			<c:choose>
+				<c:when test="${c.mossa == ola && c.status == available}">
+				<tr>
+					<td>${c.cachaco}</td>
+					<td>${c.data_cobertura}</td>
+					<td>${c.tipo}</td>
+					<td>${c.status}</td>
+				</tr>
+				</c:when>
+			</c:choose>
+			</c:forEach>
+		</tbody>
+		</table>
+	
+	<h6>Histótico de cobeturas</h6>
 	
 	<table class="table table-striped">
 		<thead>
@@ -75,7 +148,7 @@
 		<tbody>
 			<c:forEach items="${cobertura}" var="c">
 			<c:choose>
-				<c:when test="${c.mossa == ola}">
+				<c:when test="${c.mossa == ola && c.status != available}">
 				<tr>
 					<td>${c.cachaco}</td>
 					<td>${c.data_cobertura}</td>
@@ -91,5 +164,11 @@
 	</div>
 	
 </main>
+
+<script>
+window.onload = function(e) {
+	matrizEspecifico();
+};
+</script>
 
 <c:import url="/includes/footer.jsp"/>

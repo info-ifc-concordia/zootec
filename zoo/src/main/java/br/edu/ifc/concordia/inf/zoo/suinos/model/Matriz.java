@@ -23,8 +23,15 @@ public class Matriz implements Serializable{
 	private String Raca;
 	private String Origem;
 	private String Cadastrador;
+	private String Prox;
 	private String Status;
 	
+	public String getProx() {
+		return Prox;
+	}
+	public void setProx(String prox) {
+		Prox = prox;
+	}
 	public String getStatus() {
 		return Status;
 	}

@@ -21,6 +21,7 @@ public class Nascimento implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String mossa;
+	private String data_cobertura;
 	private String data;
 	private String cachaco;
 	
@@ -31,6 +32,13 @@ public class Nascimento implements Serializable {
 	private int total;
 	
 	private String status;
+	
+	public String getData_cobertura() {
+		return data_cobertura;
+	}
+	public void setData_cobertura(String data_cobertura) {
+		this.data_cobertura = data_cobertura;
+	}
 
 	public String getStatus() {
 		return status;

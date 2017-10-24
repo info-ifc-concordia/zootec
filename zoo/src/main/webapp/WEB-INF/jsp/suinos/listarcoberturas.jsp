@@ -5,7 +5,26 @@
 
 <main class = "container">
 <legend>Lista de Coberturas</legend>
+
+	<nav class="navbar navbar-default">
+  	<div class="container-fluid">
+
+    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      	<ul class="nav navbar-nav">
+        	<li><a href="#" id="s_CoberCober">Coberturas ativas</a></li>
+        	<li><a href="#" id="s_CoberHist">Histórico de coberturas</a></li>
+      	</ul>
+    	</div>
+ 	 </div>  
+	</nav>	
+	
+
 	<c:choose><c:when test="${not empty cobertura}">
+	
+	<div id="s_show_CoberCober">
+	
+	<h5>Coberturas ativas</h5>
+		
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -13,25 +32,67 @@
 					<th>Mossa</th>
 					<th>Cachaço</th>
 					<th>Data</th>
-					<th>Tipo</th>
-					<th>Teste</th>					
+					<th>Tipo</th>				
 				</tr>
 			</thead>
 			<tbody>
+				<c:set var="available" value="available"/>
 				<c:forEach items="${cobertura}" var="m">
+				<c:choose>
+					<c:when test="${m.status == available}">
 							<tr>
 								<td>${m.id}   </td>
 								<td>${m.mossa} </td>
 								<td>${m.cachaco}</td>
 								<td>${m.data_cobertura}</td>
 								<td>${m.tipo}</td>
-								<td><button id="${m.id}">Verificar</button></td>
 							</tr>
-						</c:forEach>
+					</c:when>
+				</c:choose>
+				</c:forEach>
+			</tbody>
+		</table>		
+	</div>
+	
+	<div id="s_show_CoberHist">
+	
+		<h5>Histórico de coberturas</h5>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Mossa</th>
+					<th>Cachaço</th>
+					<th>Data</th>
+					<th>Tipo</th>				
+				</tr>
+			</thead>
+			<tbody>
+				<c:set var="available" value="available"/>
+				<c:forEach items="${cobertura}" var="m">
+				<c:choose>
+					<c:when test="${m.status != available}">
+							<tr>
+								<td>${m.id}   </td>
+								<td>${m.mossa} </td>
+								<td>${m.cachaco}</td>
+								<td>${m.data_cobertura}</td>
+								<td>${m.tipo}</td>
+							</tr>
+					</c:when>
+				</c:choose>
+				</c:forEach>
 			</tbody>
 		</table>
-	</c:when><c:otherwise>
-	</c:otherwise></c:choose>
+	</div>	
+		</c:when></c:choose>	
 </main>
+
+<script>
+window.onload = function(e) {
+	listarCoberturas();
+};
+</script>
 
 <c:import url="/includes/footer.jsp"/>

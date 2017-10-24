@@ -25,6 +25,7 @@ public class SuinosBS extends HibernateBusiness {
 	@Inject SuinosController controller;
 	private Object result;
 	private String ca;
+	
 	public void registrarMatriz(String Mossa, String Vigilancia, String Raca, String Origem) {
 		
 		Criteria criteria1 = dao.newCriteria(Matriz.class);
@@ -47,43 +48,53 @@ public class SuinosBS extends HibernateBusiness {
 	}
 	
 	public void registrarCobertura(String Mossa, String Data, String Cachaco, String Tipo) {
+		Boolean tem = false;
+		List<Cobertura> cober = this.listTypeCobertura();
+		for (Cobertura co : cober) {
+			if (co.getMossa().equals(Mossa) && co.getStatus().equals("available")){
+				tem = true;
+			}
+		}
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date oi = null;
-		try {
-			oi = format.parse(Data);
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if (!tem) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date oi = null;
+			try {
+				oi = format.parse(Data);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}		
+			
+			Calendar c = Calendar.getInstance();
+			c.setTime(oi);
+			
+			String ano = Integer.toString(c.get(Calendar.YEAR));
+			String mes = Integer.toString(c.get(Calendar.MONTH)+1);
+			String dia = Integer.toString(c.get(Calendar.DAY_OF_MONTH));
+			
+			String bonitin = dia + "/" + mes + "/" + ano;
+			
+			
+			c.add(Calendar.DATE, 7);
+			
+			String ano2 = Integer.toString(c.get(Calendar.YEAR));
+			String mes2 = Integer.toString(c.get(Calendar.MONTH)+1);
+			String dia2 = Integer.toString(c.get(Calendar.DAY_OF_MONTH));
+			
+			String bonitin2 = dia2 + "/" + mes2 + "/" + ano2;
+			Cobertura Cobertura = new Cobertura();
+			Cobertura.setMossa(Mossa);
+			Cobertura.setData_cobertura(bonitin);	
+			Cobertura.setCachaco(Cachaco);
+			Cobertura.setTipo(Tipo);
+			Cobertura.setData_previsao(bonitin2);
+			Cobertura.setStatus("available");
+			
+			this.setProxNascimento(Mossa, bonitin2);
+			
+			dao.persist(Cobertura);
+			controller.confirmarRegistro(Cobertura);
 		}		
-		
-		Calendar c = Calendar.getInstance();
-		c.setTime(oi);
-		
-		String ano = Integer.toString(c.get(Calendar.YEAR));
-		String mes = Integer.toString(c.get(Calendar.MONTH)+1);
-		String dia = Integer.toString(c.get(Calendar.DAY_OF_MONTH));
-		
-		String bonitin = dia + "/" + mes + "/" + ano;
-		
-		
-		c.add(Calendar.DATE, 7);
-		
-		String ano2 = Integer.toString(c.get(Calendar.YEAR));
-		String mes2 = Integer.toString(c.get(Calendar.MONTH)+1);
-		String dia2 = Integer.toString(c.get(Calendar.DAY_OF_MONTH));
-		
-		String bonitin2 = dia2 + "/" + mes2 + "/" + ano2;
-		Cobertura Cobertura = new Cobertura();
-		Cobertura.setMossa(Mossa);
-		Cobertura.setData_cobertura(bonitin);	
-		Cobertura.setCachaco(Cachaco);
-		Cobertura.setTipo(Tipo);
-		Cobertura.setData_previsao(bonitin2);
-		Cobertura.setStatus("available");
-		
-		dao.persist(Cobertura);
-		controller.confirmarRegistro(Cobertura);
-		
 	}
 	
 	public void registrarNascimento(String Mossa, String Data, int Vivos, int Nati, int Mumi) {
@@ -105,9 +116,11 @@ public class SuinosBS extends HibernateBusiness {
 			List<Cobertura> cober = this.listTypeCobertura();
 			
 			String cachaco = null;
+			String data_cobertura = null;
 			for (Cobertura co : cober) {
 				if (co.getMossa().equals(Mossa) && co.getStatus().equals("available")) {
 					cachaco = co.getCachaco();
+					data_cobertura = co.getData_cobertura();
 					String ano = Integer.toString(c.get(Calendar.YEAR));
 					String mes = Integer.toString(c.get(Calendar.MONTH)+1);
 					String dia = Integer.toString(c.get(Calendar.DAY_OF_MONTH));
@@ -124,6 +137,7 @@ public class SuinosBS extends HibernateBusiness {
 					Nascimento.setCachaco(cachaco);
 					Nascimento.setStatus("available");
 					Nascimento.setData(bonitin);
+					Nascimento.setData_cobertura(data_cobertura);
 					
 					dao.persist(Nascimento);
 					this.disableCobertura(Mossa);
@@ -143,11 +157,46 @@ public class SuinosBS extends HibernateBusiness {
 		return this.dao.findByCriteria(criteria, Cobertura.class);
 	}
 	
+	public List<Nascimento> listNascimento(){
+		Criteria criteria = this.dao.newCriteria(Nascimento.class);
+		return this.dao.findByCriteria(criteria, Nascimento.class);
+	}
+	
 	public void disableCobertura(String mossa){
 		Criteria criteria = this.dao.newCriteria(Cobertura.class);
 		criteria.add(Restrictions.eq("mossa", mossa));
 		Cobertura cober = (Cobertura) criteria.uniqueResult();
-		cober.setStatus("disable");	
+		cober.setStatus("unavailable");	
 		dao.update(cober);
+	}
+	
+	public void setProxNascimento(String mossa, String prox) {
+		Criteria criteria = this.dao.newCriteria(Matriz.class);
+		criteria.add(Restrictions.eq("Mossa", mossa));
+		Matriz matriz = (Matriz) criteria.uniqueResult();
+		matriz.setProx(prox);
+		dao.update(matriz);
+	}
+	
+	public void editarMatriz(String Tipo, String Origem, String Vigilancia, String Raca, String Mossa) {
+		Criteria criteria = this.dao.newCriteria(Matriz.class);
+		criteria.add(Restrictions.eq("Mossa", Mossa));
+		Matriz matriz = (Matriz) criteria.uniqueResult();	
+		
+		List<Matriz> lista = this.listTypeMossa();
+		for (Matriz m : lista) {
+			if (m.getVigilancia().equals(Vigilancia)){
+				System.out.println("samerdajaexiste");
+				break;
+			}
+			else {
+				matriz.setOrigem(Origem);
+				matriz.setRaca(Raca);
+				matriz.setTipo(Tipo);
+				matriz.setVigilancia(Vigilancia);
+				
+				dao.update(matriz);
+			}
+		}		
 	}
 }
