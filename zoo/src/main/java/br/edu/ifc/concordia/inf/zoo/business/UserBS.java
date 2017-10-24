@@ -53,7 +53,7 @@ public class UserBS extends HibernateBusiness {
 		User userTest2 = (User) criteria.uniqueResult();
 
 		if (userTest != null) {
-			String i = "Username já cadastrado!";
+			throw new IllegalArgumentException("Este e-mail já está cadastrado.");
 		} else if (userTest2 != null) {
 			String i = "E-mail já cadastrado!";
 		} else {

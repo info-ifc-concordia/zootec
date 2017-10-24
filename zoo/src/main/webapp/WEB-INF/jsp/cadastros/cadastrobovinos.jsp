@@ -8,11 +8,11 @@
 	</c:if>
 			<div class="row">
 				<div class="col-xs-12 col-md-12" id="rowform">
-					<form enctype = "multipart/form-data" class="form-horizontal" role="form" method="POST" action ="<c:url value = "/bovinos/cadastrar"/>">
+					<form class="form-horizontal" role="form" method="POST" action ="<c:url value = "/bovinos/cadastrar"/>">
 					<fieldset>
 					
 						<legend>Cadastro de Bovino</legend>
-						
+					
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios"> Raça </label>
 						  <div class="col-md-4">
@@ -143,6 +143,7 @@
 						<div class="form-group">
 						  <div class="col-md-offset-4 col-md-4">
 						    <button type="submit" class="btn btn-primary"  id="cadastrar">Cadastrar</button>
+
 
 						  </div>
 						</div>

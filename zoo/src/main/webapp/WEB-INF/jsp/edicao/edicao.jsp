@@ -10,7 +10,6 @@
 						<legend>Edição de Informações de Bovino</legend>
 						
 						<div class="form-group">
-						  <label class="col-md-4 control-label">ID do Bovino (Informação do sistema)</label>  
 						  <div class="col-md-4">
 						  	<input  type = "hidden" name="id" value = "${bovino.id}" type="number" class="form-control input-md">
 						  </div>
@@ -300,8 +299,15 @@
 						    <button type="submit"  class="btn btn-primary" id="editar">Editar</button>
 						  </div>
 						</div>
-
 					</fieldset>
+					</form>
+					<form action = "<c:url value = '/bovinos/excluir'/>" method = "POST">
+					<div class="form-group">
+						  <div class="col-md-4">
+						  	<input  type = "hidden" name="id" value = "${bovino.id}" type="number" class="form-control input-md">
+						  </div>
+						</div>
+					<button class="btn btn-primary" type = "submit" id="excluir" > Excluir </button>
 					</form>
 				</div>
 			</div>

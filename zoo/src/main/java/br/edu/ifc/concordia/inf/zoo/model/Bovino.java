@@ -18,7 +18,9 @@ public class Bovino implements Serializable  {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-
+	
+	
+	private Boolean dis;
 	private String sexo;
 	@Column(unique = true)
 	private String nc;
@@ -127,11 +129,13 @@ public class Bovino implements Serializable  {
 	public void setCadastror(String cadastror) {
 		this.cadastror = cadastror;
 	}
-	
-	
 
-	
-	
+	public Boolean getDis() {
+		return dis;
+	}
+	public void setDis(boolean b) {
+		this.dis = b;
+	}
 }
 	
 	

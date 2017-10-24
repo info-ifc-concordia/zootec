@@ -2,6 +2,7 @@ package br.edu.ifc.concordia.inf.zoo.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import javax.inject.Inject;
 
@@ -31,8 +32,7 @@ public class CadastrosController extends AbstractController {
 	
 	@Post(value = "/bovinos/cadastrar")
 	@NoCache
-	public void register(
-			String sexo,
+	public void register(String sexo,
 			String nrp, 
 			String nrm, 
 			String nc, 
@@ -45,15 +45,24 @@ public class CadastrosController extends AbstractController {
 			String dad, 
 			String dateOfBirth, 
 			String variety,
-			String rCustom) 
+			String rCustom)
 	{
 		if (rCustom!= null) {
+			try {
 			Bs.Registrar(sexo, rCustom, nc, nrm, nrp, cr, status, name, nb, mom, dad, dateOfBirth, variety);
 			this.result.redirectTo(IndexController.class).indexbovinos("Animal cadastrado com sucesso!");
-			
+			} catch (Exception ex){
+				this.result.redirectTo(CadastrosController.class).cadastrobovinos(ex.getMessage());
+			}
 		}else {
+			try {
+			LOGGER.info("Entrou");
 			Bs.Registrar(sexo, raca, nc, nrm, nrp, cr, status, name, nb, mom, dad, dateOfBirth, variety);
+			LOGGER.infof("Entrou");
 			this.result.redirectTo(IndexController.class).indexbovinos("Animal cadastrado com sucesso!");
+			}catch(Exception ex) {
+				this.result.redirectTo(CadastrosController.class).cadastrobovinos(ex.getMessage());
+			}
 		}
 	}
 }
