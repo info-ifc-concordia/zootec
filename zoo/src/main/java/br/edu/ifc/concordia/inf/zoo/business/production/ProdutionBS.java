@@ -33,6 +33,7 @@ public class ProdutionBS extends HibernateBusiness{
 	{
 		Criteria criteria = this.dao.newCriteria(Receitas.class);
 		criteria.add(Restrictions.eq("name", name_ration));
+		criteria.add(Restrictions.eq("type_animal", animal_type_ration));
 		Receitas userTest = (Receitas) criteria.uniqueResult();
 		
 		if (userTest != null) {
@@ -141,9 +142,7 @@ public class ProdutionBS extends HibernateBusiness{
 	
 	public void doRegisterNewProdution(String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
 			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final)
-	{
-		
-		
+	{		
 			Produtions prod = new Produtions();
 			prod.setName_ration(name_ration);
 			prod.setType_animal(animal_type_ration);
@@ -188,6 +187,7 @@ public class ProdutionBS extends HibernateBusiness{
 		criteria.add(Restrictions.eq("type_animal", typeAnimal));
 		return this.dao.findByCriteria(criteria, Receitas.class);
 	}
+	
 	
 	public List<Produtions> ProdutionsList()
 	{

@@ -660,6 +660,44 @@ function noEmptyDataEditReceita(){
 	$("#changeInsumos").submit(); //Fazendo o submit via JS;
 }
 
+function verifyRegisterNewRation()
+{
+	var nome = $("#def_name_ration").val();
+	var forAnimal = $("#for_animal").val();
+	var i1 = $("#insumo1").val();
+	var i2 = $("#insumo2").val();
+	var i3 = $("#insumo3").val();
+	
+	
+	if (i1.length < 2 || i2.length < 2 || i3.length < 2)
+		{
+		
+		
+			$("#errorOfRegister").html('<center><h4 style="color:red">Os insumos não foram inseridos!<h4><center>');
+			$(".alert").alert();
+			return;
+		}
+	if(nome.length < 2)
+		{
+		$("#errorOfRegister").html('<center><h4 style="color:red">Nome da receita não preenchido!<h4><center>');
+		$(".alert").alert();
+			
+			return;
+		}
+	
+	for (i in insumos)
+		{
+			if (insumos[i]["name"] == nome && insumos[i]["type_animal"] == forAnimal)
+				{
+				$("#errorOfRegister").html('<center><h4 style="color:red"> Essa receita já foi cadastrada!<h4><center>');
+				$(".alert").alert();
+					return;
+				}
+		}
+	$("#registerNewType").submit();
+
+}
+
 $('document').ready(function() {
 	$('#btnlogin').click(function() {
 		$('#modallogin').modal();

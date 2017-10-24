@@ -4,7 +4,7 @@
 <c:import url="/includes/header.jsp" />
 <main class="container"> 
 
-<form method="POST" action="<c:url value="/registerNewTypeRation" />">
+<form method="POST" action="<c:url value="/registerNewTypeRation" />" id="registerNewType">
 	<div class="col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1"
 		id="conteudo">
 		<div id="caixa">
@@ -89,15 +89,26 @@
 				<label for="text"> Insumo 12</label> <input type="text"
 					class="form-control" id="insumo12" name="insumo12" value=" " style="text-transform:uppercase">
 			</div>
+</div>
 
 
 
-			<button type="submit"
+<div id="errorOfRegister"></div>
+			<button type="button" id="registerNewType" onclick="verifyRegisterNewRation();"
 				class="btn salvar col-md-12 col-xs-12 col-md-offset-12">Adicionar
 				novo tipo</button>
-		</div>
+		
 	</div>
+	
+	
 </form>
+
 <br>
 </main>
 <c:import url="/includes/footer.jsp" />
+
+<script>
+	window.onload = function(e) {
+		listInsumos();
+	};
+</script>
