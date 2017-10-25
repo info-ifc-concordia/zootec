@@ -227,7 +227,7 @@ function typeProductionSelected(nameRation, type) {
 //Ele percorre a variavel global 'productions', e quando encontrar alguma produção com aquele nome, ele adicina uma linha na tabela
 	for (i in productions) {
 		if (productions[i].name_ration == nameRation) {
-			colocarDentro += '<tr onclick="productionSpecific('
+			colocarDentro += '<tr class="prodFound" onclick="productionSpecific('
 					+ productions[i].id + ',' + "'" + type + "'" + ');">' //Informa o tipo do animal
 					+ "<td>" + productions[i].name_ration + "</td>" + "<td>" //O nome da ração
 					+ productions[i].qtd_final + "</td>" + "<td>" // A quantidade final produzida
@@ -492,7 +492,7 @@ function informations()
 		var colocarDentro = '<div class="panel panel-success"><div class="panel-heading">Produções Encontradas'
 				+ '</div><div class="panel-body"><table class="table table-hover"><thead><tr><th><b>Nome da Produção</b></th><th><b>Quantidade Produzida</b></th><th><b>Data do Cadastro</b></th><th><b>Responsável</b></th></tr></thead><tbody>';
 		for (i in prodFind) {//Percorre todas as produções entradas
-				colocarDentro += '<tr onclick="productionSpecific('
+				colocarDentro += '<tr class = "prodFound" onclick="productionSpecific('
 						+ prodFind[i].id + ", 'normal'" + ');">' //Informa o tipo do animal
 						+ "<td>" + prodFind[i].name_ration + "</td>" + "<td>" //O nome da ração
 						+ prodFind[i].qtd_final + "</td>" + "<td>" // A quantidade final produzida
@@ -552,13 +552,13 @@ function calcsWithInsumos(produt)
 		
 		}
 	media = media / insu[1].length; //Calculando a média!
-	//Inserindo os dados dentro do de uma variavel que posteriormente irá para o HTML!
+	//Inserindo os dados dentro de uma variavel que posteriormente irá para o HTML!
 	colocarDentro += "<tr><td>Maior uso foi: </td> <td>" + maior + " Kg feita em " + idMaior["date"] + " na ração: " + idMaior["name_ration"] + "</td></tr>";
 	colocarDentro += "<tr><td>Menor uso foi: </td> <td>" + menor + " Kg feita em " + idMenor["date"] +  idMenor["name_ration"] + "</td></tr>";
 	colocarDentro += "<tr><td>Gasto total do insumo: </td> <td>" + somaTotal + " Kg</td></tr>";
 	colocarDentro += "<tr><td>A Média de uso atual é: </td> <td>" + media + " Kg</td></tr> </tbody></table>";
 	$("#infoInsumos").html(colocarDentro);//Colocando os dados no HTML;
-	if(maior == 0 && menor == 0 && somaTotal == 0)//Se caso as variaveis contiveram ainda os seus valores iniciais, (continuarem intactas), significa que nenhum insumo foi encontrado!
+	if(maior <= 0 && menor <= 0 || somaTotal <= 0)//Se caso as variaveis contiveram ainda os seus valores iniciais, (continuarem intactas), significa que nenhum insumo foi encontrado!
 		{
 			colocarDentro = '<div class="alert alert-warning" role="alert"><strong>Atenção!</strong> Nenhum insumo encontrado! </div>';
 			$("#infoInsumos").html(colocarDentro);
@@ -669,8 +669,6 @@ function verifyRegisterNewRation()
 	
 	if (i1.length < 2 || i2.length < 2 || i3.length < 2)
 		{
-		
-		
 			$("#errorOfRegister").html('<center><h4 style="color:red">Os insumos não foram inseridos!<h4><center>');
 			$(".alert").alert();
 			return;
@@ -716,5 +714,3 @@ $('document').ready(function() {
 		$('#modaleditar').modal();
 	});
 });
-
-hideAll();

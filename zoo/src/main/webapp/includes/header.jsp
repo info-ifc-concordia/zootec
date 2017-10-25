@@ -46,81 +46,87 @@
 			</div>
 		</div>
 	</div>
+
+
+
 	<nav class="navbar navbar-default" id="barra_menu">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a href="<c:url value = "/"/>" class="navbar-brand" class="nav-text">
-					<span style="color: #FFFFFF;"><span
-						class="glyphicon glyphicon-home"></span></span>
-				</a>
-			</div>
+		<div class="container">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="<c:url value = "/"/>" class="navbar-brand nav-text"> <span
+						style="color: #FFFFFF;"><span
+							class="glyphicon glyphicon-home"></span></span>
+					</a>
+				</div>
 
-			<div class="collapse navbar-collapse">
-				<div class="container">
+				<div class="collapse navbar-collapse">
+					<div class="container">
 
-				<c:choose>
-					<c:when test="${!userSession.isLogged()}">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a id="login1" href="<c:url value="/login"/>"><span
-									style="color: #FFFFFF;">Login</span></a></li>
-						</ul>
-					</c:when>
-					<c:otherwise>
 						<c:choose>
-							<c:when test="${userSession.pagina == 'vaquinhas' }">
-								<ul class="nav navbar-nav">
-									<li><a href="<c:url value="/Cadastro"/>"> <span
-											style="color: #FFFFFF;"><span
-												class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
-									</a></li>
-									<li><a href="<c:url value="/Editar"/>"> <span
-											style="color: #FFFFFF;"><span
-												class="glyphicon glyphicon-pencil"></span> Editar </span>
-									</a></li>
+							<c:when test="${!userSession.isLogged()}">
+								<ul class="nav navbar-nav navbar-right">
+									<li><a id="login1" href="<c:url value="/login"/>"><span
+											style="color: #FFFFFF;">Login</span></a></li>
 								</ul>
 							</c:when>
-							<c:when test="${userSession.pagina == 'racao'}">
-								<ul class="nav navbar-nav">
-									<li><a href="<c:url value="/Racao"/>"> <span
-											style="color: #FFFFFF;"><span
-												class="glyphicon glyphicon-book"></span> Produções </span>
-									</a></li>
+							<c:otherwise>
+								<c:choose>
+									<c:when test="${userSession.pagina == 'vaquinhas' }">
+										<ul class="nav navbar-nav">
+											<li><a href="<c:url value="/Cadastro"/>"> <span
+													style="color: #FFFFFF;"><span
+														class="glyphicon glyphicon-tasks"></span> Cadastrar </span>
+											</a></li>
+											<li><a href="<c:url value="/Editar"/>"> <span
+													style="color: #FFFFFF;"><span
+														class="glyphicon glyphicon-pencil"></span> Editar </span>
+											</a></li>
+										</ul>
+									</c:when>
+									<c:when test="${userSession.pagina == 'racao'}">
+										<ul class="nav navbar-nav">
+											<li><a href="<c:url value="/Racao"/>"> <span
+													style="color: #FFFFFF;"><span
+														class="glyphicon glyphicon-book"></span> Produções </span>
+											</a></li>
 
-									<li><a href="<c:url value="/control"/>"> <span
-											style="color: #FFFFFF;"><span
-												class="glyphicon glyphicon-tasks"></span> Controle </span>
-									</a></li>
+											<li><a href="<c:url value="/control"/>"> <span
+													style="color: #FFFFFF;"><span
+														class="glyphicon glyphicon-tasks"></span> Controle </span>
+											</a></li>
 
-									<li><a href="<c:url value="informationsProd"/>"> <span
-											style="color: #FFFFFF;"><span
-												class="glyphicon glyphicon-file"></span> Relátorios </span>
-									</a></li> 
+											<li><a href="<c:url value="informationsProd"/>"> <span
+													style="color: #FFFFFF;"><span
+														class="glyphicon glyphicon-file"></span> Relátorios </span>
+											</a></li>
 
 
+										</ul>
+									</c:when>
+								</c:choose>
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown"><a href="#" class="dropdown-toggle"
+										data-toggle="dropdown" role="button" aria-haspopup="true"
+										aria-expanded="false"><span style="color: #FFFFFF;"><span
+												class="glyphicon glyphicon-user"></span> <span
+												id="userLogged"> ${userSession.user.nome}</span> <span
+												class="caret"></span></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="<c:url value="/perfilUser"/>"><span
+													class="glyphicon glyphicon-user"></span> Perfil</a></li>
+											<li><a href="<c:url value="/UserList"/>"><span
+													class="glyphicon glyphicon-th-list"> Usuários</span></a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="<c:url value="/exitUser"/>"> <span
+													class="glyphicon glyphicon-remove"></span> Sair
+											</a></li>
+										</ul></li>
 								</ul>
-							</c:when>
+
+
+							</c:otherwise>
 						</c:choose>
-						<ul class="nav navbar-nav navbar-right">
-							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false"><span style="color: #FFFFFF;"><span
-										class="glyphicon glyphicon-user"></span> <span id="userLogged">
-											${userSession.user.nome}</span> <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="<c:url value="/perfilUser"/>"><span
-											class="glyphicon glyphicon-user"></span> Perfil</a></li>
-									<li><a href="<c:url value="/UserList"/>"><span
-											class="glyphicon glyphicon-th-list"> Usuários</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="<c:url value="/exitUser"/>"> <span
-											class="glyphicon glyphicon-remove"></span> Sair
-									</a></li>
-								</ul></li>
-						</ul>
-
-
-					</c:otherwise>
-				</c:choose>
+					</div>
 				</div>
 			</div>
 		</div>

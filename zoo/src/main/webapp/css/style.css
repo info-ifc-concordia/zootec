@@ -152,10 +152,14 @@ footer{
 	text-align: center;
 }
 
-#caix:hover{
+.prodFound{
 	cursor: pointer;
 }
 
-#menuRations:hover{
-	cursor:pointer;
+button{
+	cursor: pointer;
+}
+
+#Insumosinformations{
+	display : none;
 }

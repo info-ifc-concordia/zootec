@@ -47,7 +47,7 @@ public class ProdutionController extends AbstractController {
 			String insumo6, String insumo7, String insumo8, String insumo9, String insumo10, String insumo11, String insumo12){	
 		this.bs.doRegisterNewType(def_name_ration, for_animal, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
 				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexracao();
 	}
 
 	@Post(value="/registerNewProdution")
@@ -58,7 +58,6 @@ public class ProdutionController extends AbstractController {
 		this.bs.doRegisterNewProdution(prod);
 		this.result.redirectTo(IndexController.class).indexracao();
 	}
-	
 	
 	@Get("/getInsumos")
 	@NoCache
@@ -84,6 +83,7 @@ public class ProdutionController extends AbstractController {
 		catch(Throwable ex) {
 			this.fail(ex.getMessage());
 		}
+		
 	}
 	
 	@Get("/getAllInsumos")
@@ -120,7 +120,7 @@ public class ProdutionController extends AbstractController {
 			double insumo11, double insumo12, double qtd_final) {
 		this.bs.updateProdution(id, insumo1, insumo2, insumo3, insumo4, insumo5,
 				insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexracao();
 	}
 	
 	@Post(value="/disableProduction")
@@ -138,6 +138,6 @@ public class ProdutionController extends AbstractController {
 		
 		this.bs.doEditType(name_ration, insumo1, insumo2,  insumo3,  insumo4, insumo5, 
 				 insumo6,  insumo7,  insumo8, insumo9, insumo10,  insumo11,  insumo12);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexracao();
 	}
 }

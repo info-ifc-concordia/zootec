@@ -120,7 +120,7 @@
 					<div>
 						<label for="number">Quantidade total produzida:</label> <input
 							type="number" class="form-control" id="qtd_final"
-							name="prod.qtd_final" required>
+							name="prod.qtd_final" required step="0.01">
 					</div>
 					<input type="submit" value="Adicionar produção"
 						class="btn salvar col-md-12 col-xs-12 col-md-offset-12">

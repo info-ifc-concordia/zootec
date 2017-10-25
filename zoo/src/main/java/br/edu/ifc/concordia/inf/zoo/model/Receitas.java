@@ -20,18 +20,18 @@ public class Receitas implements Serializable {
 	
 	private String name;
 	private String type_animal;
-	private String insumo1;
-	private String insumo2;
-	private String insumo3;
-	private String insumo4;
-	private String insumo5;
-	private String insumo6;
-	private String insumo7;
-	private String insumo8;
-	private String insumo9;
-	private String insumo10;
-	private String insumo11;
-	private String insumo12;
+	private String insumo1 = "None";
+	private String insumo2 = "None";
+	private String insumo3 = "None";
+	private String insumo4 = "None";
+	private String insumo5 = "None";
+	private String insumo6 = "None";
+	private String insumo7 = "None";
+	private String insumo8 = "None";
+	private String insumo9 = "None";
+	private String insumo10 = "None";
+	private String insumo11 = "None";
+	private String insumo12 = "None";
 
 	public String getName() {
 		return name;
