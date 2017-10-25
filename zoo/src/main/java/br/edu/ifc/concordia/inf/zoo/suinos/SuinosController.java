@@ -24,8 +24,19 @@ public class SuinosController extends AbstractController {
 	public void cadastrosuinos(){
 	}
 	
-	@Get(value="/editarmatriz")
-	public void editarmatriz() {}
+	@Get(value="/editarmatriz/{mossa}")
+	public void editarmatriz(String mossa) {
+		List<Matriz> matrizes = this.Bs.listTypeMossa();
+		Matriz matriz = null;
+		for (Matriz m : matrizes) {
+			if (m.getMossa().equals(mossa)) {
+				matriz = m;
+				break;
+			}
+		}
+		
+		this.result.include("matrizEditar", matriz);
+	}
 	
 	@Get(value="/registronascimento")
 	public void registronascimento(){

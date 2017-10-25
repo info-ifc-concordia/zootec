@@ -117,8 +117,6 @@
 									<li><a href="<c:url value="/ListarMatrizes"/>"><span class="glyphicon glyphicon-th-list"></span> 
 									 Listar</a></li>
 									 
-									 <li><a href="<c:url value="/editarmatriz"/>"><span class="glyphicon glyphicon-edit"></span> 
-									 Editar</a></li>
 								</ul></li>
 							
 							<!-- Dropdown de controle coberturas-->

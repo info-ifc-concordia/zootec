@@ -58,6 +58,7 @@
 		</tbody>
 		</table>
 		<a type="button" class="btn btn-primary" href="<c:url value="/Registronascimento/${m.mossa}"/>" role="button">Registrar nascimento</a>
+		<a type="button" class="btn btn-primary" href="<c:url value="/editarmatriz/${m.mossa}"/>" role="button">Editar Matriz</a>
   		<a type="button" class="btn btn-primary">Tranferência</a>  		
 	</div>
 	
