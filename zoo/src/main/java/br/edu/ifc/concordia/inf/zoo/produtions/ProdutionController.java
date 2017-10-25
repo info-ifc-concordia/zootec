@@ -8,12 +8,12 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.boilerplate.NoCache;
-import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
 import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
 import br.edu.ifc.concordia.inf.zoo.business.production.ProdutionBS;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.model.Receitas;
+import br.edu.ifc.concordia.inf.zoo.permission.Permission;
 
 @Controller
 public class ProdutionController extends AbstractController {
@@ -52,13 +52,11 @@ public class ProdutionController extends AbstractController {
 
 	@Post(value="/registerNewProdution")
 	@NoCache
-	public void registerNewProdution(String dat, String name_ration, String animal_type_ration,  
-			double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
-			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, 
-			double insumo11, double insumo12, double qtd_final, String name_user) {
-		this.bs.doRegisterNewProdution(dat, name_user, name_ration, animal_type_ration,  insumo1, insumo2,
-				insumo3, insumo4, insumo5, insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);	
-		this.result.redirectTo(IndexController.class).index();
+	@Permission
+	public void registerNewProdution(Produtions prod) {
+		prod.setUser(this.userSession.getUser().getNome());
+		this.bs.doRegisterNewProdution(prod);
+		this.result.redirectTo(IndexController.class).indexracao();
 	}
 	
 	

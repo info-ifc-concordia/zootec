@@ -139,39 +139,32 @@ public class ProdutionBS extends HibernateBusiness{
 		dao.update(rec);
 		
 	}
-	
-	public void doRegisterNewProdution(String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
-			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final)
+
+	public void doRegisterNewProdution(Produtions prod)
+	//public void doRegisterNewProdution(String dat, String user, String name_ration, String animal_type_ration,  double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
+	//		double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, double insumo11, double insumo12, double qtd_final)
 	{		
-			Produtions prod = new Produtions();
-			prod.setName_ration(name_ration);
-			prod.setType_animal(animal_type_ration);
-			prod.setInsumo1(insumo1);
-			prod.setInsumo2(insumo2);
-			prod.setInsumo3(insumo3);
-			prod.setInsumo4(insumo4);
-			prod.setInsumo5(insumo5);
-			prod.setInsumo6(insumo6);
-			prod.setInsumo7(insumo7);
-			prod.setInsumo8(insumo8);
-			prod.setInsumo9(insumo9);
-			prod.setInsumo10(insumo10);
-			prod.setInsumo11(insumo11);
-			prod.setInsumo12(insumo12);
-			prod.setQtd_final(qtd_final);
-			prod.setDate(dat);
-			prod.setUser(user);
+//			Produtions prod = new Produtions();
+//			prod.setName_ration(name_ration);
+//			prod.setType_animal(animal_type_ration);
+//			prod.setInsumo1(insumo1);
+//			prod.setInsumo2(insumo2);
+//			prod.setInsumo3(insumo3);
+//			prod.setInsumo4(insumo4);
+//			prod.setInsumo5(insumo5);
+//			prod.setInsumo6(insumo6);
+//			prod.setInsumo7(insumo7);
+//			prod.setInsumo8(insumo8);
+//			prod.setInsumo9(insumo9);
+//			prod.setInsumo10(insumo10);
+//			prod.setInsumo11(insumo11);
+//			prod.setInsumo12(insumo12);
+//			prod.setQtd_final(qtd_final);
+//			prod.setDate(dat);
+//			prod.setUser(user);
 			prod.setDisable("able");
 			
 			dao.persist(prod);
-			try {
-				SSLContext ctx = SSLContext.getInstance("TLS");
-				ctx.init(new KeyManager[0], new TrustManager[] { new DefaultTrustManager() }, new SecureRandom());
-				SSLContext.setDefault(ctx);
-			} catch (GeneralSecurityException ex) {
-				System.out.println("N�o consegui sobrescrever o SSLContext.");
-				ex.printStackTrace();
-			}
 	}
 	
 	

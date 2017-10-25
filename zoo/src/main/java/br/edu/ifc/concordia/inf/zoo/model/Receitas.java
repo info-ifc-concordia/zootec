@@ -2,7 +2,6 @@ package br.edu.ifc.concordia.inf.zoo.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

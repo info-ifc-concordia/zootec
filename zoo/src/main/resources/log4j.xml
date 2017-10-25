@@ -56,5 +56,8 @@
         <priority value="INFO" />
         <appender-ref ref="stdout" />
     </category>
+    <root>
+    	<priority value="INFO" />
+    </root>
     <!-- incluir outras definições aqui -->
 </log4j:configuration>

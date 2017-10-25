@@ -4,8 +4,6 @@
  */
 var rationCurrent = "";
 		function getNameRations() {
-			var user = document.getElementById("userLogged").innerHTML;
-			document.getElementById("name_user").value = user;
 			animal1 = $("#animal_type_ration").val();
 			$.ajax({
 				method : "GET",

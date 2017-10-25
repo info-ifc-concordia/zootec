@@ -1,7 +1,6 @@
 package br.edu.ifc.concordia.inf.zoo.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,19 +19,19 @@ private static final long serialVersionUID = 1L;
 	private Long id;
 	
 	private String type_animal;
-	private double insumo1;
-	private double insumo2;
-	private double insumo3;
-	private double insumo4;
-	private double insumo5;
-	private double insumo6;
-	private double insumo7;
-	private double insumo8;
-	private double insumo9;
-	private double insumo10;
-	private double insumo11;
-	private double insumo12;
-	private double qtd_final;
+	private Double insumo1 = 0.0;
+	private Double insumo2 = 0.0;;
+	private Double insumo3 = 0.0;;
+	private Double insumo4 = 0.0;;
+	private Double insumo5 = 0.0;;
+	private Double insumo6 = 0.0;;
+	private Double insumo7 = 0.0;;
+	private Double insumo8 = 0.0;;
+	private Double insumo9 = 0.0;;
+	private Double insumo10 = 0.0;;
+	private Double insumo11 = 0.0;;
+	private Double insumo12 = 0.0;;
+	private Double qtd_final = 0.0;;
 	private String user;
 	private String date;
 	private String name_ration;
@@ -45,7 +44,7 @@ private static final long serialVersionUID = 1L;
 	public void setType_animal(String type_animal) {
 		this.type_animal = type_animal;
 	}
-	public double getInsumo1() {
+	public Double getInsumo1() {
 		return insumo1;
 	}
 	public String getDisable() {
@@ -54,79 +53,79 @@ private static final long serialVersionUID = 1L;
 	public void setDisable(String disable) {
 		this.disable = disable;
 	}
-	public void setInsumo1(double insumo1) {
+	public void setInsumo1(Double insumo1) {
 		this.insumo1 = insumo1;
 	}
-	public double getInsumo2() {
+	public Double getInsumo2() {
 		return insumo2;
 	}
-	public void setInsumo2(double insumo2) {
+	public void setInsumo2(Double insumo2) {
 		this.insumo2 = insumo2;
 	}
-	public double getInsumo3() {
+	public Double getInsumo3() {
 		return insumo3;
 	}
-	public void setInsumo3(double insumo3) {
+	public void setInsumo3(Double insumo3) {
 		this.insumo3 = insumo3;
 	}
-	public double getInsumo4() {
+	public Double getInsumo4() {
 		return insumo4;
 	}
-	public void setInsumo4(double insumo4) {
+	public void setInsumo4(Double insumo4) {
 		this.insumo4 = insumo4;
 	}
-	public double getInsumo5() {
+	public Double getInsumo5() {
 		return insumo5;
 	}
-	public void setInsumo5(double insumo5) {
+	public void setInsumo5(Double insumo5) {
 		this.insumo5 = insumo5;
 	}
-	public double getInsumo6() {
+	public Double getInsumo6() {
 		return insumo6;
 	}
-	public void setInsumo6(double insumo6) {
+	public void setInsumo6(Double insumo6) {
 		this.insumo6 = insumo6;
 	}
-	public double getInsumo7() {
+	public Double getInsumo7() {
 		return insumo7;
 	}
-	public void setInsumo7(double insumo7) {
+	public void setInsumo7(Double insumo7) {
 		this.insumo7 = insumo7;
 	}
-	public double getInsumo8() {
+	public Double getInsumo8() {
 		return insumo8;
 	}
-	public void setInsumo8(double insumo8) {
+	public void setInsumo8(Double insumo8) {
 		this.insumo8 = insumo8;
 	}
-	public double getInsumo9() {
+	public Double getInsumo9() {
 		return insumo9;
 	}
-	public void setInsumo9(double insumo9) {
+	public void setInsumo9(Double insumo9) {
 		this.insumo9 = insumo9;
 	}
-	public double getInsumo10() {
+	public Double getInsumo10() {
 		return insumo10;
 	}
-	public void setInsumo10(double insumo10) {
+	public void setInsumo10(Double insumo10) {
 		this.insumo10 = insumo10;
 	}
-	public double getInsumo11() {
+	public Double getInsumo11() {
 		return insumo11;
 	}
-	public void setInsumo11(double insumo11) {
+	public void setInsumo11(Double insumo11) {
 		this.insumo11 = insumo11;
 	}
-	public double getInsumo12() {
+	public Double getInsumo12() {
 		return insumo12;
 	}
-	public void setInsumo12(double insumo12) {
+	public void setInsumo12(Double insumo12) {
 		this.insumo12 = insumo12;
 	}
-	public double getQtd_final() {
+	public Double getQtd_final() {
 		return qtd_final;
 	}
-	public void setQtd_final(double qtd_final) {
+	public void setQtd_final(Double qtd_final) {
 		this.qtd_final = qtd_final;
 	}
 	public String getUser() {

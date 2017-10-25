@@ -56,6 +56,7 @@
 			</div>
 
 			<div class="collapse navbar-collapse">
+				<div class="container">
 
 				<c:choose>
 					<c:when test="${!userSession.isLogged()}">
@@ -120,6 +121,7 @@
 
 					</c:otherwise>
 				</c:choose>
+				</div>
 			</div>
 		</div>
 	</nav>

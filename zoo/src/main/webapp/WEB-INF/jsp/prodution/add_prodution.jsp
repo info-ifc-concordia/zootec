@@ -14,7 +14,7 @@
 				<div class="form-group col-md-6 col-xs-12">
 					<label for="sel1">Selecione o tipo de ração:</label> <select
 						class="form-control" id="animal_type_ration"
-						name="animal_type_ration" onchange="getNameRations();">
+						name="prod.type_animal" onchange="getNameRations();">
 						<option>Selecione o tipo de ração</option>
 						<option>Bovina</option>
 						<option>Ovina</option>
@@ -24,12 +24,12 @@
 
 				<div class="form-group col-md-6 col-xs-12">
 					<label for="date">Data da produção:</label> <input type="date"
-						class="form-control" id="dat" name="dat" required>
+						class="form-control" id="dat" name="prod.date" required>
 				</div>
 
 				<div class="form-group col-md-12 col-xs-12">
 					<label for="sel1">Nome da ração:</label> <select
-						class="form-control" id="name_ration" name="name_ration" onchange="putInsumosForRation();" disable>
+						class="form-control" id="name_ration" name="prod.name_ration" onchange="putInsumosForRation();" disable>
 						<option>Selecione a ração</option>
 					</select>
 				</div>
@@ -46,73 +46,73 @@
 
 							<label for="text" id="insumo1type"> Insumo 1</label> <input
 								type="number" step="0.01" class="form-control" id="insumo1"
-								name="insumo1" required>
+								name="prod.insumo1" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo2type"> Insumo 2</label> <input
 								type="number" step="0.01" class="form-control" id="insumo2"
-								name="insumo2" required>
+								name="prod.insumo2" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo3type"> Insumo 3</label> <input
 								type="number" step="0.01" class="form-control" id="insumo3"
-								name="insumo3" required>
+								name="prod.insumo3" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo4type"> Insumo 4</label> <input
 								type="number" step="0.01" class="form-control" id="insumo4"
-								name="insumo4" required>
+								name="prod.insumo4" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo5type"> Insumo 5</label> <input
 								type="number" step="0.01" class="form-control" id="insumo5"
-								name="insumo5" required>
+								name="prod.insumo5" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo6type"> Insumo 6</label> <input
 								type="number" step="0.01" class="form-control" id="insumo6"
-								name="insumo6" required>
+								name="prod.insumo6" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo7type"> Insumo 7</label> <input
 								type="number" step="0.01" class="form-control" id="insumo7"
-								name="insumo7" required>
+								name="prod.insumo7" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo8type"> Insumo 8</label> <input
 								type="number" step="0.01" class="form-control" id="insumo8"
-								name="insumo8" required>
+								name="prod.insumo8" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo9type"> Insumo 9</label> <input
 								type="number" step="0.01" class="form-control" id="insumo9"
-								name="insumo9" required>
+								name="prod.insumo9" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo10type"> Insumo 10</label> <input
 								type="number" step="0.01" class="form-control" id="insumo10"
-								name="insumo10" required>
+								name="prod.insumo10" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo11type"> Insumo 11</label> <input
 								type="number" step="0.01" class="form-control" id="insumo11"
-								name="insumo11" required>
+								name="prod.insumo11" required>
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="text" id="insumo12type"> Insumo 12</label> <input
 								type="number" step="0.01" class="form-control" id="insumo12"
-								name="insumo12" required>
+								name="prod.insumo12" required>
 						</div>
 
 					</div>
@@ -120,9 +120,8 @@
 					<div>
 						<label for="number">Quantidade total produzida:</label> <input
 							type="number" class="form-control" id="qtd_final"
-							name="qtd_final" required>
+							name="prod.qtd_final" required>
 					</div>
-					<input type="text" id="name_user" name="name_user" novalidate>
 					<input type="submit" value="Adicionar produção"
 						class="btn salvar col-md-12 col-xs-12 col-md-offset-12">
 				</div>
