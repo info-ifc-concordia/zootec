@@ -128,7 +128,7 @@ public class ProdutionController extends AbstractController {
 	public void disableProduction(Long id2)
 	{
 		this.bs.disableProduction(id2);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexracao();
 	}
 	
 	@Post(value="/editTypeRation")

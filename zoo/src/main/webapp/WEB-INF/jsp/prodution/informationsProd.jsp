@@ -23,7 +23,7 @@
 	
 	<label for="sel1">Insumo:</label> 
 	<input type="text" class="form-control"
-		id="insumo" name="insumo" style="text-transform:uppercase">
+		id="insumo" name="insumo">
 	
 	<label for="sel1">Data Início:</label> 
 	<input type="date"

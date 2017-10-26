@@ -350,7 +350,7 @@ function sendForm() {
 			if (response.cod == "404") {
 				alert(response.message);
 			} else {
-				window.location.replace("/zoo"); //Redireciona para a pagina inicial
+				window.location.replace("/zoo/Racao"); //Redireciona para a pagina inicial
 			}
 		},
 		failure : function(response) {
@@ -487,6 +487,9 @@ function informations()
 				var somaTotal = calcs[0]; //Soma total gasta pelo insumo
 				prodFind = calcs[1]; //Produções encontradas que contenham o insumo e atendem a todos os outros critérios;
 			}
+		else{
+
+		}
 		
 		//colocarDentro é a variavel que terá todo o conteudo que será colocado na tela para o usuário;
 		var colocarDentro = '<div class="panel panel-success"><div class="panel-heading">Produções Encontradas'
@@ -504,8 +507,9 @@ function informations()
 		if (prodFind.length == 0){
 			colocarDentro = '<div class="alert alert-warning" role="alert" class="alert"><strong>Atenção!</strong> Nenhuma produção encontrada! </div>';
 			$("#caix").html(colocarDentro);
+			cD = '<div class="alert alert-warning" role="alert" class="alert"><strong>Atenção!</strong> Nenhum insumo encontrado!! </div>';
+			$("#infoInsumos").html(cD);
 			$(".alert").alert();
-			
 		}
 		else{
 			calcsWithInsumos(prodFind); //Coloca os dados do insumo; 

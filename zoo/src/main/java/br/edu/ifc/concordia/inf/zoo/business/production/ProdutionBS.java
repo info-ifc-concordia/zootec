@@ -1,19 +1,14 @@
 package br.edu.ifc.concordia.inf.zoo.business.production;
 
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
+
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.net.ssl.KeyManager;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.boilerplate.HibernateBusiness;
-import br.edu.ifc.concordia.inf.zoo.factory.ApplicationSetup.DefaultTrustManager;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.model.Receitas;
 
@@ -82,14 +77,6 @@ public class ProdutionBS extends HibernateBusiness{
 			else prod.setInsumo12("None");
 			
 			dao.persist(prod);
-			try {
-				SSLContext ctx = SSLContext.getInstance("TLS");
-				ctx.init(new KeyManager[0], new TrustManager[] { new DefaultTrustManager() }, new SecureRandom());
-				SSLContext.setDefault(ctx);
-			} catch (GeneralSecurityException ex) {
-				System.out.println("N�o consegui sobrescrever o SSLContext.");
-				ex.printStackTrace();
-			}
 		}
 	}
 	

@@ -32,62 +32,62 @@
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 1</label> <input type="text"
-					class="form-control" id="insumo1" name="insumo1" required style="text-transform:uppercase">
+					class="form-control" id="insumo1" name="insumo1" required>
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 2</label> <input type="text"
-					class="form-control" id="insumo2" name="insumo2" required style="text-transform:uppercase">
+					class="form-control" id="insumo2" name="insumo2" required >
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 3</label> <input type="text"
-					class="form-control" id="insumo3" name="insumo3" required style="text-transform:uppercase">
+					class="form-control" id="insumo3" name="insumo3" required >
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 4</label> <input type="text"
-					class="form-control" id="insumo4" name="insumo4" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo4" name="insumo4" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 5</label> <input type="text"
-					class="form-control" id="insumo5" name="insumo5" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo5" name="insumo5" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 6</label> <input type="text"
-					class="form-control" id="insumo6" name="insumo6" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo6" name="insumo6" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 7</label> <input type="text"
-					class="form-control" id="insumo7" name="insumo7" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo7" name="insumo7" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 8</label> <input type="text"
-					class="form-control" id="insumo8" name="insumo8" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo8" name="insumo8" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 9</label> <input type="text"
-					class="form-control" id="insumo9" name="insumo9" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo9" name="insumo9" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 10</label> <input type="text"
-					class="form-control" id="insumo10" name="insumo10" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo10" name="insumo10" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 11</label> <input type="text"
-					class="form-control" id="insumo11" name="insumo11" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo11" name="insumo11" value=" ">
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 12</label> <input type="text"
-					class="form-control" id="insumo12" name="insumo12" value=" " style="text-transform:uppercase">
+					class="form-control" id="insumo12" name="insumo12" value=" ">
 			</div>
 </div>
 
