@@ -13,10 +13,18 @@
 </div>
 
 </main>
+
+
+<c:import url="/includes/footer.jsp" />
+
+
+
 <script>
 	window.onload = function(e) {
-		getProdutions("edit", true);
+		getProdutions("edit");
 	};
 </script>
 
-<c:import url="/includes/footer.jsp" />
+
+<script src="<c:url value="/js/indexRacao.js" />"></script>
+<script src="<c:url value="/js/remove_prodution.js" />"></script>

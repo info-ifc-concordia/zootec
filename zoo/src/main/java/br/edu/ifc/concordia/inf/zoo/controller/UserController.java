@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.boilerplate.NoCache;
 import br.com.caelum.vraptor.boilerplate.factory.SessionFactoryProducer;
@@ -15,8 +14,6 @@ import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
 import br.edu.ifc.concordia.inf.zoo.business.UserBS;
 import br.edu.ifc.concordia.inf.zoo.model.User;
-import br.edu.ifc.concordia.inf.zoo.permission.Permission;
-import br.edu.ifc.concordia.inf.zoo.permission.UserRoles;
 
 @Controller
 public class UserController extends AbstractController {

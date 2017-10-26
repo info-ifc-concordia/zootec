@@ -15,4 +15,5 @@ public enum UserRoles {
 	public int getAccessLevel() {
 		return this.accessLevel;
 	}	
+	
 }

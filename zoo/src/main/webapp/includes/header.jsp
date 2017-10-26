@@ -95,7 +95,7 @@
 														class="glyphicon glyphicon-tasks"></span> Controle </span>
 											</a></li>
 
-											<li><a href="<c:url value="informationsProd"/>"> <span
+											<li><a href="<c:url value="informations_prod"/>"> <span
 													style="color: #FFFFFF;"><span
 														class="glyphicon glyphicon-file"></span> Relátorios </span>
 											</a></li>

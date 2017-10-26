@@ -15,4 +15,5 @@ public abstract class AbstractController extends br.com.caelum.vraptor.boilerpla
 	
 	/** Objecto da sessão do usuário. Injetado automaticamente. */
 	@Inject protected UserSession userSession;
+	
 }

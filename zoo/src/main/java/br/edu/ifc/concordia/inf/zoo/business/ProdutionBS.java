@@ -1,4 +1,4 @@
-package br.edu.ifc.concordia.inf.zoo.business.production;
+package br.edu.ifc.concordia.inf.zoo.business;
 
 
 import java.util.List;

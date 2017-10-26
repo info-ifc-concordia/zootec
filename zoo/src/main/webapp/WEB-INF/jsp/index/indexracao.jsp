@@ -9,8 +9,8 @@
 </main>
 <script>
 	window.onload = function(e) {
-		getProdutions("normal", true);
+		getProdutions("normal");
 	};
 </script>
 <c:import url="/includes/footer.jsp" />
-
+<script src="<c:url value="/js/indexRacao.js" />"></script>

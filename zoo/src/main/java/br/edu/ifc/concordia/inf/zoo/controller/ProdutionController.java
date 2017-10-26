@@ -1,4 +1,4 @@
-package br.edu.ifc.concordia.inf.zoo.produtions;
+package br.edu.ifc.concordia.inf.zoo.controller;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.boilerplate.NoCache;
 import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
-import br.edu.ifc.concordia.inf.zoo.business.production.ProdutionBS;
+import br.edu.ifc.concordia.inf.zoo.business.ProdutionBS;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.model.Receitas;
 import br.edu.ifc.concordia.inf.zoo.permission.Permission;
@@ -19,26 +19,32 @@ import br.edu.ifc.concordia.inf.zoo.permission.Permission;
 public class ProdutionController extends AbstractController {
 	@Inject private ProdutionBS bs;
 	
+	
 	@Get(value="/add_prodution")
+	@Permission
 	public void add_prodution() {	
 		List<Receitas> types = this.bs.listTypeRations();
 		this.result.include("rations", types);	
 	}
 
 	@Get(value="/add_type_ration")
+	@Permission
 	public void add_type_ration() {
 	}
 	
 	@Get(value="/remove_prodution")
+	@Permission
 	public void remove_prodution() {	
 	}
 	
 	@Get(value="/edit_type_ration")
+	@Permission
 	public void edit_type_ration() {	
 	}
 	
-	@Get(value="/informationsProd")
-	public void informationsProd() {	
+	@Get(value="/informations_prod")
+	@Permission
+	public void informations_prod() {	
 	}
 	
 	@Post(value="/registerNewTypeRation")

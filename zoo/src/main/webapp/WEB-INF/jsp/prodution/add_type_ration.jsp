@@ -107,8 +107,12 @@
 </main>
 <c:import url="/includes/footer.jsp" />
 
+<script src="<c:url value="/js/add_type_ration.js" />"></script>
+
 <script>
 	window.onload = function(e) {
 		listInsumos();
 	};
+
+	
 </script>
