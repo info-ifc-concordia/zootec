@@ -36,13 +36,7 @@ public class UserBS extends HibernateBusiness {
 		return (User) criteria.uniqueResult();
 	}
 
-	public void cadastro(SessionFactoryProducer factoryProducer, String nome, String email, String cargo, String login,
-			String senha) {
-
-		factoryProducer.initialize("hibernate.cfg.xml");
-
-		CryptManager.updateKey(SystemConfigs.getConfig("crypt.key"));
-		CryptManager.updateSalt("@2o!A", "70Px$");
+	public void cadastro(String cargo, String nome, String email, String login, String senha) {
 		
 		Criteria criteria = this.dao.newCriteria(User.class);
 		criteria.add(Restrictions.eq("login", login));
@@ -53,9 +47,9 @@ public class UserBS extends HibernateBusiness {
 		User userTest2 = (User) criteria.uniqueResult();
 
 		if (userTest != null) {
-			throw new IllegalArgumentException("Este e-mail já está cadastrado.");
+			throw new IllegalArgumentException("Este Login já está cadastrado.");
 		} else if (userTest2 != null) {
-			String i = "E-mail já cadastrado!";
+			throw new IllegalArgumentException("Este e-mail já está cadastrado.");
 		} else {
 
 			User user = new User();

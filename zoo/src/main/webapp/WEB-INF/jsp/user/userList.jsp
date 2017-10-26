@@ -9,7 +9,6 @@
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
-					<th>Cargo</th>
 					<th>E-mail</th>
 				</tr>
 			</thead>
@@ -18,7 +17,6 @@
 							<tr>
 								<td>${user.id}   </td>
 								<td>${user.nome} </td>
-								<td>${user.cargo}</td>
 								<td>${user.email}</td>
 							</tr>
 						</c:forEach>

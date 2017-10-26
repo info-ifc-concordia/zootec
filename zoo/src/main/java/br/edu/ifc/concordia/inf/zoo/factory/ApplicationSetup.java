@@ -58,9 +58,9 @@ public class ApplicationSetup {
 		if (user == null){
 			user = new User();
 			user.setAcesso(UserRoles.SYS_ADMIN.getAccessLevel());
+			user.setCargo("Administrador Geral do Sistema");
 			user.setNome("admin");
 			user.setEmail("admin@admin");
-			user.setCargo("admin");
 			user.setLogin("admin");
 			user.setSenha(CryptManager.passwordHash("admin"));
 			dao.persist(user);

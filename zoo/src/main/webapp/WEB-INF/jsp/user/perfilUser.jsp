@@ -3,6 +3,9 @@
 
 <c:import url="/includes/header.jsp"/>
 <main class = "container">
+<c:if test="${not empty errorMsg}">
+			<div class="alert alert-danger" role="alert">${errorMsg}</div>
+</c:if>
 <form method="POST" action="<c:url value="/modificarPerfil"/>">
 		<c:if test="${not empty userSession.user}">
 				<div class="form-group col-md-6 col-xs-12">

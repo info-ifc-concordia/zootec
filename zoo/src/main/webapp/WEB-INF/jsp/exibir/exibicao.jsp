@@ -6,7 +6,7 @@
 <main class="container">
 <c:if test="${not empty errorMsg}">
 			<div class="alert alert-danger" role="alert">${errorMsg}</div>
-	</c:if>
+</c:if>
 			<div class="row center">
 				<div class="col-md-12">
 							<h1> ${bovino.name}</h1>
@@ -26,6 +26,7 @@
 					<p>Pai: ${bovino.dad}</p>
 					<p>Número do registro do pai: ${papai.nb}</p>
 					<p>Status: ${bovino.status}</p>
+					<p>Quem cadastrou: ${bovino.cadastror}
 				</div>
 				<div class="col-md-6">
 					<img src="" alt="Imagem não disponível" class="img-rounded" id ="img" align="right">
@@ -43,7 +44,7 @@
 	    <div class="modal-content">
 		    <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">Nome do Bovino</h4>
+		        <h4 class="modal-title">${bovino.name}</h4>
 		    </div>
 		    <div class="modal-body center">
 				<div class="btn-group-vertical" role="group" id="btngroup"> 	
@@ -54,9 +55,8 @@
 					</div>								
 					<div class="row">
 						<div class="col-md-12">
-							<p>Avô:</p>
-					
-							<p>Avó:</p>
+							<p>Avô: ${mamae.dad}</p>
+							<p>Avó: ${mamae.mom}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -66,8 +66,8 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<p>Avô:</p>
-							<p>Avó:</p>
+							<p>Avô: ${papai.dad}</p>
+							<p>Avó: ${mamae.mom}</p>
 						</div>
 					</div>
 					<div class="row">
@@ -75,10 +75,11 @@
 							<h3>Pais</h3>
 						</div>
 					</div>
+					
 					<div class="row">
 						<div class="col-md-12">
-							<p>Pai:</p>
-							<p>Mãe:</p>							
+							<p>Pai: ${bovino.dad}</p>
+							<p>Mãe: ${bovino.mom}</p>							
 						</div>
 						
 					</div>

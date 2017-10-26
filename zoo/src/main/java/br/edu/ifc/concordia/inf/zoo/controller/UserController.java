@@ -49,10 +49,12 @@ public class UserController extends AbstractController {
 	}
 	
 	@Get(value="/cadastro")
+	@Permission(UserRoles.ADMIN)
 	public void cadastro() {
 	}
 	
 	@Get(value="/perfilUser")
+	@Permission(UserRoles.ADMIN)
 	public void perfilUser() {
 	}
 
@@ -61,6 +63,7 @@ public class UserController extends AbstractController {
 	}
 
 	@Get("/UserList")
+	@Permission(UserRoles.ADMIN)
 	public void userList() {
 		List<User> users = this.bs.listUsers();
 		this.result.include("users", users);
@@ -75,17 +78,21 @@ public class UserController extends AbstractController {
 	
 	@Post(value="/registerUser")
 	@NoCache
-	public void doCadastro(String nome, String email, String cargo, String login, String senha, String conf){
+	public void doCadastro(String cargo, String nome, String email, String login, String senha, String conf){
 		if(!senha.equals(conf)){
 			this.result.redirectTo(this).cadastro("Confirme a senha corretamente.");
 		}
-		SessionFactoryProducer factoryProducer = new SessionFactoryProducer();
-		this.bs.cadastro(factoryProducer, nome, email, cargo, login, senha);
-		this.result.redirectTo(IndexController.class).index();
+		try {
+			this.bs.cadastro(cargo, nome, email, login, senha);
+			this.result.redirectTo(UserController.class).cadastro("Usuario cadastrado com sucesso, agora você pode cadastrar um novo usuario ou retornar à tela inicial.");
+		}catch (Exception ex) {
+			this.result.redirectTo(UserController.class).cadastro(ex.getMessage());
+		}
 	}
 	
 	@Get(value="{id}/edit")
 	@NoCache
+	@Permission(UserRoles.ADMIN)
 	public void userEdit(Long id) {
 		if (id == null) {
 			this.result.notFound();

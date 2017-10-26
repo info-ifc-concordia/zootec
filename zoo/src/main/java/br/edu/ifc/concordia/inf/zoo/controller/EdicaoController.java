@@ -18,6 +18,7 @@ public class EdicaoController extends AbstractController{
 	@Inject private BovinosBS bs;
 	
 	@Get(value = "/bovinos/edit/{id}")
+	@Permission(UserRoles.ADMIN)
 	public void edicao(Long id){
 		Bovino bv = this.bs.exists(id, Bovino.class);
 		Bovino papai = this.bs.Buscarp(bv.getNrm());
@@ -29,7 +30,6 @@ public class EdicaoController extends AbstractController{
 	
 	
 	@Post(value = "/bovinos/editar")
-	@Permission(UserRoles.SYS_ADMIN)
 	public void editar(Long id, 
 			String sexo,
 			String nrp, 

@@ -2,9 +2,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/includes/header.jsp"/>
-<c:if test="${not empty errorMsg}">
-	<div class="alert alert-danger" role="alert">${errorMsg}</div>
-</c:if>
+<c:choose>
+	<c:when test= "${not empty errorMsg and errorMsg == 'Usuario cadastrado com sucesso'}">
+		<div class="alert alert-success" role="alert">${errorMsg}</div>
+	</c:when>
+</c:choose>
+
+<c:choose>
+	<c:when test= "${not empty errorMsg and errorMsg != 'Usuario cadastrado com sucesso'}">
+		<div class="alert alert-danger" role="alert">${errorMsg}</div>
+	</c:when>
+</c:choose>
+
 <form method="POST" action="<c:url value="/registerUser" />" >
 	<div class="container-fluid">
 			<div class="row" id="conteudo">
@@ -22,11 +31,6 @@
 						</div>
 
 						<div class="form-group col-md-6 col-xs-12">
-							<label for="example-text-input" class="col-form-label">Cargo:</label>
-							<input required name = "cargo"class="form-control" type="text" placeholder="Cargo de atuação" id="cargo">
-						</div>
-
-						<div class="form-group col-md-6 col-xs-12">
 							<label for="example-text-input" class="col-form-label">Senha:</label>
 							<input required  name = "senha" class="form-control" type="password" placeholder="" id="senha">
 						</div>
@@ -35,10 +39,15 @@
 							<label for="example-text-input" class="col-form-label">Email:</label>
 							<input required name = "email" class="form-control" type="email" placeholder="" id="email">
 						</div>
-
+						
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="example-text-input" class="col-form-label">Confirmar senha:</label>
 							<input  required name = "conf" class="form-control" type="password" placeholder="" id="confirm_senha">
+						</div>
+						
+						<div class="form-group col-md-6 col-xs-12">
+							<label for="example-text-input" class="col-form-label">Cargo:</label>
+							<input required name = "cargo" class="form-control" type="text" placeholder="Cargo do usuario no IF" id="cargo">
 						</div>
 							
 						<button type="submit" class="btn salvar col-md-4 col-xs-12 col-md-offset-4">Cadastrar usuário</button>

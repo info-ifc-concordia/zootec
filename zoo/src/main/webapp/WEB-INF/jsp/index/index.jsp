@@ -4,6 +4,9 @@
 <c:import url="/includes/header.jsp"/>
 <main class="container"> 
 
+<c:if test="${not empty errorMsg}">
+			<div class="alert alert-success" role="alert">${errorMsg}</div>
+	</c:if>
 				<div class="col-xs-12 col-md-6 col-md-offset-3" id="jumb">
 				  	
   						<p id="titulo">Bem vindo ao sistema da zootecnia!</p>

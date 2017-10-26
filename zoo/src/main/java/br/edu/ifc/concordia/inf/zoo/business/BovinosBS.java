@@ -23,7 +23,7 @@ public class BovinosBS extends HibernateBusiness {
 	public Bovino Buscarp(String filter) {
 		Criteria criteria = dao.newCriteria(Bovino.class);
 		if (!GeneralUtils.isEmpty(filter)) {
-			criteria.add(Restrictions.ilike("nrm", filter, MatchMode.ANYWHERE));
+			criteria.add(Restrictions.ilike("nb", filter, MatchMode.ANYWHERE));
 		}
 		List <Bovino> lista = this.dao.findByCriteria(criteria, Bovino.class);
 		if(lista.size() > 0){
@@ -39,17 +39,10 @@ public class BovinosBS extends HibernateBusiness {
 			criteria.add(Restrictions.disjunction()
 			.add(Restrictions.ilike("name", filter, MatchMode.ANYWHERE))
 			.add(Restrictions.ilike("nb", filter, MatchMode.ANYWHERE)));
-			criteria.add(Restrictions.eq("dis", true));
-		}else {
-			criteria.add(Restrictions.eq("dis", true));
 		}
 			return this.dao.findByCriteria(criteria, Bovino.class);
 	}
-	public void Excluir(Long id) {
-		Bovino bu = this.exists(id, Bovino.class);
-		bu.setDis(false);
-		dao.update(bu);
-	}
+	
 	public void Registrar(String Sexo, String Raca, String NC, String NRM, String NRP, String CR, String Status, String Name, String NB, String Mom, String Dad, String DateOfBirth, String Variety){	
 		
 		Criteria criteria1 = dao.newCriteria(Bovino.class);
@@ -65,7 +58,7 @@ public class BovinosBS extends HibernateBusiness {
 		Bovino BovinoTest4 = (Bovino) criteria1.uniqueResult();
 		
 		if(BovinoTest != null) {
-			throw new IllegalArgumentException("Nome já adastrado");
+			throw new IllegalArgumentException("Nome já cadastrado");
 		} else if(BovinoTest2 != null) {
 			throw new IllegalArgumentException("Numero do brinco interno já cadastrado");
 		} else if(BovinoTest4 != null) {
@@ -87,7 +80,6 @@ public class BovinosBS extends HibernateBusiness {
 			Bovino.setCadastror(userSession.getUser().getNome());
 			Bovino.setSexo(Sexo);
 			Bovino.setVariety(Variety);
-			Bovino.setDis(true);
 			dao.persist(Bovino);
 		}
 	}

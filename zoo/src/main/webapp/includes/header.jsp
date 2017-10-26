@@ -93,6 +93,8 @@
 											class="glyphicon glyphicon-user"></span> Perfil</a></li>
 									<li><a href="<c:url value="/UserList"/>"><span
 											class="glyphicon glyphicon-th-list"> Usuários</a></li>
+									<li><a href="<c:url value="/cadastro"/>"><span
+											class="glyphicon glyphicon-plus"> Cadastrar Usuario</a></li>		
 									<li role="separator" class="divider"></li>
 									<li><a href="<c:url value="/exitUser"/>"> <span
 											class="glyphicon glyphicon-remove"></span> Sair

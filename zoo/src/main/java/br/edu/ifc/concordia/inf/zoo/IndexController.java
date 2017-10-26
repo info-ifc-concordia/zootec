@@ -71,7 +71,4 @@ public class IndexController extends AbstractController {
 			this.result.include("size", 1);
 		}
 	}
-	
-/*	@Get(value = "/bovinos/{}")
-	*/
 }
