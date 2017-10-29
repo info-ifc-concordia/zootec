@@ -27,7 +27,7 @@ public class User implements Serializable {
 	private String senha;
 	@Column(unique=true)
 	private String login;
-	private int acesso = UserRoles.NORMAL.getAccessLevel();
+	private int acesso = UserRoles.ADMIN.getAccessLevel();
 	
 	public Long getId() {
 		return id;

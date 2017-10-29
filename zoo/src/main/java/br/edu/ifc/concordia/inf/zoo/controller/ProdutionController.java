@@ -14,6 +14,7 @@ import br.edu.ifc.concordia.inf.zoo.business.ProdutionBS;
 import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.model.Receitas;
 import br.edu.ifc.concordia.inf.zoo.permission.Permission;
+import br.edu.ifc.concordia.inf.zoo.permission.UserRoles;
 
 @Controller
 public class ProdutionController extends AbstractController {
@@ -21,29 +22,29 @@ public class ProdutionController extends AbstractController {
 	
 	
 	@Get(value="/add_prodution")
-	@Permission
+	@Permission(UserRoles.ADMIN)
 	public void add_prodution() {	
 		List<Receitas> types = this.bs.listTypeRations();
 		this.result.include("rations", types);	
 	}
 
 	@Get(value="/add_type_ration")
-	@Permission
+	@Permission(UserRoles.ADMIN)
 	public void add_type_ration() {
 	}
 	
 	@Get(value="/remove_prodution")
-	@Permission
+	@Permission(UserRoles.ADMIN)
 	public void remove_prodution() {	
 	}
 	
 	@Get(value="/edit_type_ration")
-	@Permission
+	@Permission(UserRoles.ADMIN)
 	public void edit_type_ration() {	
 	}
 	
 	@Get(value="/informations_prod")
-	@Permission
+	@Permission(UserRoles.ADMIN)
 	public void informations_prod() {	
 	}
 	
@@ -58,7 +59,6 @@ public class ProdutionController extends AbstractController {
 
 	@Post(value="/registerNewProdution")
 	@NoCache
-	@Permission
 	public void registerNewProdution(Produtions prod) {
 		prod.setUser(this.userSession.getUser().getNome());
 		this.bs.doRegisterNewProdution(prod);

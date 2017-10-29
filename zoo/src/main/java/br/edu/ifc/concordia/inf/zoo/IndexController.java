@@ -21,7 +21,6 @@ public class IndexController extends AbstractController {
 	@Inject private UserSession UserSession;
 	@Path(value="/", priority=Path.HIGHEST)
 	@NoCache
-	@Permission
 	public void index() {
 		UserSession.setPagina(null);
 	}

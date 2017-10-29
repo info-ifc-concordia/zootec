@@ -14,6 +14,8 @@ import br.edu.ifc.concordia.inf.zoo.IndexController;
 import br.edu.ifc.concordia.inf.zoo.abstractions.AbstractController;
 import br.edu.ifc.concordia.inf.zoo.business.UserBS;
 import br.edu.ifc.concordia.inf.zoo.model.User;
+import br.edu.ifc.concordia.inf.zoo.permission.Permission;
+import br.edu.ifc.concordia.inf.zoo.permission.UserRoles;
 
 @Controller
 public class UserController extends AbstractController {
@@ -46,14 +48,17 @@ public class UserController extends AbstractController {
 	}
 	
 	@Get(value="/cadastro")
+	@Permission(UserRoles.ADMIN)
 	public void cadastro() {
 	}
 	
 	@Get(value="/perfilUser")
+	@Permission(UserRoles.ADMIN)
 	public void perfilUser() {
 	}
 
 	@Get(value="/control")
+	@Permission(UserRoles.ADMIN)
 	public void control() {
 	}
 
@@ -64,6 +69,7 @@ public class UserController extends AbstractController {
 	}
 	
 	@Get("/registerUser")
+	@Permission(UserRoles.ADMIN)
 	public void cadastro(String errorMsg) {
 		if (!GeneralUtils.isEmpty(errorMsg)){
 			this.result.include("errorMsg",errorMsg);
@@ -82,6 +88,7 @@ public class UserController extends AbstractController {
 	}
 	
 	@Get(value="{id}/edit")
+	@Permission(UserRoles.ADMIN)
 	@NoCache
 	public void userEdit(Long id) {
 		if (id == null) {

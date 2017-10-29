@@ -1,8 +1,6 @@
 package br.edu.ifc.concordia.inf.zoo.permission;
 
 public enum UserRoles {
-	NORMAL(1),
-	MANAGER(4),
 	ADMIN(7),
 	SYS_ADMIN(10);
 	

@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 
 public @interface Permission {
 
-	UserRoles value() default UserRoles.NORMAL;
+	UserRoles value() default UserRoles.ADMIN;
 }
