@@ -86,16 +86,20 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false"><span style="color:#FFFFFF;"><span class="glyphicon glyphicon-user"></span>
-									${userSession.user.nome} <span class="caret"></span></a>
+								aria-expanded="false"><span style="color:#FFFFFF;"> <span class="glyphicon glyphicon-user"></span>
+									${userSession.user.nome} <span class="caret"></span></a> 
 								<ul class="dropdown-menu">
 									<li><a href="<c:url value="/perfilUser"/>"><span
 											class="glyphicon glyphicon-user"></span> Perfil</a></li>
 									<li><a href="<c:url value="/UserList"/>"><span
-											class="glyphicon glyphicon-th-list"> Usuários</a></li>
-									<li><a href="<c:url value="/cadastro"/>"><span
-											class="glyphicon glyphicon-plus"> Cadastrar Usuario</a></li>		
-									<li role="separator" class="divider"></li>
+											class="glyphicon glyphicon-th-list"> </span> Usuários</a></li>
+								<c:choose>
+									<c:when test = "${userSession.getUser().getAcesso() >= 7 }">
+										<li><a href="<c:url value="/cadastro"/>"><span
+												class="glyphicon glyphicon-plus"> </span> Cadastrar Usuario</a></li>		
+										<li role="separator" class="divider"></li>
+									</c:when>
+								</c:choose>
 									<li><a href="<c:url value="/exitUser"/>"> <span
 											class="glyphicon glyphicon-remove"></span> Sair
 									</a></li>
