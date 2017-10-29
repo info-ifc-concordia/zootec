@@ -329,7 +329,6 @@ $('document').ready(function() {
 //função que pega a lista de matrizes cadastrada no banco
 var matrizes;
 function getMatrizes(){
-	var matrizList;
 	$.ajax({
 		method : "GET",
 		url : "/zoo/RequestMatrizes",
@@ -338,7 +337,6 @@ function getMatrizes(){
 				alert(response.message);
 			} else {
 				matrizes = response.data;
-				return matrizes
 			}
 		},
 		failure : function(response) {
@@ -361,30 +359,35 @@ function zerarEdicao(){
 	$("#esconder_hihi").hide();
 }
 
+function registroCobertura(){
+	
+}
+
 //CLIQUES REFERENTES ÀS PÁGINAS DOS SUÍNOS
 
 $("#s_btn_editar").click(function(){
 	var mossa = $("#s_editar_mossa").val();
 	var vigilancia = $("#s_editar_vigilancia").val();
-	matrizes = getMatrizes();
 	
-	console.log("ahhh"+matrizes);
+	console.log(matrizes);
+	var cert;
+	var tem = false;
+	for (i in matrizes) {
+		if (matrizes[i].Mossa == mossa) {
+			cert = matrizes[i];
+		}
+		
+		if (matrizes[i].Vigilancia == vigilancia && cert.Vigilancia != vigilancia){
+			tem = true;
+		}
+	}
 	
-/*	cert = "";
-	for (m in matrizes) {
-		alert("loop")
-		if (m.Mossa == mossa){
-			alert("mossa certa ok");
-			cert = m;
-		}
-		if (m.Vigilancia == vigilancia && cert.Vigilancia != vigilancia){
-			alert("VIGILANCIA JA EXISTE");
-		}
-		else{
-			alert("SUBIMITO");
-			$("#s_form_editar").submit();
-		}
-	}	*/
+	if (tem){
+		alert("já existe");
+	}
+	else{
+		$("#s_form_editar").submit();
+	}
 });
 
 $("#s_info").click(function(){

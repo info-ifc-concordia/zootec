@@ -90,9 +90,7 @@
 </main>
 
 <script>
-window.onload = function(e) {
-	listarCoberturas();
-};
+2
 </script>
 
 <c:import url="/includes/footer.jsp"/>

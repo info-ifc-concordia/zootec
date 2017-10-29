@@ -49,6 +49,7 @@
   		<mapping class="br.edu.ifc.concordia.inf.zoo.suinos.model.Matriz"/>
   		<mapping class="br.edu.ifc.concordia.inf.zoo.suinos.model.Nascimento"/>
   		<mapping class="br.edu.ifc.concordia.inf.zoo.suinos.model.Cobertura"/>
+  		<mapping class="br.edu.ifc.concordia.inf.zoo.suinos.model.Porco"/>
   		
 	</session-factory>
 </hibernate-configuration>

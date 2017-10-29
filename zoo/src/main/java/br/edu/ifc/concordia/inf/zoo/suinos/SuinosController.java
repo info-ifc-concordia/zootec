@@ -115,8 +115,8 @@ public class SuinosController extends AbstractController {
 	
 	@Post(value="/CadastrarSuino")
 	@NoCache
-	public void registrar(String Mossa, String Vigilancia, String Raca, String Origem) {
-		this.Bs.registrarMatriz(Mossa, Vigilancia, Raca, Origem);
+	public void registrar(String Mossa, String Vigilancia, String Raca, String Origem, String Tipo) {
+		this.Bs.registrarMatriz(Mossa, Vigilancia, Raca, Origem, Tipo);
 		this.result.redirectTo(IndexController.class).index();
 	}
 	

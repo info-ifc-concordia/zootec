@@ -27,8 +27,8 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="radios">Tipo de Cruza</label>
 						  <div class="col-md-4">								
-								    <label class="radio-inline" for="radios-0"><input type="radio" name="Tipo" id="radios-0" value="1" checked="checked">Cachaço</label>							
-								    <label class="radio-inline" for="radios-1"><input type="radio" name="Tipo" id="radios-1" value="2">Inseminação</label>								
+								    <label class="radio-inline" for="radios-0"><input type="radio" name="Tipo" id="cobertura_radios1" value="1" checked="checked">Cachaço</label>							
+								    <label class="radio-inline" for="radios-1"><input type="radio" name="Tipo" id="cobertura_radios2" value="2">Inseminação</label>								
 						  </div>
 						</div>		
 												
@@ -61,5 +61,11 @@
 	</c:otherwise></c:choose>
 
 </main>
+
+<script>
+window.onload = function(e) {
+	registroCobertura();
+};
+</script>
 
 <c:import url="/includes/footer.jsp"/>

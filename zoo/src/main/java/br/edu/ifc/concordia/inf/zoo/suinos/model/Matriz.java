@@ -25,7 +25,14 @@ public class Matriz implements Serializable{
 	private String Cadastrador;
 	private String Prox;
 	private String Status;
+	private int Porcos;
 	
+	public int getPorcos() {
+		return Porcos;
+	}
+	public void setPorcos(int porcos) {
+		Porcos = porcos;
+	}
 	public String getProx() {
 		return Prox;
 	}

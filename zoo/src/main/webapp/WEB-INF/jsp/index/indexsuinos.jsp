@@ -4,6 +4,7 @@
 <c:import url="/includes/header.jsp"/>
 
 <div class="row">
+	<div class="conteiner">
 				<div class="col-xs-12 col-md-12" id="rowform">					
 					<form class="form-horizontal" role="form" method="POST" action ="<c:url value = "/MatrizEspecificoBusca"/>">
 					<fieldset>
@@ -27,5 +28,6 @@
 				</form>
 				</div>
 			</div>
+		</div>
 <c:import url="/includes/footer.jsp"/>
 

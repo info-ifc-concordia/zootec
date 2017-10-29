@@ -25,6 +25,13 @@
 						  	<input  name="Raca" type="text" placeholder="..." class="form-control input-md">
 						  </div>
 						</div>
+						
+						<div class="form-group">
+						  <label class="col-md-4 control-label" for="textinput">Tipo</label>  
+						  <div class="col-md-4">
+						  	<input  name="Tipo" type="text" placeholder="..." class="form-control input-md">
+						  </div>
+						</div>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Registro Vigilância</label>  

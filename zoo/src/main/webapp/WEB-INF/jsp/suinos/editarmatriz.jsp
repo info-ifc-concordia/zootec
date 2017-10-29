@@ -4,29 +4,9 @@
 <c:import url="/includes/header.jsp"/>
 
 <main class = "container">
-<legend>Editar Matriz</legend>
+<legend>Editar Matriz</legend>	
 
-	<!-- Barra de busca -->
-<!-- 	<div class="row" id="s_form_busca">
-	<div class="col-xs-12 col-md-12" id="rowform">
-	<form class="form-horizontal" role="form">
-	<fieldset>
-	<div class="form-group">
-		<div class="col-md-4">
-			<input  id="s_buscar_mossa" name="Mossa" type="text" placeholder="Digite a mossa que deseja editar" class="form-control input-md">
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<div class="col-md-offset-4 col-md-4">
-			<a type="button" class="btn btn-primary" id="s_buscar_mossabtn" role="button">Buscar</a>
-		</div>
-	</div>
-		
-	</fieldset></form></div></div> -->
-	
-
-	<div id="s_form_editar">
+	<div>
 		<div class="row">
 				<div class="col-xs-12 col-md-12" id="rowform">
 					<form id="s_form_editar" class="form-horizontal" role="form" method="POST" action ="<c:url value = "/EditarMatriz"/>">

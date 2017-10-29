@@ -13,11 +13,11 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.caelum.vraptor.boilerplate.HibernateBusiness;
 import br.edu.ifc.concordia.inf.zoo.UserSession;
-import br.edu.ifc.concordia.inf.zoo.model.Produtions;
 import br.edu.ifc.concordia.inf.zoo.suinos.SuinosController;
 import br.edu.ifc.concordia.inf.zoo.suinos.model.Cobertura;
 import br.edu.ifc.concordia.inf.zoo.suinos.model.Matriz;
 import br.edu.ifc.concordia.inf.zoo.suinos.model.Nascimento;
+import br.edu.ifc.concordia.inf.zoo.suinos.model.Porco;
 
 public class SuinosBS extends HibernateBusiness {
 
@@ -28,7 +28,7 @@ public class SuinosBS extends HibernateBusiness {
 	private Object result;
 	private String ca;
 
-	public void registrarMatriz(String Mossa, String Vigilancia, String Raca, String Origem) {
+	public void registrarMatriz(String Mossa, String Vigilancia, String Raca, String Origem, String Tipo) {
 
 		Criteria criteria1 = dao.newCriteria(Matriz.class);
 		criteria1.add(Restrictions.eq("Mossa", Mossa));
@@ -42,6 +42,7 @@ public class SuinosBS extends HibernateBusiness {
 			Matriz.setRaca(Raca);
 			Matriz.setVigilancia(Vigilancia);
 			Matriz.setOrigem(Origem);
+			Matriz.setTipo(Tipo);
 			Matriz.setCadastrador(userSession.getUser().getNome());
 			Matriz.setStatus("available");
 
@@ -139,9 +140,18 @@ public class SuinosBS extends HibernateBusiness {
 				Nascimento.setStatus("available");
 				Nascimento.setData(bonitin);
 				Nascimento.setData_cobertura(data_cobertura);
+				
+				int count = 0;
+				while (count < Vivos) {
+					Porco Porco = new Porco();
+					Porco.setMatriz(Mossa);
+					Porco.setNascimento(Nascimento.getId());
+				}
+				
 
 				dao.persist(Nascimento);
 				this.disableCobertura(Mossa);
+				this.eraseProxNascimento(Mossa);
 			}
 		}
 
@@ -189,5 +199,22 @@ public class SuinosBS extends HibernateBusiness {
 		matriz.setVigilancia(Vigilancia);
 
 		dao.update(matriz);
+	}
+	
+	public void eraseProxNascimento(String mossa) {
+		Criteria criteria = this.dao.newCriteria(Matriz.class);
+		criteria.add(Restrictions.eq("Mossa", mossa));
+		Matriz matriz = (Matriz) criteria.uniqueResult();
+		
+		matriz.setProx("");
+		dao.update(matriz);		
+	}
+	
+	public void setNumberPorcos(String mossa, int number) {
+		Criteria criteria = this.dao.newCriteria(Matriz.class);
+		criteria.add(Restrictions.eq("Mossa", mossa));
+		Matriz matriz = (Matriz) criteria.uniqueResult();
+		
+		matriz.setPorcos(number);
 	}
 }
