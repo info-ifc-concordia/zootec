@@ -32,7 +32,7 @@
 
 			<div class="form-group col-md-6 col-xs-12">
 				<label for="text"> Insumo 1</label> <input type="text"
-					class="form-control" id="insumo1" name="insumo1" required>
+					class="form-control" id="insumo1" name="insumo1" required >
 			</div>
 
 			<div class="form-group col-md-6 col-xs-12">

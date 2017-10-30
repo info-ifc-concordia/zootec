@@ -177,7 +177,7 @@ function productionSpecific(id, type) {
 								} else 
 								// Type = Qualquer outra coisa: Significa que o usuário está na parte de edição ou exclusão de produção 
 								{
-									colocarDentro += "<td><input type='number' id='"
+									colocarDentro += "<td><input type='number' step='0.01' id='"
 											+ aux
 											+ "' value="
 											+ cert[aux]
@@ -204,7 +204,7 @@ function productionSpecific(id, type) {
 							colocarDentro += "<td>" + cert.qtd_final
 									+ "kg</td></tr>";
 						} else {
-							colocarDentro += "<td> <input type='text' id='qtd_final'  name='qtd_final' value="
+							colocarDentro += "<td> <input type='number' step='0.01' id='qtd_final'  name='qtd_final' value="
 									+ cert.qtd_final + "></td></tr>";
 							colocarDentro += '</form> </tbody></table>';
 

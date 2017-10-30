@@ -122,7 +122,7 @@
 							type="number" class="form-control" id="qtd_final"
 							name="prod.qtd_final" required step="0.01">
 					</div>
-					<input type="submit" value="Adicionar produção"
+					<input type="submit" value="Adicionar produção" id="buttonAddProduction"
 						class="btn salvar col-md-12 col-xs-12 col-md-offset-12">
 				</div>
 			</form>

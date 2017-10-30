@@ -121,9 +121,9 @@ public class ProdutionController extends AbstractController {
 	@Post(value="/editProduction")
 	@NoCache
 	public void editProduction(Long id,  
-			double insumo1, double insumo2, double insumo3, double insumo4, double insumo5, 
-			double insumo6, double insumo7, double insumo8, double insumo9, double insumo10, 
-			double insumo11, double insumo12, double qtd_final) {
+			Double insumo1, Double insumo2, Double insumo3, Double insumo4, Double insumo5, 
+			Double insumo6, Double insumo7, Double insumo8, Double insumo9, Double insumo10, 
+			Double insumo11, Double insumo12, Double qtd_final) {
 		this.bs.updateProdution(id, insumo1, insumo2, insumo3, insumo4, insumo5,
 				insumo6, insumo7, insumo8, insumo9, insumo10, insumo11, insumo12, qtd_final);
 		this.result.redirectTo(IndexController.class).indexracao();

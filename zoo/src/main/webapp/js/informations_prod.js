@@ -384,3 +384,43 @@ function productionSpecific(id, type) {
 				}
 			});
 }
+
+
+
+var rationCurrent = "";
+function getNameRations() {
+	animal1 = $("#animal_type_ration").val();
+	$.ajax({
+		method : "GET",
+		url : "/zoo/getNameRations",
+		data : {
+			animal : animal1
+		},
+		success : function(response) {
+			console.log(response);
+			if (response.cod == "404") {
+				alert(response.message);
+			} else {
+				rationCurrent = response.data; 
+				//Adiciona-se o objeto encontrado a variavel global 'rationCurrent',
+				// para ser utilizada posterioremente, aproveitando a requisição e evitando outra
+				var options = "<option>Selecione a ração</option>";
+				for (i in rationCurrent) {
+					/*
+					 Após a busca retornar um objeto com todos os tipos de ração e seus respectivos insumos, 
+					 adiciona-se ao 'select' os options com os nomes das rações encontradas! 
+					 */
+					options += "<option>" + rationCurrent[i].name
+							+ "</option>";
+				}
+				$("#name_ration").html(options);
+				hideAll();
+			}
+		},
+		failure : function(response) {
+			atualy = false;
+			error();
+			console.error(response);
+		}
+	});
+}
