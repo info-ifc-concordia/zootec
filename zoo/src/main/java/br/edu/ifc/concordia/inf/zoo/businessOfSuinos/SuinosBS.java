@@ -140,16 +140,18 @@ public class SuinosBS extends HibernateBusiness {
 				Nascimento.setStatus("available");
 				Nascimento.setData(bonitin);
 				Nascimento.setData_cobertura(data_cobertura);
-				
+				dao.persist(Nascimento);
+
 				int count = 0;
 				while (count < Vivos) {
 					Porco Porco = new Porco();
 					Porco.setMatriz(Mossa);
 					Porco.setNascimento(Nascimento.getId());
+					dao.persist(Porco);
+					count += 1;
 				}
-				
 
-				dao.persist(Nascimento);
+				this.setNumberPorcos(Mossa, Vivos);
 				this.disableCobertura(Mossa);
 				this.eraseProxNascimento(Mossa);
 			}
@@ -175,7 +177,9 @@ public class SuinosBS extends HibernateBusiness {
 	public void disableCobertura(String mossa) {
 		Criteria criteria = this.dao.newCriteria(Cobertura.class);
 		criteria.add(Restrictions.eq("mossa", mossa));
+		criteria.add(Restrictions.eq("status", "available"));
 		Cobertura cober = (Cobertura) criteria.uniqueResult();
+
 		cober.setStatus("unavailable");
 		dao.update(cober);
 	}
@@ -200,21 +204,22 @@ public class SuinosBS extends HibernateBusiness {
 
 		dao.update(matriz);
 	}
-	
+
 	public void eraseProxNascimento(String mossa) {
 		Criteria criteria = this.dao.newCriteria(Matriz.class);
 		criteria.add(Restrictions.eq("Mossa", mossa));
 		Matriz matriz = (Matriz) criteria.uniqueResult();
-		
+
 		matriz.setProx("");
-		dao.update(matriz);		
+		dao.update(matriz);
 	}
-	
+
 	public void setNumberPorcos(String mossa, int number) {
 		Criteria criteria = this.dao.newCriteria(Matriz.class);
 		criteria.add(Restrictions.eq("Mossa", mossa));
 		Matriz matriz = (Matriz) criteria.uniqueResult();
-		
-		matriz.setPorcos(number);
+
+		matriz.addPorcos(number);
+		dao.update(matriz);
 	}
 }

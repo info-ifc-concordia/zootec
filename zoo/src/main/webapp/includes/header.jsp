@@ -117,6 +117,9 @@
 									<li><a href="<c:url value="/ListarMatrizes"/>"><span class="glyphicon glyphicon-th-list"></span> 
 									 Listar</a></li>
 									 
+									 <li><a href="<c:url value="/TranferirPorcos"/>"><span class="glyphicon glyphicon-transfer"></span> 
+									 Transferir</a></li>
+									 
 								</ul></li>
 							
 							<!-- Dropdown de controle coberturas-->

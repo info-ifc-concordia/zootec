@@ -74,6 +74,11 @@ public class SuinosController extends AbstractController {
 		this.result.include("cobertura", matriz);
 	}	
 	
+	@Get(value="TranferirPorcos")
+	public void transferirporcos() {
+		this.listarmatrizes();
+	}
+	
 	@Get(value="/Confirmar")
 	public void confirmarcobertura(){
 	}	

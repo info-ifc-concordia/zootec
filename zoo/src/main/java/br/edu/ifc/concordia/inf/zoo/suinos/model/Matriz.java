@@ -87,6 +87,11 @@ public class Matriz implements Serializable{
 	public void setCadastrador(String cadastrador) {
 		Cadastrador = cadastrador;
 	}
+	
+	public void addPorcos(int number) {
+		Porcos += number;
+	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
