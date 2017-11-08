@@ -74,6 +74,12 @@ public class SuinosController extends AbstractController {
 		this.result.include("cobertura", matriz);
 	}	
 	
+	@Get(value="RequestCoberturas")
+	public void requestcoberturas() {
+		List<Cobertura> cobertura = this.Bs.listTypeCobertura();
+		this.success(cobertura, (long) cobertura.size());
+	}
+	
 	@Get(value="TranferirPorcos")
 	public void transferirporcos() {
 		this.listarmatrizes();

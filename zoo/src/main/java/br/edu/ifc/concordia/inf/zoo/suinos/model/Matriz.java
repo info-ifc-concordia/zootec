@@ -1,6 +1,8 @@
 package br.edu.ifc.concordia.inf.zoo.suinos.model;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Matriz implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;	
+	@Column(unique=true)
 	private String Mossa;
 	private String Tipo;
 	private String Vigilancia;

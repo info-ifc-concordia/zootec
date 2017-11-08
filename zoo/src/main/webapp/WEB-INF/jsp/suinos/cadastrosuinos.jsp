@@ -15,35 +15,35 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Mossa</label>  
 						  <div class="col-md-4">
-						  	<input  name="Mossa" type="text" placeholder="..." class="form-control input-md">
+						  	<input  name="Mossa" type="text" placeholder="Mossa" class="form-control input-md">
 						  </div>
 						</div>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Raça</label>  
 						  <div class="col-md-4">
-						  	<input  name="Raca" type="text" placeholder="..." class="form-control input-md">
+						  	<input  name="Raca" type="text" placeholder="Raça" class="form-control input-md">
 						  </div>
 						</div>
 						
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Tipo</label>  
 						  <div class="col-md-4">
-						  	<input  name="Tipo" type="text" placeholder="..." class="form-control input-md">
+						  	<input  name="Tipo" type="text" placeholder="Tipo" class="form-control input-md">
 						  </div>
 						</div>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Registro Vigilância</label>  
 						  <div class="col-md-4">
-						  	<input name="Vigilancia" type="text" placeholder="..." class="form-control input-md">
+						  	<input name="Vigilancia" type="text" placeholder="Vigilância" class="form-control input-md">
 						  </div>
 						</div>
 
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="textinput">Origem</label>  
 						  <div class="col-md-4">
-						  	<input name="Origem" type="text" class="form-control input-md">
+						  	<input name="Origem" type="text" class="form-control input-md" placeholder="Origem">
 						  </div>
 						  
 						</div>

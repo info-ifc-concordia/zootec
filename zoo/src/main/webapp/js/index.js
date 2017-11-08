@@ -347,6 +347,26 @@ function getMatrizes(){
 	});
 }
 
+var coberturas;
+function getCoberturas(){
+	$.ajax({
+		method : "GET",
+		url : "/zoo/RequestCoberturas",
+		success : function(response) {
+			if (response.cod == "404") {
+				alert(response.message);
+			} else {
+				coberturas = response.data;
+			}
+		},
+		failure : function(response) {
+			atualy = false;
+			error();
+			console.error(response);
+		}
+	});
+}
+
 function matrizEspecifico(){
 	$("#s_divHist, #s_divCober").hide();	
 }
@@ -365,11 +385,51 @@ function registroCobertura(){
 
 //CLIQUES REFERENTES ÀS PÁGINAS DOS SUÍNOS
 
+
+/*conferir qual radiobutton está ativado no cadastro de coberturas 
+e fazer as devidas alterações no formulário*/
+$("#cobertura_radios1, #cobertura_radios2").click(function(){
+	if(($("#cobertura_radios2").is(":checked"))){
+		$("#form_cober_cachaco").val("Inseminação");
+		$("#div_registro_cachaco").hide();		
+		
+	}
+	else{
+		$("#div_registro_cachaco").show();
+		$("#form_cober_cachaco").val("");
+	}
+});
+
+$("#btn_registrar_cober").click(function(){
+	var mossa = $("#select_mossa_cober").val();
+	console.log(mossa);	
+
+	var tem = false
+	if (coberturas.length != 0) {
+		for (i in coberturas) {
+			if (coberturas[i].mossa == mossa && coberturas[i].status == "available") {
+				tem = true;
+				break;
+			} 
+		}
+	}
+	else{
+		$("#form_cobertura").submit();
+	}
+	
+	if (tem){
+		$("#alerts").empty();
+		$("#alerts").append('<p style="color:red"> Existe uma cobertura ativa nessa mossa! Desabilite-a para poder registrar uma nova </p>')
+	}
+	else{
+		$("#form_cobertura").submit();
+	}
+});
+
 $("#s_btn_editar").click(function(){
 	var mossa = $("#s_editar_mossa").val();
 	var vigilancia = $("#s_editar_vigilancia").val();
 	
-	console.log(matrizes);
 	var cert;
 	var tem = false;
 	for (i in matrizes) {
