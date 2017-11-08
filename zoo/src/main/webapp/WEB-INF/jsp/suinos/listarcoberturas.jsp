@@ -32,7 +32,8 @@
 					<th>Mossa</th>
 					<th>Cachaço</th>
 					<th>Data</th>
-					<th>Tipo</th>				
+					<th>Tipo</th>
+					<th> Desativar </th>			
 				</tr>
 			</thead>
 			<tbody>
@@ -46,6 +47,7 @@
 								<td>${m.cachaco}</td>
 								<td>${m.data_cobertura}</td>
 								<td>${m.tipo}</td>
+								<td> <span class="glyphicon glyphicon-remove"> <a type="button" class="btn btn-primary">Tranferência</a> </span> </td>
 							</tr>
 					</c:when>
 				</c:choose>
@@ -78,7 +80,7 @@
 								<td>${m.mossa} </td>
 								<td>${m.cachaco}</td>
 								<td>${m.data_cobertura}</td>
-								<td>${m.tipo}</td>
+								<td>${m.tipo}</td>								
 							</tr>
 					</c:when>
 				</c:choose>

@@ -66,9 +66,10 @@
 
 </main>
 
+
+<script src=<c:url value="/js/registrocobertura.js"/> type="text/js"></script>
 <script>
 window.onload = function(e) {
-	registroCobertura();
 	getCoberturas();
 };
 </script>

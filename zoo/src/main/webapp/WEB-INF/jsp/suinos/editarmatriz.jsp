@@ -6,6 +6,9 @@
 <main class = "container">
 <legend>Editar Matriz</legend>	
 
+
+	<div id="alert"> </div>
+	
 	<div>
 		<div class="row">
 				<div class="col-xs-12 col-md-12" id="rowform">

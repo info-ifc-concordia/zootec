@@ -379,12 +379,7 @@ function zerarEdicao(){
 	$("#esconder_hihi").hide();
 }
 
-function registroCobertura(){
-	
-}
-
 //CLIQUES REFERENTES ÀS PÁGINAS DOS SUÍNOS
-
 
 /*conferir qual radiobutton está ativado no cadastro de coberturas 
 e fazer as devidas alterações no formulário*/
@@ -419,7 +414,7 @@ $("#btn_registrar_cober").click(function(){
 	
 	if (tem){
 		$("#alerts").empty();
-		$("#alerts").append('<p style="color:red"> Existe uma cobertura ativa nessa mossa! Desabilite-a para poder registrar uma nova </p>')
+		$("#alerts").append('<p style="color:red"> Existe uma cobertura ativa nessa mossa! Desabilite-a para poder registrar uma nova. </p>')
 	}
 	else{
 		$("#form_cobertura").submit();
@@ -435,15 +430,14 @@ $("#s_btn_editar").click(function(){
 	for (i in matrizes) {
 		if (matrizes[i].Mossa == mossa) {
 			cert = matrizes[i];
-		}
-		
+		}		
 		if (matrizes[i].Vigilancia == vigilancia && cert.Vigilancia != vigilancia){
 			tem = true;
 		}
 	}
 	
 	if (tem){
-		alert("já existe");
+		$("#alerts").append('<p style="color:red"> Vigilância já cadastrada no sistema! </p>')
 	}
 	else{
 		$("#s_form_editar").submit();
