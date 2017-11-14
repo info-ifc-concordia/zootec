@@ -10,7 +10,7 @@
 				<div id="alertas"></div>
 				
 				<div class="col-xs-12 col-md-12" id="rowform">					
-					<form class="form-horizontal" role="form" method="POST" action ="<c:url value = "/MatrizEspecificoBusca"/>">
+					<form id="transferir_form" class="form-horizontal" role="form" method="POST" action ="<c:url value = "/TransferirPorcos"/>">
 					<fieldset>
 
 						<legend>Tranferir porco</legend>
@@ -18,7 +18,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="selectbasic">De: </label>
 						  <div class="col-md-3">
-						    <select name="Mossa_1" class="form-control" id="remetente">						    
+						    <select name="Remetente" class="form-control" id="remetente">						    
 						    <c:forEach items="${matriz2}" var="m">
 								<option value="${m.mossa}">${m.mossa}</option>
 							</c:forEach>
@@ -29,7 +29,7 @@
 						<div class="form-group">
 						  <label class="col-md-4 control-label" for="selectbasic">Para: </label>
 						  <div class="col-md-3">
-						    <select name="Mossa_2" class="form-control" id="destinatario">						    
+						    <select name="Destinatario" class="form-control" id="destinatario">						    
 						    <c:forEach items="${matriz2}" var="m">
 								<option value="${m.mossa}">${m.mossa}</option>
 							</c:forEach>

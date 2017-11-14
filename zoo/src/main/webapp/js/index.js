@@ -462,8 +462,12 @@ $("#btn_transferir").click(function(){
 			$("#alertas").empty();
 			$("#alertas").append('<p style="color:red"> Essa matriz não possui porcos para transferir! </p>')
 		}
-		else{
-			alert("deu certo");
+		if ((remet.Porcos > 0) && (qtd > remet.Porcos)){
+			$("#alertas").empty();
+			$("#alertas").append('<p style="color:red"> Matriz não tem quantidade suficiente de porcos para transferir! </p>')
+		}
+		if (qtd < remet.Porcos){
+			$("#transferir_form").submit();
 		}
 		
 	}

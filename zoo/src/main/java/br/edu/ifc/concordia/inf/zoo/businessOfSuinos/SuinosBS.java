@@ -228,5 +228,8 @@ public class SuinosBS extends HibernateBusiness {
 		cober.setStatus("unavailable");
 		dao.update(cober);
 	}
-
+	
+/*	public void transferirPorcos(String Remetente, String Destinatario, int Porcos) {
+		
+	}*/
 }

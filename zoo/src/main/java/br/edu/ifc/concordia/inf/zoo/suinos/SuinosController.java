@@ -152,4 +152,10 @@ public class SuinosController extends AbstractController {
 		this.Bs.editarMatriz(Tipo, Origem, Vigilancia, Raca, Mossa);
 		this.result.redirectTo(IndexController.class).index();
 	}
+	
+	@Post(value="/TransferirPorcos")
+	@NoCache
+	public void transferirPorcos(String Remetente, String Destinatario, int Quantidade) {
+		
+	}
 }
