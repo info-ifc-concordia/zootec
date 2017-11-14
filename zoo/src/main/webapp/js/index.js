@@ -397,7 +397,6 @@ $("#cobertura_radios1, #cobertura_radios2").click(function(){
 
 $("#btn_registrar_cober").click(function(){
 	var mossa = $("#select_mossa_cober").val();
-	console.log(mossa);	
 
 	var tem = false
 	if (coberturas.length != 0) {
@@ -441,6 +440,36 @@ $("#s_btn_editar").click(function(){
 	}
 	else{
 		$("#s_form_editar").submit();
+	}
+});
+
+$("#btn_transferir").click(function(){
+	var remet = $("#remetente").val();
+	var dest = $("#destinatario").val();
+	var qtd = $("#quantidade").val();
+	
+	if (remet != dest){
+		for (i in matrizes) {
+			if (matrizes[i].Mossa == remet) {
+				remet = matrizes[i];
+			}		
+			if (matrizes[i].Mossa == dest){
+				dest = matrizes[i];
+			}
+		}
+		
+		if (qtd > remet.Porcos){
+			$("#alertas").empty();
+			$("#alertas").append('<p style="color:red"> Essa matriz não possui porcos para transferir! </p>')
+		}
+		else{
+			alert("deu certo");
+		}
+		
+	}
+	else{
+		$("#alertas").empty();
+		$("#alertas").append('<p style="color:red"> As matrizes estão iguais! </p>')
 	}
 });
 

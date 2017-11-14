@@ -47,7 +47,7 @@
 								<td>${m.cachaco}</td>
 								<td>${m.data_cobertura}</td>
 								<td>${m.tipo}</td>
-								<td> <span class="glyphicon glyphicon-remove"> <a type="button" class="btn btn-primary">Tranferência</a> </span> </td>
+								<td><a type="button" href="<c:url value="/ApagarCobertura/${m.id}"/>">Desabilitar</a></td>
 							</tr>
 					</c:when>
 				</c:choose>
@@ -92,7 +92,9 @@
 </main>
 
 <script>
-2
+window.onload = function(e) {
+	listarCoberturas();
+};
 </script>
 
 <c:import url="/includes/footer.jsp"/>

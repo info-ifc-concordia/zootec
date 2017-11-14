@@ -25,8 +25,6 @@ public class SuinosBS extends HibernateBusiness {
 	UserSession userSession;
 	@Inject
 	SuinosController controller;
-	private Object result;
-	private String ca;
 
 	public void registrarMatriz(String Mossa, String Vigilancia, String Raca, String Origem, String Tipo) {
 
@@ -95,7 +93,6 @@ public class SuinosBS extends HibernateBusiness {
 			this.setProxNascimento(Mossa, bonitin2);
 
 			dao.persist(Cobertura);
-			controller.confirmarRegistro(Cobertura);
 		}
 	}
 
@@ -222,4 +219,14 @@ public class SuinosBS extends HibernateBusiness {
 		matriz.addPorcos(number);
 		dao.update(matriz);
 	}
+	
+	public void apagarCobertura(Long id) {
+		Criteria criteria = this.dao.newCriteria(Cobertura.class);
+		criteria.add(Restrictions.eq("id", id));
+		Cobertura cober = (Cobertura) criteria.uniqueResult();
+		
+		cober.setStatus("unavailable");
+		dao.update(cober);
+	}
+
 }

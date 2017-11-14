@@ -17,14 +17,15 @@ import br.edu.ifc.concordia.inf.zoo.suinos.model.Nascimento;
 
 @Controller
 public class SuinosController extends AbstractController {
-	
-	@Inject private SuinosBS Bs;
-	
-	@Get(value="/CadastroSuino")
-	public void cadastrosuinos(){
+
+	@Inject
+	private SuinosBS Bs;
+
+	@Get(value = "/CadastroSuino")
+	public void cadastrosuinos() {
 	}
-	
-	@Get(value="/editarmatriz/{mossa}")
+
+	@Get(value = "/editarmatriz/{mossa}")
 	public void editarmatriz(String mossa) {
 		List<Matriz> matrizes = this.Bs.listTypeMossa();
 		Matriz matriz = null;
@@ -34,117 +35,119 @@ public class SuinosController extends AbstractController {
 				break;
 			}
 		}
-		
+
 		this.result.include("matrizEditar", matriz);
 	}
-	
-	@Get(value="/registronascimento")
-	public void registronascimento(){
-		List<Matriz> matriz = this.Bs.listTypeMossa(); 
+
+	@Get(value = "/registronascimento")
+	public void registronascimento() {
+		List<Matriz> matriz = this.Bs.listTypeMossa();
 		this.result.include("matriz2", matriz);
 	}
-	
-	@Get(value="registrocobertura")
+
+	@Get(value = "registrocobertura")
 	public void registrocobertura() {
-		List<Matriz> matriz = this.Bs.listTypeMossa(); 
+		List<Matriz> matriz = this.Bs.listTypeMossa();
 		this.result.include("matriz2", matriz);
 	}
-	
-	@Get(value="/ListarMatrizes")
-	public void listarmatrizes(){
-		List<Matriz> matriz = this.Bs.listTypeMossa(); 
+
+	@Get(value = "/ListarMatrizes")
+	public void listarmatrizes() {
+		List<Matriz> matriz = this.Bs.listTypeMossa();
 		this.result.include("matriz2", matriz);
-	}	
-	
-	@Get(value="/RequestMatrizes")
+	}
+
+	@Get(value = "/RequestMatrizes")
 	public void requestmatrizes() {
 		List<Matriz> matriz = this.Bs.listTypeMossa();
 		this.success(matriz, (long) matriz.size());
 	}
-	
-	@Get(value="/ListarNascimentos")
+
+	@Get(value = "/ListarNascimentos")
 	public void listarnascimentos() {
 		List<Nascimento> nascimento = this.Bs.listNascimento();
 		this.result.include("nascimento", nascimento);
 	}
-	
-	@Get(value="ListarCoberturas")
-	public void listarcoberturas(){
-		List<Cobertura> matriz = this.Bs.listTypeCobertura(); 
+
+	@Get(value = "ListarCoberturas")
+	public void listarcoberturas() {
+		List<Cobertura> matriz = this.Bs.listTypeCobertura();
 		this.result.include("cobertura", matriz);
-	}	
-	
-	@Get(value="RequestCoberturas")
+	}
+
+	@Get(value = "RequestCoberturas")
 	public void requestcoberturas() {
 		List<Cobertura> cobertura = this.Bs.listTypeCobertura();
 		this.success(cobertura, (long) cobertura.size());
 	}
-	
-	@Get(value="TranferirPorcos")
+
+	@Get(value = "TranferirPorcos")
 	public void transferirporcos() {
 		this.listarmatrizes();
 	}
-	
-	@Get(value="/Confirmar")
-	public void confirmarcobertura(){
-	}	
-	
-	@Get(value="/controlSuinos")
-	public void controlsuinos() {}
-	
-	@Get(value="Cobertura")
-	public void getcobertura() {		
+
+	@Get(value = "/Confirmar")
+	public void confirmarcobertura() {
 	}
-	
-	@Get(value="/MatrizEspecifico/{mossa}")
-	public void matrizespecifico(String mossa){
+
+	@Get(value = "/controlSuinos")
+	public void controlsuinos() {
+	}
+
+	@Get(value = "Cobertura")
+	public void getcobertura() {
+	}
+
+	@Get(value = "/MatrizEspecifico/{mossa}")
+	public void matrizespecifico(String mossa) {
 		this.listarcoberturas();
 		this.listarmatrizes();
 		this.listarnascimentos();
 		this.result.include("ola", mossa);
 	}
-	
-	@Get(value="/MatrizEspecificoBusca")
+
+	@Get(value = "/MatrizEspecificoBusca")
 	public void matrizespecificobusca(String Mossa) {
 		this.listarcoberturas();
 		this.listarmatrizes();
 		this.listarnascimentos();
 		this.result.include("ola", Mossa);
 	}
-	
-	@Get(value="/Registronascimento/{mossa}")
+
+	@Get(value = "/Registronascimento/{mossa}")
 	public void registronascimento(String mossa) {
 		this.result.include("mossa", mossa);
 	}
-	
-	@Post(value="RegistrarNascimento/{mossa}")
+
+	@Post(value = "/RegistrarNascimento/{mossa}")
 	@NoCache
 	public void RegistrarNascimento(String mossa, String Data, int Vivos, int Nati, int Mumi) {
 		this.Bs.registrarNascimento(mossa, Data, Vivos, Nati, Mumi);
 		this.result.redirectTo(IndexController.class).index();
 	}
-	
-	@Post(value="/CadastrarSuino")
+
+	@Post(value = "/CadastrarSuino")
 	@NoCache
 	public void registrar(String Mossa, String Vigilancia, String Raca, String Origem, String Tipo) {
 		this.Bs.registrarMatriz(Mossa, Vigilancia, Raca, Origem, Tipo);
 		this.result.redirectTo(IndexController.class).index();
 	}
-	
-	@Post(value="/RegistrarCobertura")
+
+	@Post(value = "/RegistrarCobertura")
 	@NoCache
 	public void registrarCobertura(String Mossa, String Data, String Cachaco, String Tipo) {
 		this.Bs.registrarCobertura(Mossa, Data, Cachaco, Tipo);
 		this.result.redirectTo(IndexController.class).index();
 	}
-	
-	@Post(value="ConfirmarRegistro")
-	@NoCache
-	public void confirmarRegistro(Cobertura cobertura) {
-		this.result.include("ultimo", cobertura);
+
+	@Get(value = "/ApagarCobertura/{id}")
+	public void apagarCobertura(Long id) {
+		this.Bs.apagarCobertura(id);
+		this.result.redirectTo(SuinosController.class).listarcoberturas();
 	}
-	
-	@Post(value="EditarMatriz")
+
+	@Post(value = "/EditarMatriz")
+	@NoCache
 	public void editarMatriz(String Tipo, String Origem, String Vigilancia, String Raca, String Mossa) {
 		this.Bs.editarMatriz(Tipo, Origem, Vigilancia, Raca, Mossa);
 		this.result.redirectTo(IndexController.class).index();
