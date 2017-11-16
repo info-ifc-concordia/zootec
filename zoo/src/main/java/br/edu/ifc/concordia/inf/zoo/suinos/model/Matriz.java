@@ -95,6 +95,10 @@ public class Matriz implements Serializable{
 		Porcos += number;
 	}
 	
+	public void removePorcos(int number) {
+		Porcos -= number;
+	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}

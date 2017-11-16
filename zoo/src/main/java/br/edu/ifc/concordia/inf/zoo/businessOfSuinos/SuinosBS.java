@@ -170,6 +170,11 @@ public class SuinosBS extends HibernateBusiness {
 		Criteria criteria = this.dao.newCriteria(Nascimento.class);
 		return this.dao.findByCriteria(criteria, Nascimento.class);
 	}
+	
+	public List<Porco> listporcos(){
+		Criteria criteria = this.dao.newCriteria(Porco.class);
+		return this.dao.findByCriteria(criteria, Porco.class);
+	}
 
 	public void disableCobertura(String mossa) {
 		Criteria criteria = this.dao.newCriteria(Cobertura.class);
@@ -229,7 +234,21 @@ public class SuinosBS extends HibernateBusiness {
 		dao.update(cober);
 	}
 	
-/*	public void transferirPorcos(String Remetente, String Destinatario, int Porcos) {
+	public void transferirPorcos(String remetente, String destinatario, int quantidade) {
+		Criteria criteriaRemetente = this.dao.newCriteria(Matriz.class);
+		criteriaRemetente.add(Restrictions.eq("mossa", remetente));
+		Matriz matrizRemetente = (Matriz) criteriaRemetente.uniqueResult();
 		
-	}*/
+		Criteria criteriaDestinatario = this.dao.newCriteria(Matriz.class);
+		criteriaDestinatario.add(Restrictions.eq("mossa", destinatario));
+		Matriz matrizDestinatario = (Matriz) criteriaRemetente.uniqueResult();
+		
+		List<Porco> porcos = this.listporcos();
+		
+		
+		matrizRemetente.removePorcos(quantidade);
+		matrizDestinatario.addPorcos(quantidade);		
+		dao.update(matrizRemetente);
+		dao.update(matrizDestinatario);
+	}
 }

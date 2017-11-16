@@ -156,6 +156,7 @@ public class SuinosController extends AbstractController {
 	@Post(value="/TransferirPorcos")
 	@NoCache
 	public void transferirPorcos(String Remetente, String Destinatario, int Quantidade) {
-		
+		this.Bs.transferirPorcos(Remetente, Destinatario, Quantidade);
+		this.result.redirectTo(IndexController.class).indexsuinos();		
 	}
 }
