@@ -144,6 +144,7 @@ public class SuinosBS extends HibernateBusiness {
 					Porco Porco = new Porco();
 					Porco.setMatriz(Mossa);
 					Porco.setNascimento(Nascimento.getId());
+					Porco.setStatus("available");
 					dao.persist(Porco);
 					count += 1;
 				}

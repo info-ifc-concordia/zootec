@@ -36,28 +36,27 @@
 		<tr>
 			<td>Mossa</td>
 			<td>Raça</td>
-			<td>Tipo?</td>
 			<td>Origem</td>
 			<td>Vigilância</td>
-			<td>Cadastrador</td>
 			<td>Data próximo nascimento</td>
-			<td>Cobertura atual</td>
 			<td>Porcos ativos</td>
 		</tr>
 			<tr>
 				<td>${m.mossa}</td>
 				<td>${m.raca}</td>
-				<td>.</td>
-				<td>.</td>
-				<td>.</td>
-				<td>.</td>
+				<td>${m.origem}</td>
+				<td>${m.vigilancia}</td>
 				<td>${m.prox}</td>
-				<td>.</td>
-				<td>.</td>
+				<td>${m.porcos}</td>
 			</tr>			
 		</tbody>
 		</table>
-		<a type="button" class="btn btn-primary" href="<c:url value="/Registronascimento/${m.mossa}"/>" role="button">Registrar nascimento</a>
+		<c:set var="c"  value=""/>
+		<c:choose>
+		<c:when test="${m.prox != c}">
+			<a type="button" class="btn btn-primary" href="<c:url value="/Registronascimento/${m.mossa}"/>" role="button">Registrar nascimento</a>
+		</c:when>
+		</c:choose>
 		<a type="button" class="btn btn-primary" href="<c:url value="/editarmatriz/${m.mossa}"/>" role="button">Editar Matriz</a>
   		<a type="button" class="btn btn-primary">Tranferência</a>  		
 	</div>
@@ -82,7 +81,7 @@
 		</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${nascimento}" var="n">
+			<c:forEach items="${nascimentos}" var="n">
 			<c:choose>
 				<c:when test="${n.mossa == ola}">
 				<tr>
@@ -114,8 +113,7 @@
 		<tr>
 			<th>Cachaço</th>
 			<th>Data</th>
-			<th>Tipo</th>
-			<th>Status</th>					
+			<th>Tipo</th>				
 		</tr>
 		</thead>
 		<tbody>
@@ -127,7 +125,6 @@
 					<td>${c.cachaco}</td>
 					<td>${c.data_cobertura}</td>
 					<td>${c.tipo}</td>
-					<td>${c.status}</td>
 				</tr>
 				</c:when>
 			</c:choose>
@@ -142,8 +139,7 @@
 		<tr>
 			<th>Cachaço</th>
 			<th>Data</th>
-			<th>Tipo</th>
-			<th>Status</th>					
+			<th>Tipo</th>					
 		</tr>
 		</thead>
 		<tbody>
@@ -154,7 +150,6 @@
 					<td>${c.cachaco}</td>
 					<td>${c.data_cobertura}</td>
 					<td>${c.tipo}</td>
-					<td>${c.status}</td>
 				</tr>
 				</c:when>
 			</c:choose>

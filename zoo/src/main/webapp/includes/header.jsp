@@ -126,7 +126,7 @@
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false"><span style="color: #FFFFFF;"><span
-								class="glyphicon glyphicon-calendar"></span> 
+								class="glyphicon glyphicon-list-alt"></span> 
 								<span id="Drop_Matrizes">Coberturas</span> <span class="caret"></span></a>
 											
 								<ul class="dropdown-menu">
@@ -134,6 +134,20 @@
 									 Registrar </a></li>
 											
 									<li><a href="<c:url value="/ListarCoberturas"/>"><span class="glyphicon glyphicon-th-list"></span> 
+									 Listar</a></li>
+								</ul></li>	
+								
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false"><span style="color: #FFFFFF;"><span
+								class="glyphicon glyphicon-calendar"></span> 
+								<span id="Drop_Matrizes">Nascimentos</span> <span class="caret"></span></a>
+											
+								<ul class="dropdown-menu">
+									<li><a href="<c:url value="/"/>"><span class="glyphicon glyphicon-plus"></span>
+									 Registrar </a></li>
+											
+									<li><a href="<c:url value="/ListarNascimentos"/>"><span class="glyphicon glyphicon-th-list"></span> 
 									 Listar</a></li>
 								</ul></li>								
 								

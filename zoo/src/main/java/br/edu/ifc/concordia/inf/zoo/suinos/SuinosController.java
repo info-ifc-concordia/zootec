@@ -66,7 +66,7 @@ public class SuinosController extends AbstractController {
 	@Get(value = "/ListarNascimentos")
 	public void listarnascimentos() {
 		List<Nascimento> nascimento = this.Bs.listNascimento();
-		this.result.include("nascimento", nascimento);
+		this.result.include("nascimentos", nascimento);
 	}
 
 	@Get(value = "ListarCoberturas")
