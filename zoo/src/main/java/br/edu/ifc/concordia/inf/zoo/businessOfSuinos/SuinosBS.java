@@ -171,8 +171,10 @@ public class SuinosBS extends HibernateBusiness {
 		return this.dao.findByCriteria(criteria, Nascimento.class);
 	}
 	
-	public List<Porco> listporcos(){
+	public List<Porco> listarPorcosEspecifico(String matriz){
 		Criteria criteria = this.dao.newCriteria(Porco.class);
+		criteria.add(Restrictions.eq("matriz", matriz));
+		criteria.add(Restrictions.eq("status", "available"));		
 		return this.dao.findByCriteria(criteria, Porco.class);
 	}
 
@@ -236,15 +238,23 @@ public class SuinosBS extends HibernateBusiness {
 	
 	public void transferirPorcos(String remetente, String destinatario, int quantidade) {
 		Criteria criteriaRemetente = this.dao.newCriteria(Matriz.class);
-		criteriaRemetente.add(Restrictions.eq("mossa", remetente));
+		criteriaRemetente.add(Restrictions.eq("Mossa", remetente));
 		Matriz matrizRemetente = (Matriz) criteriaRemetente.uniqueResult();
 		
 		Criteria criteriaDestinatario = this.dao.newCriteria(Matriz.class);
-		criteriaDestinatario.add(Restrictions.eq("mossa", destinatario));
+		criteriaDestinatario.add(Restrictions.eq("Mossa", destinatario));
 		Matriz matrizDestinatario = (Matriz) criteriaRemetente.uniqueResult();
 		
-		List<Porco> porcos = this.listporcos();
-		
+		List<Porco> porcos = this.listarPorcosEspecifico(matrizRemetente.getMossa());
+		int count = 1;
+		for (Porco p : porcos) {
+			p.setMatriz(matrizDestinatario.getMossa());
+			dao.update(p);
+			if (count == quantidade) {
+				break;
+			}
+			count += 1;
+		}		
 		
 		matrizRemetente.removePorcos(quantidade);
 		matrizDestinatario.addPorcos(quantidade);		
