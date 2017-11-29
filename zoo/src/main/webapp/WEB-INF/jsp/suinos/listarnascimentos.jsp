@@ -7,7 +7,7 @@
 	
 	<div id="s_show_CoberCober">
 	
-	<h5>Coberturas ativas</h5>
+	<h5>Histórico de nascimentos</h5>
 		
 		<table class="table table-striped">
 			<thead>

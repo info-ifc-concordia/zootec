@@ -161,7 +161,7 @@ public class SuinosBS extends HibernateBusiness {
 		Criteria criteria = this.dao.newCriteria(Matriz.class);
 		return this.dao.findByCriteria(criteria, Matriz.class);
 	}
-
+	
 	public List<Cobertura> listTypeCobertura() {
 		Criteria criteria = this.dao.newCriteria(Cobertura.class);
 		return this.dao.findByCriteria(criteria, Cobertura.class);
@@ -233,8 +233,30 @@ public class SuinosBS extends HibernateBusiness {
 		criteria.add(Restrictions.eq("id", id));
 		Cobertura cober = (Cobertura) criteria.uniqueResult();
 		
+		List<Matriz> m = this.listTypeMossa();
+		Matriz matriz = null;
+		for (Matriz ma : m) {
+			if (ma.getMossa().equals(cober.getMossa())) {
+				matriz = ma;
+			}
+		}
+		
 		cober.setStatus("unavailable");
+		matriz.setProx("");
 		dao.update(cober);
+	}
+	
+	public void desmamarMatriz(String mossa) {
+		List<Matriz> matrizes = this.listTypeMossa();
+		Matriz matriz = null;
+		for (Matriz m : matrizes) {
+			if (m.getMossa().equals(mossa)) {
+				matriz = m;
+			}
+		}
+		
+		matriz.setPorcos(0);
+		dao.update(matriz);
 	}
 	
 	public void transferirPorcos(String remetente, String destinatario, int quantidade) {

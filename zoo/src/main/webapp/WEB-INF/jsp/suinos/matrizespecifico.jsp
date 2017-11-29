@@ -58,7 +58,7 @@
 		</c:when>
 		</c:choose>
 		<a type="button" class="btn btn-primary" href="<c:url value="/editarmatriz/${m.mossa}"/>" role="button">Editar Matriz</a>
-  		<a type="button" class="btn btn-primary">Tranferência</a>  		
+  		<a type="button" href="<c:url value="/DesmamarMatriz/${m.mossa}"/>" class="btn btn-primary">Desmamar porcos</a>  		
 	</div>
 	
 	</div>

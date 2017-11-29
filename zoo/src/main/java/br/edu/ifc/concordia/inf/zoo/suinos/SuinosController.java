@@ -97,6 +97,12 @@ public class SuinosController extends AbstractController {
 	@Get(value = "Cobertura")
 	public void getcobertura() {
 	}
+	
+	@Get(value="DesmamarMatriz/{mossa}")
+	public void desmamarmatriz(String mossa) {
+		Bs.desmamarMatriz(mossa);
+		this.result.redirectTo(SuinosController.class).matrizespecifico(mossa);
+	}
 
 	@Get(value = "/MatrizEspecifico/{mossa}")
 	public void matrizespecifico(String mossa) {
@@ -123,21 +129,21 @@ public class SuinosController extends AbstractController {
 	@NoCache
 	public void RegistrarNascimento(String mossa, String Data, int Vivos, int Nati, int Mumi) {
 		this.Bs.registrarNascimento(mossa, Data, Vivos, Nati, Mumi);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexsuinos();
 	}
 
 	@Post(value = "/CadastrarSuino")
 	@NoCache
 	public void registrar(String Mossa, String Vigilancia, String Raca, String Origem, String Tipo) {
 		this.Bs.registrarMatriz(Mossa, Vigilancia, Raca, Origem, Tipo);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexsuinos();
 	}
 
 	@Post(value = "/RegistrarCobertura")
 	@NoCache
 	public void registrarCobertura(String Mossa, String Data, String Cachaco, String Tipo) {
 		this.Bs.registrarCobertura(Mossa, Data, Cachaco, Tipo);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexsuinos();
 	}
 
 	@Get(value = "/ApagarCobertura/{id}")
@@ -150,7 +156,7 @@ public class SuinosController extends AbstractController {
 	@NoCache
 	public void editarMatriz(String Tipo, String Origem, String Vigilancia, String Raca, String Mossa) {
 		this.Bs.editarMatriz(Tipo, Origem, Vigilancia, Raca, Mossa);
-		this.result.redirectTo(IndexController.class).index();
+		this.result.redirectTo(IndexController.class).indexsuinos();
 	}
 	
 	@Post(value="/TransferirPorcos")
